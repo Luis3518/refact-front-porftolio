@@ -1,29 +1,45 @@
-# Portfolio Frontend - Vue.js SSG
+# Portfolio Luis Miguel Rodriguez - Vue.js SSG
 
-Este es un portfolio desarrollado con Vue.js y Vite configurado para Static Site Generation (SSG), especializado en soluciones financieras.
+Portfolio profesional desarrollado con Vue.js y Vite SSG, especializado en desarrollo de software, sistemas financieros y soluciones tecnológicas modernas.
 
 ## 🚀 Características
 
 - **Framework:** Vue.js 3 con Composition API
 - **Build Tool:** Vite con soporte SSG
 - **Rutas:** Vue Router con lazy loading
+- **Estilos:** CSS moderno con gradientes y tema oscuro
+- **Analytics:** Sistema personalizado de tracking
 - **Optimización:** Code splitting, minificación, compresión
-- **Deploy:** Optimizado para hosting estático (Cloudflare Pages, GitHub Pages, Netlify)
+- **Deploy:** Optimizado para hosting estático
 
 ## 📁 Estructura del Proyecto
 
 ```
 src/
-├── pages/           # Páginas principales
-│   ├── index.vue    # Página de inicio
-│   └── finanzas/    # Sección de finanzas
-│       ├── index.vue     # Landing de finanzas
-│       └── filobono.vue  # Sistema Filobono
-├── App.vue          # Componente principal
-├── main.js          # Punto de entrada
-├── router.js        # Configuración de rutas
-└── style.css        # Estilos globales
+├── pages/              # Páginas principales
+│   ├── index.vue       # Página de inicio
+│   ├── about.vue       # Sobre mí
+│   ├── projects.vue    # Proyectos
+│   ├── contact.vue     # Contacto
+│   └── finanzas/       # Sección financiera (legacy)
+├── composables/        # Composables Vue
+│   └── useAnalytics.js # Sistema de analytics
+├── components/         # Componentes reutilizables
+├── App.vue            # Componente principal
+├── main.js            # Punto de entrada
+├── router.js          # Configuración de rutas
+└── style.css          # Estilos globales
 ```
+
+## 📊 Sistema de Analytics
+
+El portfolio incluye un sistema de analytics personalizado para trackear eventos importantes:
+
+- **Automático:** Visitas a páginas
+- **Manual:** Descargas de CV, envío de formularios
+- **Configurable:** Endpoint personalizable via `.env`
+
+Ver documentación completa: [ANALYTICS.md](./ANALYTICS.md)
 
 ## 🛠️ Instalación y Desarrollo
 

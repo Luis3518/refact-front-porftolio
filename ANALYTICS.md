@@ -1,6 +1,128 @@
 # Sistema de Analytics - Portfolio Luis Miguel Rodriguez
 
-Este portfolio incluye un sistema de analytics personalizado para trackear eventos importantes como visitas a páginas y descargas de CV.
+Sistema de analytics ligero y personalizado para trackear eventos importantes del portfolio.
+
+## 🚀 Configuración Rápida
+
+### 1. Variables de Entorno
+
+Configura tu archivo `.env`:
+
+```env
+# Analytics Configuration
+VITE_ANALYTICS_API_URL=http://localhost:4000/track
+```
+
+> **Nota:** El prefijo `VITE_` es necesario para que Vite exponga la variable al cliente.
+
+### 2. Endpoint Backend
+
+Tu API debe recibir POST requests en el endpoint configurado:
+
+```javascript
+// Payload que recibirás
+{
+  "event": "page_visit"
+}
+```
+
+## 📊 Eventos Trackeados
+
+| Evento | Trigger | Descripción |
+|--------|---------|-------------|
+| `page_visit` | Automático | Al cargar cualquier página |
+| `click_CV` | Manual | Al hacer clic en "Descargar CV" |
+| `form_submit` | Manual | Al enviar formulario de contacto |
+
+## 💻 Uso en Código
+
+```javascript
+import { useAnalytics } from '../composables/useAnalytics.js'
+
+export default {
+  setup() {
+    // Auto-tracking de visitas (automático)
+    const { trackCVClick, trackFormSubmit } = useAnalytics()
+    
+    // Tracking manual
+    const handleCVDownload = () => {
+      trackCVClick()
+      // Lógica de descarga...
+    }
+    
+    return { handleCVDownload }
+  }
+}
+```
+
+## 🔧 Implementación Backend (Ejemplo)
+
+### Node.js + Express
+```javascript
+const express = require('express')
+const cors = require('cors')
+const app = express()
+
+app.use(cors())
+app.use(express.json())
+
+app.post('/track', (req, res) => {
+  const { event } = req.body
+  
+  // Guardar en base de datos
+  console.log('Analytics Event:', event)
+  
+  res.json({ success: true })
+})
+
+app.listen(4000)
+```
+
+### Python + FastAPI
+```python
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI()
+app.add_middleware(CORSMiddleware, allow_origins=["*"])
+
+@app.post("/track")
+async def track_event(data: dict):
+    event = data.get("event")
+    # Guardar en base de datos
+    print(f"Analytics Event: {event}")
+    return {"success": True}
+```
+
+## 📁 Estructura
+
+```
+├── .env                              # Variables de entorno
+├── src/
+│   └── composables/
+│       └── useAnalytics.js          # Composable principal
+└── public/
+    └── analytics.js                  # Script legacy (opcional)
+```
+
+## 🚀 Producción
+
+1. **Cambia la URL** en `.env`:
+   ```env
+   VITE_ANALYTICS_API_URL=https://tu-api.com/track
+   ```
+
+2. **Implementa el endpoint** en tu servidor
+
+3. **Configura CORS** para tu dominio
+
+## ✨ Características
+
+- **Ligero**: Solo envía el evento, sin datos adicionales
+- **Seguro**: Manejo de errores sin afectar la UX
+- **Configurable**: URL personalizable por entorno
+- **Vue 3**: Composable moderno con auto-tracking
+- **Sin cookies**: Respeta la privacidad del usuario
 
 ## Configuración
 

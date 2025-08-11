@@ -2,44 +2,22 @@ import { onMounted } from 'vue'
 
 export function useAnalytics() {
   const getAnalyticsUrl = () => {
-    const url = import.meta.env.VITE_ANALYTICS_API_URL || 'http://localhost:4000/track'
-    
-    // DEBUG: Validación de URL de analytics
-    console.log('🔍 DEBUG Analytics URL:', url)
-    console.log('🔍 Raw env var:', import.meta.env.VITE_ANALYTICS_API_URL)
-    
-    return url
+    return import.meta.env.VITE_ANALYTICS_API_URL || 'http://localhost:4000/track'
   }
 
   const trackEvent = (eventName) => {
     try {
       const url = getAnalyticsUrl()
-      const payload = { event: eventName }
-
-      // DEBUG: Validación antes de enviar
-      console.log('📊 DEBUG Analytics Track:', {
-        eventName,
-        url,
-        payload,
-        willSend: !!url
-      })
-
-      if (!url) {
-        console.warn('⚠️ No analytics URL configured, skipping track')
-        return
-      }
+      
+      if (!url) return
 
       fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      }).then(response => {
-        console.log('✅ Analytics response:', response.status, response.statusText)
+        body: JSON.stringify({ event: eventName })
       }).catch(error => {
-        console.log('❌ Analytics tracking failed:', error);
+        console.log('Analytics tracking failed:', error);
       });
-
-      console.log('Analytics event tracked:', eventName);
     } catch (error) {
       console.log('Analytics tracking error:', error);
     }

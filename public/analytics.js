@@ -1,9 +1,11 @@
 const ANALYTICS_CONFIG = {
-    apiUrl: import.meta.env?.ANALYTICS_API_URL
+    apiUrl: window.ANALYTICS_API_URL || 'http://localhost:4000/track'
 };
 
 function trackEvent(eventName) {
     try {
+        if (!ANALYTICS_CONFIG.apiUrl) return;
+        
         fetch(ANALYTICS_CONFIG.apiUrl, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -28,6 +30,3 @@ function trackCVClick() {
 window.trackEvent = trackEvent;
 window.trackPageVisit = trackPageVisit;
 window.trackCVClick = trackCVClick;
-
-// Debug log
-console.log('Analytics loaded with API URL:', ANALYTICS_CONFIG.apiUrl);
