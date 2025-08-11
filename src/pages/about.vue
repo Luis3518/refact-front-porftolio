@@ -269,10 +269,14 @@
 
 <script>
 import { useHead } from '@vueuse/head'
+import { useAnalytics } from '../composables/useAnalytics.js'
 
 export default {
   name: 'AboutPage',
   setup() {
+    // Analytics tracking automático
+    useAnalytics()
+
     useHead({
       title: 'Sobre Mí - Luis Miguel Rodriguez',
       meta: [

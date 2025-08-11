@@ -143,6 +143,7 @@
 <script>
 import { ref, computed, onMounted } from 'vue'
 import { useHead } from '@vueuse/head'
+import { useAnalytics } from '../../composables/useAnalytics.js'
 import PageHeader from '../../components/PageHeader.vue'
 import PageSection from '../../components/PageSection.vue'
 import BaseCard from '../../components/BaseCard.vue'
@@ -157,6 +158,9 @@ export default {
     BaseButton
   },
   setup() {
+    // Analytics tracking automático
+    useAnalytics()
+
     useHead({
       title: 'Filobono - Sistema de Bonos',
       meta: [

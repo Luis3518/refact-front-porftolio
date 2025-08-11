@@ -20,7 +20,7 @@
                 <i class="fas fa-eye"></i>
                 Ver Proyectos
               </router-link>
-              <a href="/CV Luis Rodriguez.pdf" class="btn btn-secondary" download data-track="download-cv">
+              <a href="/CV Luis Rodriguez.pdf" class="btn btn-secondary" download @click="trackCVClick" data-track="download-cv">
                 <i class="fas fa-download"></i>
                 Descargar CV
               </a>
@@ -161,10 +161,13 @@
 
 <script>
 import { useHead } from '@vueuse/head'
+import { useAnalytics } from '../composables/useAnalytics.js'
 
 export default {
   name: 'HomePage',
   setup() {
+    const { trackCVClick } = useAnalytics()
+
     useHead({
       title: 'Luis Miguel Rodriguez - Desarrollador de Software',
       meta: [
@@ -186,6 +189,10 @@ export default {
         }
       ]
     })
+
+    return {
+      trackCVClick
+    }
   }
 }
 </script>

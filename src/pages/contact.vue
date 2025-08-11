@@ -251,10 +251,14 @@
 <script>
 import { ref } from 'vue'
 import { useHead } from '@vueuse/head'
+import { useAnalytics } from '../composables/useAnalytics.js'
 
 export default {
   name: 'ContactPage',
   setup() {
+    // Analytics tracking automático
+    const { trackFormSubmit } = useAnalytics()
+
     useHead({
       title: 'Contacto - Luis Miguel Rodriguez',
       meta: [
@@ -289,11 +293,7 @@ export default {
       
       try {
         // Track form submission
-        if (window.gtag) {
-          window.gtag('event', 'form_submit', {
-            'form_name': 'contact_form'
-          })
-        }
+        trackFormSubmit('contact_form')
         
         // Here you would implement actual form submission
         // For now, we'll simulate it
