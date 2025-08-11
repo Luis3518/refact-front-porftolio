@@ -70,6 +70,19 @@ export default {
     }
 
     onMounted(() => {
+      // DEBUG: Validación de variables de entorno
+      console.log('=== DEBUG: Environment Variables ===')
+      console.log('VITE_ANALYTICS_API_URL:', import.meta.env.VITE_ANALYTICS_API_URL)
+      console.log('Mode:', import.meta.env.MODE)
+      console.log('All env vars:', import.meta.env)
+      
+      if (import.meta.env.VITE_ANALYTICS_API_URL) {
+        console.log('✅ Analytics URL loaded correctly')
+      } else {
+        console.warn('⚠️ Analytics URL not found, using default')
+      }
+      console.log('=====================================')
+
       window.addEventListener('resize', handleResize)
       handleScroll()
       
