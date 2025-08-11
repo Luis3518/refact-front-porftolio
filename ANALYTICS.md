@@ -10,10 +10,10 @@ Crea un archivo `.env` en la raíz del proyecto con la siguiente configuración:
 
 ```env
 # Analytics Configuration
-VITE_ANALYTICS_API_URL=http://localhost:4000/track
+ANALYTICS_API_URL=http://localhost:4000/track
 
 # Para producción, cambiar por tu URL real:
-# VITE_ANALYTICS_API_URL=https://your-analytics-api.com/track
+# ANALYTICS_API_URL=https://your-analytics-api.com/track
 ```
 
 ### API Endpoint

@@ -2,7 +2,7 @@ import { onMounted } from 'vue'
 
 export function useAnalytics() {
   const getAnalyticsUrl = () => {
-    return import.meta.env.VITE_ANALYTICS_API_URL || 'http://localhost:4000/track'
+    return import.meta.env.ANALYTICS_API_URL || 'http://localhost:4000/track'
   }
 
   const trackEvent = (eventName) => {

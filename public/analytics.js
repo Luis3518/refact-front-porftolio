@@ -1,5 +1,5 @@
 const ANALYTICS_CONFIG = {
-    apiUrl: window.ANALYTICS_API_URL || import.meta.env?.VITE_ANALYTICS_API_URL || 'http://localhost:4000/track'
+    apiUrl: import.meta.env?.ANALYTICS_API_URL
 };
 
 function trackEvent(eventName) {
