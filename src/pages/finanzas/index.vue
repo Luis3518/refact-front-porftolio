@@ -1,83 +1,100 @@
 <template>
   <div class="finanzas">
-    <section class="header">
-      <div class="container">
-        <h1>Soluciones Financieras</h1>
-        <p>Herramientas y aplicaciones especializadas para el sector financiero</p>
+    <PageHeader 
+      title="Soluciones Financieras" 
+      subtitle="Herramientas y aplicaciones especializadas para el sector financiero"
+      variant="primary"
+    />
+
+    <PageSection background="default">
+      <div class="grid grid-2">
+        <BaseCard title="Filobono" variant="feature">
+          <p class="text-light mb-lg">
+            Sistema completo de gestión de bonos financieros con capacidades de
+            filtrado avanzado, visualización de datos y análisis de rendimiento.
+          </p>
+          
+          <div class="features mb-lg">
+            <ul class="feature-list">
+              <li>Filtros dinámicos por múltiples criterios</li>
+              <li>Visualización de datos en tiempo real</li>
+              <li>Análisis de tendencias y rendimiento</li>
+              <li>Exportación de reportes</li>
+            </ul>
+          </div>
+          
+          <template #footer>
+            <BaseButton to="/finanzas/filobono" variant="success" block>
+              Acceder a Filobono
+            </BaseButton>
+          </template>
+        </BaseCard>
+
+        <BaseCard title="Dashboard Financiero" variant="feature">
+          <p class="text-light mb-lg">
+            Panel de control integral para monitoreo de indicadores financieros,
+            métricas de rendimiento y análisis de mercado.
+          </p>
+          
+          <div class="features mb-lg">
+            <ul class="feature-list">
+              <li>Métricas en tiempo real</li>
+              <li>Gráficos interactivos</li>
+              <li>Alertas personalizables</li>
+              <li>Integración con APIs externas</li>
+            </ul>
+          </div>
+          
+          <template #footer>
+            <BaseButton variant="secondary" disabled block>
+              Próximamente
+            </BaseButton>
+          </template>
+        </BaseCard>
       </div>
-    </section>
+    </PageSection>
 
-    <section class="content">
-      <div class="container">
-        <div class="grid grid-2">
-          <div class="card feature-card">
-            <h2>Filobono</h2>
-            <p>
-              Sistema completo de gestión de bonos financieros con capacidades de
-              filtrado avanzado, visualización de datos y análisis de rendimiento.
-            </p>
-            <div class="features">
-              <ul>
-                <li>✓ Filtros dinámicos por múltiples criterios</li>
-                <li>✓ Visualización de datos en tiempo real</li>
-                <li>✓ Análisis de tendencias y rendimiento</li>
-                <li>✓ Exportación de reportes</li>
-              </ul>
-            </div>
-            <router-link to="/finanzas/filobono" class="btn">Acceder a Filobono</router-link>
-          </div>
-
-          <div class="card feature-card">
-            <h2>Dashboard Financiero</h2>
-            <p>
-              Panel de control integral para monitoreo de indicadores financieros,
-              métricas de rendimiento y análisis de mercado.
-            </p>
-            <div class="features">
-              <ul>
-                <li>✓ Métricas en tiempo real</li>
-                <li>✓ Gráficos interactivos</li>
-                <li>✓ Alertas personalizables</li>
-                <li>✓ Integración con APIs externas</li>
-              </ul>
-            </div>
-            <button class="btn btn-secondary" disabled>Próximamente</button>
-          </div>
-        </div>
-
-        <div class="info-section">
-          <div class="card">
-            <h2>Tecnologías Utilizadas</h2>
-            <div class="tech-grid">
-              <div class="tech-item">
-                <h3>Frontend</h3>
-                <p>Vue.js 3, Vite, SSG</p>
-              </div>
-              <div class="tech-item">
-                <h3>Optimización</h3>
-                <p>Lazy Loading, Code Splitting</p>
-              </div>
-              <div class="tech-item">
-                <h3>Integración</h3>
-                <p>REST APIs, Error Handling</p>
-              </div>
-              <div class="tech-item">
-                <h3>Deploy</h3>
-                <p>Static Hosting, CDN</p>
-              </div>
-            </div>
-          </div>
-        </div>
+    <PageSection 
+      title="Tecnologías Utilizadas"
+      subtitle="Stack tecnológico optimizado para el desarrollo financiero"
+      background="white"
+    >
+      <div class="grid grid-4">
+        <BaseCard title="Frontend" variant="info" compact>
+          <p class="text-center text-primary font-medium">Vue.js 3, Vite, SSG</p>
+        </BaseCard>
+        
+        <BaseCard title="Optimización" variant="info" compact>
+          <p class="text-center text-primary font-medium">Lazy Loading, Code Splitting</p>
+        </BaseCard>
+        
+        <BaseCard title="Integración" variant="info" compact>
+          <p class="text-center text-primary font-medium">REST APIs, Error Handling</p>
+        </BaseCard>
+        
+        <BaseCard title="Deploy" variant="info" compact>
+          <p class="text-center text-primary font-medium">Static Hosting, CDN</p>
+        </BaseCard>
       </div>
-    </section>
+    </PageSection>
   </div>
 </template>
 
 <script>
 import { useHead } from '@vueuse/head'
+import PageHeader from '../../components/PageHeader.vue'
+import PageSection from '../../components/PageSection.vue'
+import BaseCard from '../../components/BaseCard.vue'
+import BaseButton from '../../components/BaseButton.vue'
 
 export default {
   name: 'FinanzasPage',
+  components: {
+    PageHeader,
+    PageSection,
+    BaseCard,
+    BaseButton
+  },
   setup() {
     useHead({
       title: 'Finanzas - Portfolio',
@@ -93,102 +110,25 @@ export default {
 </script>
 
 <style scoped>
-.header {
-  background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-  color: white;
-  padding: 3rem 0;
-  text-align: center;
-}
-
-.header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  font-weight: 300;
-}
-
-.header p {
-  font-size: 1.1rem;
-  opacity: 0.9;
-}
-
-.content {
-  padding: 4rem 0;
-}
-
-.feature-card {
-  text-align: left;
-}
-
-.feature-card h2 {
-  color: #2c3e50;
-  margin-bottom: 1rem;
-}
-
-.feature-card p {
-  color: #666;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-
-.features {
-  margin: 2rem 0;
-}
-
-.features ul {
+.feature-list {
   list-style: none;
   padding: 0;
 }
 
-.features li {
-  padding: 0.5rem 0;
-  color: #27ae60;
-  font-weight: 500;
+.feature-list li {
+  padding: var(--spacing-sm) 0;
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+  position: relative;
+  padding-left: var(--spacing-lg);
 }
 
-.info-section {
-  margin-top: 3rem;
-}
-
-.tech-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.tech-item {
-  text-align: center;
-  padding: 1rem;
-  border: 1px solid #eee;
-  border-radius: 8px;
-}
-
-.tech-item h3 {
-  color: #2c3e50;
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-}
-
-.tech-item p {
-  color: #666;
-  font-size: 0.9rem;
-}
-
-@media (max-width: 768px) {
-  .header {
-    padding: 2rem 0;
-  }
-  
-  .header h1 {
-    font-size: 2rem;
-  }
-  
-  .content {
-    padding: 2rem 0;
-  }
-  
-  .tech-grid {
-    grid-template-columns: 1fr;
-  }
+.feature-list li::before {
+  content: "✓";
+  color: var(--color-success);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: var(--spacing-sm);
 }
 </style>

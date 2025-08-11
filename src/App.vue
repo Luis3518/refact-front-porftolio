@@ -1,11 +1,20 @@
 <template>
   <div id="app">
     <nav class="navbar">
-      <div class="nav-container">
-        <router-link to="/" class="nav-logo">Portfolio</router-link>
-        <div class="nav-menu">
-          <router-link to="/" class="nav-link">Inicio</router-link>
-          <router-link to="/finanzas" class="nav-link">Finanzas</router-link>
+      <div class="container">
+        <div class="nav-container">
+          <router-link to="/" class="nav-logo">LMR</router-link>
+          
+          <ul class="nav-menu" :class="{ active: isMenuOpen }">
+            <li><router-link to="/" class="nav-link" @click="closeMenu">Inicio</router-link></li>
+            <li><router-link to="/about" class="nav-link" @click="closeMenu">Sobre mí</router-link></li>
+            <li><router-link to="/projects" class="nav-link" @click="closeMenu">Proyectos</router-link></li>
+            <li><router-link to="/contact" class="nav-link" @click="closeMenu">Contacto</router-link></li>
+          </ul>
+          
+          <button class="nav-toggle" @click="toggleMenu" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
       </div>
     </nav>
@@ -15,67 +24,92 @@
     </main>
     
     <footer class="footer">
-      <p>&copy; 2025 Portfolio. Todos los derechos reservados.</p>
+      <div class="container">
+        <p>&copy; {{ currentYear }} Luis Miguel Rodriguez. Todos los derechos reservados.</p>
+      </div>
     </footer>
   </div>
 </template>
 
 <script>
+import { ref, computed, onMounted, onUnmounted } from 'vue'
+
 export default {
-  name: 'App'
+  name: 'App',
+  setup() {
+    const isMenuOpen = ref(false)
+    const currentYear = computed(() => new Date().getFullYear())
+
+    const toggleMenu = () => {
+      isMenuOpen.value = !isMenuOpen.value
+    }
+
+    const closeMenu = () => {
+      isMenuOpen.value = false
+    }
+
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        isMenuOpen.value = false
+      }
+    }
+
+    const handleScroll = () => {
+      // Smooth scroll para navegación
+      const links = document.querySelectorAll('.nav-link[href^="#"]')
+      links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault()
+          const targetId = link.getAttribute('href').substring(1)
+          const targetSection = document.getElementById(targetId)
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' })
+          }
+        })
+      })
+    }
+
+    onMounted(() => {
+      window.addEventListener('resize', handleResize)
+      handleScroll()
+      
+      // Analytics tracking para enlaces importantes
+      const trackLink = (linkName) => {
+        // Aquí se podría integrar Google Analytics
+        console.log(`Tracking: ${linkName} clicked`)
+      }
+
+      // Tracking para CV y LinkedIn
+      document.addEventListener('click', (e) => {
+        if (e.target.closest('[data-track]')) {
+          const trackName = e.target.closest('[data-track]').dataset.track
+          trackLink(trackName)
+        }
+      })
+    })
+
+    onUnmounted(() => {
+      window.removeEventListener('resize', handleResize)
+    })
+
+    return {
+      isMenuOpen,
+      currentYear,
+      toggleMenu,
+      closeMenu
+    }
+  }
 }
 </script>
 
 <style scoped>
-.navbar {
-  background-color: #2c3e50;
-  padding: 1rem 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-logo {
-  color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.nav-menu {
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-link {
-  color: white;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-
-.nav-link:hover,
-.nav-link.router-link-active {
-  background-color: #34495e;
-}
-
 .main-content {
-  min-height: calc(100vh - 140px);
-  padding: 2rem 0;
+  min-height: calc(100vh - var(--navbar-height) - 80px);
 }
 
-.footer {
-  background-color: #2c3e50;
-  color: white;
-  text-align: center;
-  padding: 1rem;
+@media (max-width: 768px) {
+  .nav-menu.active + .nav-toggle i::before {
+    content: "\f00d"; /* fa-times */
+  }
 }
 </style>

@@ -1,142 +1,161 @@
 <template>
   <div class="filobono">
-    <section class="header">
-      <div class="container">
-        <h1>Filobono</h1>
-        <p>Sistema de gestión de bonos financieros</p>
-        <router-link to="/finanzas" class="btn btn-secondary">← Volver a Finanzas</router-link>
-      </div>
-    </section>
+    <PageHeader 
+      title="Filobono" 
+      subtitle="Sistema de gestión de bonos financieros"
+      variant="success"
+    >
+      <template #actions>
+        <BaseButton to="/finanzas" variant="secondary" outline>
+          ← Volver a Finanzas
+        </BaseButton>
+      </template>
+    </PageHeader>
 
-    <section class="filters">
-      <div class="container">
-        <div class="card">
-          <h2>Filtros</h2>
-          <div class="filter-grid">
-            <div class="filter-group">
-              <label for="tipo">Tipo de Bono:</label>
-              <select id="tipo" v-model="filters.tipo" @change="applyFilters">
-                <option value="">Todos</option>
-                <option value="corporativo">Corporativo</option>
-                <option value="gubernamental">Gubernamental</option>
-                <option value="municipal">Municipal</option>
-              </select>
-            </div>
-
-            <div class="filter-group">
-              <label for="vencimiento">Vencimiento:</label>
-              <select id="vencimiento" v-model="filters.vencimiento" @change="applyFilters">
-                <option value="">Todos</option>
-                <option value="corto">Corto plazo (< 2 años)</option>
-                <option value="medio">Medio plazo (2-10 años)</option>
-                <option value="largo">Largo plazo (> 10 años)</option>
-              </select>
-            </div>
-
-            <div class="filter-group">
-              <label for="rating">Rating:</label>
-              <select id="rating" v-model="filters.rating" @change="applyFilters">
-                <option value="">Todos</option>
-                <option value="AAA">AAA</option>
-                <option value="AA">AA</option>
-                <option value="A">A</option>
-                <option value="BBB">BBB</option>
-              </select>
-            </div>
-
-            <div class="filter-group">
-              <label for="rendimiento">Rendimiento mínimo (%):</label>
-              <input 
-                id="rendimiento" 
-                type="number" 
-                v-model.number="filters.rendimientoMin" 
-                @input="applyFilters"
-                step="0.1"
-                min="0"
-                placeholder="Ej: 3.5"
-              >
-            </div>
+    <PageSection title="Filtros de Búsqueda" background="light">
+      <BaseCard>
+        <div class="grid grid-4">
+          <div class="filter-group">
+            <label for="tipo" class="filter-label">Tipo de Bono:</label>
+            <select id="tipo" v-model="filters.tipo" @change="applyFilters" class="filter-input">
+              <option value="">Todos</option>
+              <option value="corporativo">Corporativo</option>
+              <option value="gubernamental">Gubernamental</option>
+              <option value="municipal">Municipal</option>
+            </select>
           </div>
 
-          <div class="filter-actions">
-            <button @click="clearFilters" class="btn btn-secondary">Limpiar Filtros</button>
-            <button @click="loadData" class="btn">Actualizar Datos</button>
+          <div class="filter-group">
+            <label for="vencimiento" class="filter-label">Vencimiento:</label>
+            <select id="vencimiento" v-model="filters.vencimiento" @change="applyFilters" class="filter-input">
+              <option value="">Todos</option>
+              <option value="corto">Corto plazo (< 2 años)</option>
+              <option value="medio">Medio plazo (2-10 años)</option>
+              <option value="largo">Largo plazo (> 10 años)</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="rating" class="filter-label">Rating:</label>
+            <select id="rating" v-model="filters.rating" @change="applyFilters" class="filter-input">
+              <option value="">Todos</option>
+              <option value="AAA">AAA</option>
+              <option value="AA">AA</option>
+              <option value="A">A</option>
+              <option value="BBB">BBB</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="rendimiento" class="filter-label">Rendimiento mínimo (%):</label>
+            <input 
+              id="rendimiento" 
+              type="number" 
+              v-model.number="filters.rendimientoMin" 
+              @input="applyFilters"
+              step="0.1"
+              min="0"
+              placeholder="Ej: 3.5"
+              class="filter-input"
+            >
           </div>
         </div>
+
+        <template #footer>
+          <div class="flex justify-center gap-md">
+            <BaseButton @click="clearFilters" variant="secondary">
+              Limpiar Filtros
+            </BaseButton>
+            <BaseButton @click="loadData" variant="primary">
+              Actualizar Datos
+            </BaseButton>
+          </div>
+        </template>
+      </BaseCard>
+    </PageSection>
+
+    <PageSection background="default">
+      <div class="flex justify-between items-center mb-xl">
+        <h2 class="text-2xl font-light text-primary">Resultados</h2>
+        <span class="text-muted">{{ filteredBonos.length }} bonos encontrados</span>
       </div>
-    </section>
 
-    <section class="results">
-      <div class="container">
-        <div class="results-header">
-          <h2>Resultados</h2>
-          <span class="results-count">{{ filteredBonos.length }} bonos encontrados</span>
-        </div>
+      <div v-if="loading" class="loading">
+        <p>Cargando datos financieros...</p>
+      </div>
 
-        <div v-if="loading" class="loading">
-          <p>Cargando datos financieros...</p>
-        </div>
+      <div v-else-if="error" class="error">
+        <p>{{ error }}</p>
+        <BaseButton @click="loadData" variant="primary" class="mt-md">
+          Reintentar
+        </BaseButton>
+      </div>
 
-        <div v-else-if="error" class="error">
-          <p>{{ error }}</p>
-          <button @click="loadData" class="btn">Reintentar</button>
-        </div>
+      <div v-else-if="filteredBonos.length === 0" class="no-results">
+        <p>No se encontraron bonos que cumplan con los criterios seleccionados.</p>
+      </div>
 
-        <div v-else-if="filteredBonos.length === 0" class="no-results">
-          <p>No se encontraron bonos que cumplan con los criterios seleccionados.</p>
-        </div>
-
-        <div v-else class="bonos-grid">
-          <Transition name="fade" appear>
-            <div class="grid grid-3">
-              <div 
-                v-for="bono in filteredBonos" 
-                :key="bono.id" 
-                class="card bono-card"
-              >
-                <div class="bono-header">
-                  <h3>{{ bono.nombre }}</h3>
-                  <span class="rating" :class="getRatingClass(bono.rating)">
-                    {{ bono.rating }}
-                  </span>
-                </div>
-                
-                <div class="bono-details">
-                  <div class="detail-item">
-                    <span class="label">Tipo:</span>
-                    <span class="value">{{ bono.tipo }}</span>
-                  </div>
-                  
-                  <div class="detail-item">
-                    <span class="label">Vencimiento:</span>
-                    <span class="value">{{ formatDate(bono.vencimiento) }}</span>
-                  </div>
-                  
-                  <div class="detail-item">
-                    <span class="label">Rendimiento:</span>
-                    <span class="value rendimiento">{{ bono.rendimiento }}%</span>
-                  </div>
-                  
-                  <div class="detail-item">
-                    <span class="label">Valor:</span>
-                    <span class="value">{{ formatCurrency(bono.valor) }}</span>
-                  </div>
-                </div>
+      <Transition name="fade" appear v-else>
+        <div class="grid grid-3">
+          <BaseCard 
+            v-for="bono in filteredBonos" 
+            :key="bono.id" 
+            variant="project"
+            class="bono-card"
+          >
+            <template #header>
+              <div class="flex justify-between items-center">
+                <h3 class="text-lg font-medium text-primary m-0">{{ bono.nombre }}</h3>
+                <span class="rating" :class="getRatingClass(bono.rating)">
+                  {{ bono.rating }}
+                </span>
+              </div>
+            </template>
+            
+            <div class="bono-details">
+              <div class="detail-item">
+                <span class="label">Tipo:</span>
+                <span class="value">{{ bono.tipo }}</span>
+              </div>
+              
+              <div class="detail-item">
+                <span class="label">Vencimiento:</span>
+                <span class="value">{{ formatDate(bono.vencimiento) }}</span>
+              </div>
+              
+              <div class="detail-item">
+                <span class="label">Rendimiento:</span>
+                <span class="value text-success font-bold">{{ bono.rendimiento }}%</span>
+              </div>
+              
+              <div class="detail-item">
+                <span class="label">Valor:</span>
+                <span class="value font-medium">{{ formatCurrency(bono.valor) }}</span>
               </div>
             </div>
-          </Transition>
+          </BaseCard>
         </div>
-      </div>
-    </section>
+      </Transition>
+    </PageSection>
   </div>
 </template>
 
 <script>
 import { ref, computed, onMounted } from 'vue'
 import { useHead } from '@vueuse/head'
+import PageHeader from '../../components/PageHeader.vue'
+import PageSection from '../../components/PageSection.vue'
+import BaseCard from '../../components/BaseCard.vue'
+import BaseButton from '../../components/BaseButton.vue'
 
 export default {
   name: 'FilobonoPage',
+  components: {
+    PageHeader,
+    PageSection,
+    BaseCard,
+    BaseButton
+  },
   setup() {
     useHead({
       title: 'Filobono - Sistema de Bonos',
@@ -289,161 +308,110 @@ export default {
 </script>
 
 <style scoped>
-.header {
-  background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
-  color: white;
-  padding: 3rem 0;
-  text-align: center;
-}
-
-.header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  font-weight: 300;
-}
-
-.filters {
-  padding: 2rem 0;
-  background-color: #f8f9fa;
-}
-
-.filter-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
 .filter-group {
   display: flex;
   flex-direction: column;
+  gap: var(--spacing-sm);
 }
 
-.filter-group label {
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  color: #2c3e50;
+.filter-label {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
 }
 
-.filter-group select,
-.filter-group input {
-  padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 1rem;
+.filter-input {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-base);
+  transition: border-color var(--transition-normal);
 }
 
-.filter-actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-}
-
-.results {
-  padding: 2rem 0;
-}
-
-.results-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-}
-
-.results-count {
-  color: #666;
-  font-weight: 500;
-}
-
-.no-results {
-  text-align: center;
-  padding: 3rem;
-  color: #666;
+.filter-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
 }
 
 .bono-card {
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: all var(--transition-normal);
 }
 
 .bono-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-}
-
-.bono-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #eee;
-}
-
-.bono-header h3 {
-  color: #2c3e50;
-  font-size: 1.1rem;
-  margin: 0;
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
 }
 
 .rating {
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  font-weight: bold;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
 }
 
-.rating-aaa { background-color: #27ae60; color: white; }
-.rating-aa { background-color: #2ecc71; color: white; }
-.rating-a { background-color: #f39c12; color: white; }
-.rating-bbb { background-color: #e67e22; color: white; }
+.rating-aaa { 
+  background-color: var(--color-success); 
+  color: var(--color-white); 
+}
+
+.rating-aa { 
+  background-color: #2ecc71; 
+  color: var(--color-white); 
+}
+
+.rating-a { 
+  background-color: var(--color-warning); 
+  color: var(--color-white); 
+}
+
+.rating-bbb { 
+  background-color: #e67e22; 
+  color: var(--color-white); 
+}
 
 .bono-details {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: var(--spacing-md);
 }
 
 .detail-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.detail-item:last-child {
+  border-bottom: none;
 }
 
 .label {
-  color: #666;
-  font-size: 0.9rem;
+  color: var(--color-text-light);
+  font-size: var(--font-size-sm);
 }
 
 .value {
-  font-weight: 500;
-  color: #2c3e50;
-}
-
-.rendimiento {
-  color: #27ae60;
-  font-weight: bold;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
 }
 
 @media (max-width: 768px) {
-  .header {
-    padding: 2rem 0;
-  }
-  
-  .header h1 {
-    font-size: 2rem;
-  }
-  
-  .filter-grid {
+  .grid-4 {
     grid-template-columns: 1fr;
   }
   
-  .filter-actions {
+  .flex.justify-between {
     flex-direction: column;
+    gap: var(--spacing-md);
+    align-items: flex-start;
   }
   
-  .results-header {
+  .flex.justify-center {
     flex-direction: column;
-    gap: 1rem;
   }
 }
 </style>
