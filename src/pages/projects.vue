@@ -12,77 +12,75 @@
     <section class="section">
       <div class="container">
         <div class="projects-grid">
-          <!-- Finanzas Project -->
-          <div class="project-card featured">
+          <!-- 1. Sistemas B2C Automotores -->
+          <div class="project-card">
             <div class="project-header">
               <div class="project-icon">
-                <i class="fas fa-chart-line"></i>
+                <i class="fas fa-car"></i>
               </div>
               <div class="project-meta">
-                <h3>Sistemas Financieros</h3>
-                <span class="project-status">Activo</span>
+                <h3>Sistemas B2C Automotores</h3>
+                <span class="project-status">En desarrollo</span>
               </div>
             </div>
             
             <p class="project-description">
-              Plataformas completas de gestión financiera incluyendo análisis de datos, 
-              reportes automatizados, sistemas de trading y herramientas de inversión.
+              Plataformas digitales para concesionarias automotrices con enfoque B2C. 
+              Incluye catálogos en línea, configuradores de vehículos, CRM de ventas 
+              y sistemas de gestión de inventario especializados.
             </p>
             
             <div class="project-features">
               <div class="feature-item">
-                <i class="fas fa-chart-bar"></i>
-                <span>Dashboard Analytics</span>
+                <i class="fas fa-shopping-cart"></i>
+                <span>Catálogo Online</span>
               </div>
               <div class="feature-item">
-                <i class="fas fa-robot"></i>
-                <span>Trading Bots</span>
+                <i class="fas fa-cogs"></i>
+                <span>Configurador 3D</span>
               </div>
               <div class="feature-item">
-                <i class="fas fa-shield-alt"></i>
-                <span>Risk Management</span>
+                <i class="fas fa-handshake"></i>
+                <span>CRM Ventas</span>
               </div>
               <div class="feature-item">
-                <i class="fas fa-mobile-alt"></i>
-                <span>Mobile Ready</span>
+                <i class="fas fa-warehouse"></i>
+                <span>Gestión Inventario</span>
               </div>
             </div>
             
             <div class="project-tech">
               <span class="tech-tag">Vue.js</span>
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">PostgreSQL</span>
-              <span class="tech-tag">Chart.js</span>
-              <span class="tech-tag">WebSockets</span>
+              <span class="tech-tag">Laravel</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">Three.js</span>
+              <span class="tech-tag">Redis</span>
             </div>
             
             <div class="project-actions">
-              <router-link to="/finanzas" class="btn btn-primary">
-                <i class="fas fa-eye"></i>
-                Ver Proyecto
-              </router-link>
-              <a href="#" class="btn btn-secondary" @click.prevent="showDemo('finanzas')">
-                <i class="fas fa-play"></i>
-                Demo
-              </a>
+              <button class="btn btn-primary" disabled>
+                <i class="fas fa-clock"></i>
+                Próximamente
+              </button>
             </div>
           </div>
 
-          <!-- Portuaria Project -->
+          <!-- 2. Sistemas de Gestión Portuaria -->
           <div class="project-card">
             <div class="project-header">
               <div class="project-icon">
                 <i class="fas fa-ship"></i>
               </div>
               <div class="project-meta">
-                <h3>Gestión Portuaria</h3>
+                <h3>Sistemas de Gestión Portuaria</h3>
                 <span class="project-status">En desarrollo</span>
               </div>
             </div>
             
             <p class="project-description">
-              Sistema integral de control y monitoreo para operaciones portuarias, 
-              gestión de contenedores y logística marítima en tiempo real.
+              Sistema integral de control y monitoreo para operaciones portuarias. 
+              Gestión de contenedores, tracking GPS en tiempo real, logística marítima 
+              y coordinación de flota naviera.
             </p>
             
             <div class="project-features">
@@ -120,207 +118,60 @@
             </div>
           </div>
 
-          <!-- Automotriz Project -->
+          <!-- 3. Ingeniería de Datos y Finanzas -->
           <div class="project-card">
             <div class="project-header">
               <div class="project-icon">
-                <i class="fas fa-car"></i>
+                <i class="fas fa-chart-line"></i>
               </div>
               <div class="project-meta">
-                <h3>Sector Automotriz</h3>
-                <span class="project-status">Planificado</span>
-              </div>
-            </div>
-            
-            <p class="project-description">
-              Soluciones para concesionarias, gestión de inventario, CRM especializado 
-              y herramientas de análisis de ventas para el sector automotriz.
-            </p>
-            
-            <div class="project-features">
-              <div class="feature-item">
-                <i class="fas fa-warehouse"></i>
-                <span>Gestión Inventario</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-handshake"></i>
-                <span>CRM Ventas</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-tools"></i>
-                <span>Servicio Técnico</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-calculator"></i>
-                <span>Cotizaciones</span>
-              </div>
-            </div>
-            
-            <div class="project-tech">
-              <span class="tech-tag">Vue.js</span>
-              <span class="tech-tag">Laravel</span>
-              <span class="tech-tag">MySQL</span>
-              <span class="tech-tag">Redis</span>
-            </div>
-            
-            <div class="project-actions">
-              <button class="btn btn-secondary" disabled>
-                <i class="fas fa-calendar"></i>
-                2024 Q2
-              </button>
-            </div>
-          </div>
-
-          <!-- Estado Project -->
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-icon">
-                <i class="fas fa-landmark"></i>
-              </div>
-              <div class="project-meta">
-                <h3>Servicios del Estado</h3>
+                <h3>Ingeniería de Datos y Finanzas</h3>
                 <span class="project-status">Activo</span>
               </div>
             </div>
             
             <p class="project-description">
-              Plataformas digitales para administración pública, transparencia gubernamental, 
-              gestión ciudadana y servicios públicos digitales.
+              Suite completa de herramientas financieras con ingeniería de datos avanzada. 
+              Incluye análisis de bonos, trading automatizado, dashboards en tiempo real 
+              y sistemas de gestión de riesgo.
             </p>
             
             <div class="project-features">
               <div class="feature-item">
-                <i class="fas fa-users-cog"></i>
-                <span>Gestión Ciudadana</span>
+                <i class="fas fa-chart-bar"></i>
+                <span>Dashboard Analytics</span>
               </div>
-              <div class="feature-item">
-                <i class="fas fa-eye"></i>
-                <span>Transparencia</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-file-alt"></i>
-                <span>Trámites Online</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-shield-alt"></i>
-                <span>Seguridad</span>
-              </div>
-            </div>
-            
-            <div class="project-tech">
-              <span class="tech-tag">Angular</span>
-              <span class="tech-tag">.NET Core</span>
-              <span class="tech-tag">SQL Server</span>
-              <span class="tech-tag">OAuth</span>
-            </div>
-            
-            <div class="project-actions">
-              <button class="btn btn-success">
-                <i class="fas fa-check"></i>
-                Implementado
-              </button>
-            </div>
-          </div>
-
-          <!-- Cripto Project -->
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-icon">
-                <i class="fab fa-bitcoin"></i>
-              </div>
-              <div class="project-meta">
-                <h3>Criptomonedas</h3>
-                <span class="project-status">Activo</span>
-              </div>
-            </div>
-            
-            <p class="project-description">
-              Bots de trading automatizado, análisis de mercado blockchain, 
-              portfolio trackers y herramientas DeFi para gestión de criptoactivos.
-            </p>
-            
-            <div class="project-features">
               <div class="feature-item">
                 <i class="fas fa-robot"></i>
                 <span>Trading Bots</span>
               </div>
               <div class="feature-item">
-                <i class="fas fa-chart-area"></i>
-                <span>Market Analysis</span>
+                <i class="fas fa-shield-alt"></i>
+                <span>Risk Management</span>
               </div>
               <div class="feature-item">
-                <i class="fas fa-wallet"></i>
-                <span>Portfolio Tracker</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-coins"></i>
-                <span>DeFi Tools</span>
+                <i class="fas fa-database"></i>
+                <span>Data Engineering</span>
               </div>
             </div>
             
             <div class="project-tech">
+              <span class="tech-tag">Vue.js</span>
               <span class="tech-tag">Python</span>
-              <span class="tech-tag">Web3.js</span>
-              <span class="tech-tag">Binance API</span>
-              <span class="tech-tag">Solidity</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Chart.js</span>
+              <span class="tech-tag">WebSockets</span>
             </div>
             
             <div class="project-actions">
-              <button class="btn btn-primary" @click="showDemo('crypto')">
+              <router-link to="/finanzas" class="btn btn-primary">
+                <i class="fas fa-eye"></i>
+                Ver Proyectos
+              </router-link>
+              <a href="#" class="btn btn-secondary" @click.prevent="showDemo('finanzas')">
                 <i class="fas fa-play"></i>
-                Ver Demo
-              </button>
-            </div>
-          </div>
-
-          <!-- Bots Project -->
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-icon">
-                <i class="fas fa-robot"></i>
-              </div>
-              <div class="project-meta">
-                <h3>Bots & Agentes</h3>
-                <span class="project-status">Activo</span>
-              </div>
-            </div>
-            
-            <p class="project-description">
-              Automatización inteligente, chatbots conversacionales, agentes de IA 
-              y sistemas de procesamiento automático de datos y tareas.
-            </p>
-            
-            <div class="project-features">
-              <div class="feature-item">
-                <i class="fas fa-comments"></i>
-                <span>Chatbots</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-brain"></i>
-                <span>AI Agents</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-cogs"></i>
-                <span>RPA</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-api"></i>
-                <span>API Integration</span>
-              </div>
-            </div>
-            
-            <div class="project-tech">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">TensorFlow</span>
-              <span class="tech-tag">OpenAI API</span>
-              <span class="tech-tag">Selenium</span>
-            </div>
-            
-            <div class="project-actions">
-              <button class="btn btn-primary" @click="showDemo('bots')">
-                <i class="fas fa-play"></i>
-                Interactuar
-              </button>
+                Demo
+              </a>
             </div>
           </div>
         </div>
@@ -441,9 +292,12 @@ export default {
 <style scoped>
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: var(--spacing-xl);
   margin-bottom: var(--spacing-xxxl);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .project-card {
@@ -452,17 +306,15 @@ export default {
   border-radius: var(--border-radius-lg);
   padding: var(--spacing-xl);
   transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
   border-color: var(--color-primary);
-}
-
-.project-card.featured {
-  border-color: var(--color-primary);
-  box-shadow: var(--shadow-md);
 }
 
 .project-header {
@@ -487,6 +339,8 @@ export default {
 .project-meta h3 {
   color: var(--color-heading);
   margin: 0 0 var(--spacing-xs) 0;
+  font-size: 1.25rem;
+  line-height: 1.3;
 }
 
 .project-status {
@@ -509,14 +363,15 @@ export default {
 .project-description {
   color: var(--color-text-light);
   line-height: 1.6;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg); /* Reducir espacio para consistencia */
+  flex-grow: 1; /* Permite que la descripción se expanda si es necesario */
 }
 
 .project-features {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--spacing-md);
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg); /* Consistencia con description */
 }
 
 .feature-item {
@@ -536,7 +391,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-sm);
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
 }
 
 .tech-tag {
@@ -552,11 +407,17 @@ export default {
   display: flex;
   gap: var(--spacing-md);
   flex-wrap: wrap;
+  margin-top: auto;
 }
 
 .project-actions .btn {
   flex: 1;
   min-width: 120px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
 }
 
 .tech-overview {
