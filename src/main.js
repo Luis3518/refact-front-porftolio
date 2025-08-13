@@ -3,10 +3,8 @@ import App from './App.vue'
 import { routes } from './router'
 import { createHead } from '@vueuse/head'
 
-// Importar estilos en orden
+// Importar estilos centralizados
 import './style.css'
-import './styles/themes.css'
-import './styles/utilities.css'
 
 export const createApp = ViteSSG(
   App,

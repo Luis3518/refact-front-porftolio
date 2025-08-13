@@ -67,31 +67,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.btn-block {
-  display: block;
-  width: 100%;
-}
-
-.btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none !important;
-}
-
-.btn:disabled:hover {
-  background-color: var(--color-primary);
-  box-shadow: var(--shadow-md);
-}
-
-.btn-warning {
-  background-color: var(--color-warning);
-  color: var(--color-white);
-}
-
-.btn-error {
-  background-color: var(--color-error);
-  color: var(--color-white);
-}
-</style>

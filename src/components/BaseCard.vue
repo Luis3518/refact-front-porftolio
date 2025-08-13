@@ -40,23 +40,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.card.feature {
-  border-left: 4px solid var(--color-primary);
-}
-
-.card.project {
-  text-align: center;
-  border-top: 3px solid var(--color-success);
-}
-
-.card.info {
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-}
-
-.card.card-hover:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-}
-</style>

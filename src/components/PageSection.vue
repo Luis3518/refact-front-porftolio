@@ -49,13 +49,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.bg-white {
-  background-color: var(--color-white);
-}
-
-.bg-light {
-  background-color: var(--color-light);
-}
-</style>
