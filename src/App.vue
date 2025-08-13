@@ -9,6 +9,7 @@
             <li><router-link to="/" class="nav-link" @click="closeMenu">Inicio</router-link></li>
             <li><router-link to="/about" class="nav-link" @click="closeMenu">Sobre mí</router-link></li>
             <li><router-link to="/projects" class="nav-link" @click="closeMenu">Proyectos</router-link></li>
+            <li><a href="#contacto" class="nav-link" @click="closeMenu">Contacto</a></li>
           </ul>
           
           <button class="nav-toggle" @click="toggleMenu" aria-label="Toggle menu">
@@ -54,17 +55,22 @@ export default {
     }
 
     const handleScroll = () => {
-      // Smooth scroll para navegación
-      const links = document.querySelectorAll('.nav-link[href^="#"]')
-      links.forEach(link => {
-        link.addEventListener('click', (e) => {
+      // Smooth scroll para navegación con hash
+      document.addEventListener('click', (e) => {
+        const link = e.target.closest('a[href^="#"]')
+        if (link) {
           e.preventDefault()
           const targetId = link.getAttribute('href').substring(1)
           const targetSection = document.getElementById(targetId)
           if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth' })
+            targetSection.scrollIntoView({ 
+              behavior: 'smooth',
+              block: 'start'
+            })
+            // Cerrar menú móvil si está abierto
+            closeMenu()
           }
-        })
+        }
       })
     }
 
