@@ -11,7 +11,7 @@
     <!-- Bio Section -->
     <section class="section">
       <div class="container">
-        <div class="grid grid-2 align-items-start">
+        <div class="bio-content">
           <div>
             <h2>Mi Historia</h2>
             <p class="text-large">
@@ -30,10 +30,6 @@
               contribuir a proyectos open source y compartir conocimiento con la comunidad 
               de desarrolladores.
             </p>
-          </div>
-          
-          <div class="bio-image">
-            <img src="/fotoperfil.svg" alt="Luis Miguel Rodriguez" class="profile-image-large">
           </div>
         </div>
       </div>
@@ -305,18 +301,14 @@ export default {
   margin-bottom: var(--spacing-xl);
 }
 
-.bio-image {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+.bio-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.profile-image-large {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-lg);
+.bio-content h2 {
+  margin-bottom: var(--spacing-xl);
 }
 
 .skills-grid {
@@ -421,10 +413,6 @@ export default {
 
 .text-center {
   text-align: center;
-}
-
-.align-items-start {
-  align-items: flex-start;
 }
 
 /* Responsive */

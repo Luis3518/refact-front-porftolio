@@ -3,8 +3,8 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="container">
-        <div class="hero-content">
-          <div class="hero-text">
+        <div class="hero-content-centered">
+          <div class="hero-text-centered">
             <h1>
               Hola, soy <span class="highlight">Luis Miguel Rodriguez</span>
             </h1>
@@ -37,10 +37,6 @@
                 <i class="fab fa-github"></i>
               </a>
             </div>
-          </div>
-          
-          <div class="hero-image">
-            <img src="/fotoperfil.svg" alt="Luis Miguel Rodriguez" class="profile-image">
           </div>
         </div>
       </div>
@@ -175,10 +171,6 @@ export default {
 
 /* Ajustes específicos para mobile */
 @media (max-width: 768px) {
-  .hero-socials {
-    justify-content: center;
-  }
-  
   .skills-preview {
     justify-content: center;
   }
