@@ -85,14 +85,15 @@
         <div class="grid grid-3">
           <div class="project-card">
             <div class="icon">
-              <i class="fas fa-chart-line"></i>
+              <i class="fas fa-car"></i>
             </div>
-            <h3>Sistemas Financieros</h3>
-            <p>Plataformas de gestión financiera, análisis de datos y reportes automatizados.</p>
+            <h3>Sistemas B2C Automotores</h3>
+            <p>Plataformas digitales para concesionarias automotrices con catálogos en línea, configuradores de vehículos y CRM de ventas.</p>
             <div class="project-tags">
               <span class="tag">Vue.js</span>
-              <span class="tag">Python</span>
-              <span class="tag">PostgreSQL</span>
+              <span class="tag">Laravel</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Three.js</span>
             </div>
             <router-link to="/projects" class="project-link">
               Ver proyecto <i class="fas fa-arrow-right"></i>
@@ -103,12 +104,13 @@
             <div class="icon">
               <i class="fas fa-ship"></i>
             </div>
-            <h3>Gestión Portuaria</h3>
-            <p>Sistemas de control y monitoreo para operaciones portuarias y logística marítima.</p>
+            <h3>Sistemas de Gestión Portuaria</h3>
+            <p>Sistema integral de control y monitoreo para operaciones portuarias con tracking GPS en tiempo real y gestión de contenedores.</p>
             <div class="project-tags">
               <span class="tag">React</span>
               <span class="tag">Node.js</span>
               <span class="tag">MongoDB</span>
+              <span class="tag">Socket.io</span>
             </div>
             <router-link to="/projects" class="project-link">
               Ver proyecto <i class="fas fa-arrow-right"></i>
@@ -117,16 +119,17 @@
 
           <div class="project-card">
             <div class="icon">
-              <i class="fab fa-bitcoin"></i>
+              <i class="fas fa-chart-line"></i>
             </div>
-            <h3>Criptomonedas</h3>
-            <p>Bots de trading, análisis de mercado y herramientas de gestión de portafolios crypto.</p>
+            <h3>Ingeniería de Datos y Finanzas</h3>
+            <p>Suite completa de herramientas financieras con análisis de bonos, trading automatizado y dashboards en tiempo real.</p>
             <div class="project-tags">
+              <span class="tag">Vue.js</span>
               <span class="tag">Python</span>
-              <span class="tag">APIs</span>
-              <span class="tag">Machine Learning</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Chart.js</span>
             </div>
-            <router-link to="/projects" class="project-link">
+            <router-link to="/finanzas" class="project-link">
               Ver proyecto <i class="fas fa-arrow-right"></i>
             </router-link>
           </div>
