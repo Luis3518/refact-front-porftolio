@@ -88,22 +88,9 @@
       </div>
     </section>
 
-    <!-- Contact CTA Section -->
-    <section class="section">
-      <div class="container">
-        <div class="card text-center">
-          <h2>¿Tienes un proyecto en mente?</h2>
-          <p>
-            Estoy disponible para nuevos proyectos y colaboraciones. 
-            Hablemos sobre cómo puedo ayudarte a materializar tus ideas.
-          </p>
-          <a href="mailto:luis.m.rodriguez@outlook.com" class="btn btn-primary">
-            <i class="fas fa-envelope"></i>
-            Contactar por Email
-          </a>
-        </div>
-      </div>
-    </section>
+    <!-- Contact Section -->
+    <ContactSection />
+
   </div>
 </template>
 
@@ -111,11 +98,13 @@
 import { useHead } from '@vueuse/head'
 import { useAnalytics } from '../composables/useAnalytics.js'
 import ProjectsGrid from '../components/ProjectsGrid.vue'
+import ContactSection from '../components/ContactSection.vue'
 
 export default {
   name: 'HomePage',
   components: {
-    ProjectsGrid
+    ProjectsGrid,
+    ContactSection
   },
   setup() {
     const { trackCVClick } = useAnalytics()

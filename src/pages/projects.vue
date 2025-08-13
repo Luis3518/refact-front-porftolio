@@ -63,22 +63,9 @@
       </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="section">
-      <div class="container">
-        <div class="card text-center">
-          <h2>¿Interesado en algún proyecto?</h2>
-          <p>
-            Si quieres saber más detalles sobre algún proyecto específico 
-            o discutir una colaboración, estaré encantado de conversar contigo.
-          </p>
-          <a href="mailto:luis.m.rodriguez@outlook.com" class="btn btn-primary">
-            <i class="fas fa-envelope"></i>
-            Hablemos del proyecto
-          </a>
-        </div>
-      </div>
-    </section>
+    <!-- Contact Section -->
+    <ContactSection :show-projects-link="false" />
+
   </div>
 </template>
 
@@ -86,11 +73,13 @@
 import { useHead } from '@vueuse/head'
 import { useAnalytics } from '../composables/useAnalytics.js'
 import ProjectsGrid from '../components/ProjectsGrid.vue'
+import ContactSection from '../components/ContactSection.vue'
 
 export default {
   name: 'ProjectsPage',
   components: {
-    ProjectsGrid
+    ProjectsGrid,
+    ContactSection
   },
   setup() {
     // Analytics tracking automático

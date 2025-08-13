@@ -238,46 +238,21 @@
       </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="section">
-      <div class="container">
-        <div class="card text-center">
-          <h2>¿Quieres colaborar?</h2>
-          <p>
-            Estoy siempre abierto a nuevas oportunidades y proyectos interesantes. 
-            Si tienes una idea o necesitas ayuda con algún desarrollo, contáctame por:
-          </p>
-          <div class="cta-actions">
-            <a href="mailto:luis.m.rodriguez@outlook.com" class="btn btn-primary">
-              <i class="fas fa-envelope"></i>
-              Enviar Email
-            </a>
-            <a href="https://www.linkedin.com/in/luis-rodriguez3518/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-              <i class="fab fa-linkedin-in"></i>
-              LinkedIn
-            </a>
-            <a href="https://github.com/Luis3518" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-              <i class="fab fa-github"></i>
-              GitHub
-            </a>
-          </div>
-          <div class="secondary-actions">
-            <router-link to="/projects" class="project-link">
-              Ver mis proyectos <i class="fas fa-arrow-right"></i>
-            </router-link>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Contact Section -->
+    <ContactSection />
   </div>
 </template>
 
 <script>
 import { useHead } from '@vueuse/head'
 import { useAnalytics } from '../composables/useAnalytics.js'
+import ContactSection from '../components/ContactSection.vue'
 
 export default {
   name: 'AboutPage',
+  components: {
+    ContactSection
+  },
   setup() {
     // Analytics tracking automático
     useAnalytics()
@@ -412,36 +387,12 @@ export default {
   color: var(--color-text-primary);
 }
 
-.cta-actions {
-  display: flex;
-  gap: var(--spacing-lg);
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: var(--spacing-xl);
-}
-
-.secondary-actions {
-  margin-top: var(--spacing-xl);
-  padding-top: var(--spacing-xl);
-  border-top: 1px solid var(--color-border-light);
-}
-
 .text-center {
   text-align: center;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .cta-actions {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .cta-actions .btn {
-    width: 100%;
-    max-width: 250px;
-  }
-  
   .tech-icons {
     grid-template-columns: 1fr;
   }

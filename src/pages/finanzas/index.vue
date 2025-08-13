@@ -77,6 +77,9 @@
         </BaseCard>
       </div>
     </PageSection>
+
+    <!-- Contact Section -->
+    <ContactSection />
   </div>
 </template>
 
@@ -87,6 +90,7 @@ import PageHeader from '../../components/PageHeader.vue'
 import PageSection from '../../components/PageSection.vue'
 import BaseCard from '../../components/BaseCard.vue'
 import BaseButton from '../../components/BaseButton.vue'
+import ContactSection from '../../components/ContactSection.vue'
 
 export default {
   name: 'FinanzasPage',
@@ -94,7 +98,8 @@ export default {
     PageHeader,
     PageSection,
     BaseCard,
-    BaseButton
+    BaseButton,
+    ContactSection
   },
   setup() {
     // Analytics tracking automático
