@@ -27,13 +27,13 @@
             </div>
             
             <div class="hero-socials">
-              <a href="mailto:luismiguel@ejemplo.com" class="social-link" title="Email" data-track="email">
+              <a href="mailto:luis.m.rodriguez@outlook.com" class="social-link" title="Email" data-track="email">
                 <i class="fas fa-envelope"></i>
               </a>
-              <a href="https://linkedin.com/in/luismiguelrodriguez" class="social-link" title="LinkedIn" target="_blank" data-track="linkedin">
+              <a href="https://www.linkedin.com/in/luis-rodriguez3518/" class="social-link" title="LinkedIn" target="_blank" rel="noopener noreferrer" data-track="linkedin">
                 <i class="fab fa-linkedin-in"></i>
               </a>
-              <a href="https://github.com/luismiguelrodriguez" class="social-link" title="GitHub" target="_blank" data-track="github">
+              <a href="https://github.com/Luis3518" class="social-link" title="GitHub" target="_blank" rel="noopener noreferrer" data-track="github">
                 <i class="fab fa-github"></i>
               </a>
             </div>

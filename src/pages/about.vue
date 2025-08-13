@@ -245,16 +245,25 @@
           <h2>¿Quieres colaborar?</h2>
           <p>
             Estoy siempre abierto a nuevas oportunidades y proyectos interesantes. 
-            Si tienes una idea o necesitas ayuda con algún desarrollo, hablemos.
+            Si tienes una idea o necesitas ayuda con algún desarrollo, contáctame por:
           </p>
           <div class="cta-actions">
-            <router-link to="/projects" class="btn btn-secondary">
-              <i class="fas fa-eye"></i>
-              Ver Proyectos
-            </router-link>
-            <router-link to="/contact" class="btn btn-primary">
+            <a href="mailto:luis.m.rodriguez@outlook.com" class="btn btn-primary">
               <i class="fas fa-envelope"></i>
-              Contactar
+              Enviar Email
+            </a>
+            <a href="https://www.linkedin.com/in/luis-rodriguez3518/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-linkedin-in"></i>
+              LinkedIn
+            </a>
+            <a href="https://github.com/Luis3518" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github"></i>
+              GitHub
+            </a>
+          </div>
+          <div class="secondary-actions">
+            <router-link to="/projects" class="project-link">
+              Ver mis proyectos <i class="fas fa-arrow-right"></i>
             </router-link>
           </div>
         </div>
@@ -321,31 +330,31 @@ export default {
 .skill-category {
   text-align: center;
   padding: var(--spacing-xl);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-light);
   border-radius: var(--border-radius-lg);
-  background: var(--color-card-bg);
+  background: var(--color-bg-card);
   transition: all 0.3s ease;
 }
 
 .skill-category:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
-  border-color: var(--color-primary);
+  border-color: var(--color-accent-primary);
 }
 
 .skill-icon {
   font-size: 3rem;
-  color: var(--color-primary);
+  color: var(--color-accent-primary);
   margin-bottom: var(--spacing-lg);
 }
 
 .skill-category h3 {
-  color: var(--color-heading);
+  color: var(--color-text-primary);
   margin-bottom: var(--spacing-lg);
 }
 
 .skill-category p {
-  color: var(--color-text-light);
+  color: var(--color-text-secondary);
   margin-bottom: var(--spacing-xl);
 }
 
@@ -364,7 +373,7 @@ export default {
 
 .tech-category h3 {
   text-align: center;
-  color: var(--color-heading);
+  color: var(--color-text-primary);
   margin-bottom: var(--spacing-xl);
 }
 
@@ -380,27 +389,27 @@ export default {
   align-items: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-lg);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-light);
   border-radius: var(--border-radius);
-  background: var(--color-card-bg);
+  background: var(--color-bg-card);
   transition: all 0.3s ease;
 }
 
 .tech-item:hover {
   transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--color-primary);
+  box-shadow: var(--shadow);
+  border-color: var(--color-accent-primary);
 }
 
 .tech-item i {
   font-size: 2rem;
-  color: var(--color-primary);
+  color: var(--color-accent-primary);
 }
 
 .tech-item span {
   font-size: 0.9rem;
   font-weight: var(--font-weight-medium);
-  color: var(--color-text);
+  color: var(--color-text-primary);
 }
 
 .cta-actions {
@@ -409,6 +418,12 @@ export default {
   justify-content: center;
   flex-wrap: wrap;
   margin-top: var(--spacing-xl);
+}
+
+.secondary-actions {
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--color-border-light);
 }
 
 .text-center {

@@ -109,8 +109,8 @@
                 </div>
                 <div class="contact-details">
                   <h4>Email</h4>
-                  <a href="mailto:luismiguel@ejemplo.com" data-track="email-click">
-                    luismiguel@ejemplo.com
+                  <a href="mailto:luis.m.rodriguez@outlook.com" data-track="email-click">
+                    luis.m.rodriguez@outlook.com
                   </a>
                 </div>
               </div>
@@ -150,42 +150,34 @@
 
             <!-- Social Links -->
             <div class="social-card">
-              <h3>Sígueme en</h3>
+              <h3>Contáctame por</h3>
               <div class="social-links">
-                <a href="https://linkedin.com/in/luismiguelrodriguez" 
+                <a href="https://www.linkedin.com/in/luis-rodriguez3518/" 
                    class="social-link linkedin" 
                    target="_blank" 
+                   rel="noopener noreferrer"
                    title="LinkedIn"
                    data-track="linkedin-click">
                   <i class="fab fa-linkedin-in"></i>
                   <span>LinkedIn</span>
                 </a>
                 
-                <a href="https://github.com/luismiguelrodriguez" 
+                <a href="https://github.com/Luis3518" 
                    class="social-link github" 
                    target="_blank" 
+                   rel="noopener noreferrer"
                    title="GitHub"
                    data-track="github-click">
                   <i class="fab fa-github"></i>
                   <span>GitHub</span>
                 </a>
                 
-                <a href="https://twitter.com/luismigueldev" 
-                   class="social-link twitter" 
-                   target="_blank" 
-                   title="Twitter"
-                   data-track="twitter-click">
-                  <i class="fab fa-twitter"></i>
-                  <span>Twitter</span>
-                </a>
-                
-                <a href="https://t.me/luismigueldev" 
-                   class="social-link telegram" 
-                   target="_blank" 
-                   title="Telegram"
-                   data-track="telegram-click">
-                  <i class="fab fa-telegram"></i>
-                  <span>Telegram</span>
+                <a href="mailto:luis.m.rodriguez@outlook.com" 
+                   class="social-link email" 
+                   title="Email"
+                   data-track="email-click">
+                  <i class="fas fa-envelope"></i>
+                  <span>Email</span>
                 </a>
               </div>
             </div>
@@ -336,12 +328,12 @@ export default {
 }
 
 .contact-form-wrapper h2 {
-  color: var(--color-heading);
+  color: var(--color-text-primary);
   margin-bottom: var(--spacing-lg);
 }
 
 .form-description {
-  color: var(--color-text-light);
+  color: var(--color-text-secondary);
   margin-bottom: var(--spacing-xl);
   line-height: 1.6;
 }
@@ -360,17 +352,17 @@ export default {
 
 .form-group label {
   font-weight: var(--font-weight-medium);
-  color: var(--color-text);
+  color: var(--color-text-primary);
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
   padding: var(--spacing-md);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-light);
   border-radius: var(--border-radius);
-  background: var(--color-input-bg);
-  color: var(--color-text);
+  background: var(--color-bg-secondary);
+  color: var(--color-text-primary);
   font-family: var(--font-family);
   transition: border-color 0.3s ease;
 }
@@ -379,7 +371,7 @@ export default {
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--color-primary);
+  border-color: var(--color-accent-primary);
 }
 
 .form-group textarea {
@@ -396,15 +388,15 @@ export default {
 .contact-card,
 .social-card,
 .response-card {
-  background: var(--color-card-bg);
-  border: 1px solid var(--color-border);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-light);
   border-radius: var(--border-radius-lg);
   padding: var(--spacing-xl);
 }
 
 .contact-card h3,
 .social-card h3 {
-  color: var(--color-heading);
+  color: var(--color-text-primary);
   margin-bottom: var(--spacing-xl);
 }
 
@@ -425,20 +417,20 @@ export default {
   justify-content: center;
   width: 40px;
   height: 40px;
-  background: var(--color-primary);
+  background: var(--color-accent-primary);
   color: white;
   border-radius: var(--border-radius);
   flex-shrink: 0;
 }
 
 .contact-details h4 {
-  color: var(--color-heading);
+  color: var(--color-text-primary);
   margin: 0 0 var(--spacing-xs) 0;
   font-size: 0.9rem;
 }
 
 .contact-details a {
-  color: var(--color-primary);
+  color: var(--color-accent-primary);
   text-decoration: none;
 }
 
@@ -447,7 +439,7 @@ export default {
 }
 
 .contact-details p {
-  color: var(--color-text-light);
+  color: var(--color-text-secondary);
   margin: 0;
   font-size: 0.9rem;
   line-height: 1.5;
@@ -464,17 +456,17 @@ export default {
   align-items: center;
   gap: var(--spacing-md);
   padding: var(--spacing-md);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-light);
   border-radius: var(--border-radius);
-  color: var(--color-text);
+  color: var(--color-text-primary);
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .social-link:hover {
-  background: var(--color-primary);
+  background: var(--color-accent-primary);
   color: white;
-  border-color: var(--color-primary);
+  border-color: var(--color-accent-primary);
 }
 
 .social-link i {
@@ -494,19 +486,19 @@ export default {
   justify-content: center;
   width: 40px;
   height: 40px;
-  background: var(--color-info);
+  background: var(--color-accent-secondary);
   color: white;
   border-radius: var(--border-radius);
   flex-shrink: 0;
 }
 
 .response-card h4 {
-  color: var(--color-heading);
+  color: var(--color-text-primary);
   margin: 0 0 var(--spacing-sm) 0;
 }
 
 .response-card p {
-  color: var(--color-text-light);
+  color: var(--color-text-secondary);
   margin: 0;
   font-size: 0.9rem;
   line-height: 1.5;
@@ -519,19 +511,19 @@ export default {
 }
 
 .faq-item {
-  background: var(--color-card-bg);
-  border: 1px solid var(--color-border);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-light);
   border-radius: var(--border-radius-lg);
   padding: var(--spacing-xl);
 }
 
 .faq-item h3 {
-  color: var(--color-heading);
+  color: var(--color-text-primary);
   margin-bottom: var(--spacing-lg);
 }
 
 .faq-item p {
-  color: var(--color-text-light);
+  color: var(--color-text-secondary);
   line-height: 1.6;
   margin: 0;
 }
