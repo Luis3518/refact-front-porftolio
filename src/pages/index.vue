@@ -82,58 +82,7 @@
     <section class="section">
       <div class="container">
         <h2 class="text-center" style="margin-bottom: 3rem;">Proyectos Destacados</h2>
-        <div class="grid grid-3">
-          <div class="project-card">
-            <div class="icon">
-              <i class="fas fa-car"></i>
-            </div>
-            <h3>Sistemas B2C Automotores</h3>
-            <p>Plataformas digitales para concesionarias automotrices con catálogos en línea, configuradores de vehículos y CRM de ventas.</p>
-            <div class="project-tags">
-              <span class="tag">Vue.js</span>
-              <span class="tag">Laravel</span>
-              <span class="tag">MySQL</span>
-              <span class="tag">Three.js</span>
-            </div>
-            <router-link to="/projects" class="project-link">
-              Ver proyecto <i class="fas fa-arrow-right"></i>
-            </router-link>
-          </div>
-
-          <div class="project-card">
-            <div class="icon">
-              <i class="fas fa-ship"></i>
-            </div>
-            <h3>Sistemas de Gestión Portuaria</h3>
-            <p>Sistema integral de control y monitoreo para operaciones portuarias con tracking GPS en tiempo real y gestión de contenedores.</p>
-            <div class="project-tags">
-              <span class="tag">React</span>
-              <span class="tag">Node.js</span>
-              <span class="tag">MongoDB</span>
-              <span class="tag">Socket.io</span>
-            </div>
-            <router-link to="/projects" class="project-link">
-              Ver proyecto <i class="fas fa-arrow-right"></i>
-            </router-link>
-          </div>
-
-          <div class="project-card">
-            <div class="icon">
-              <i class="fas fa-chart-line"></i>
-            </div>
-            <h3>Ingeniería de Datos y Finanzas</h3>
-            <p>Suite completa de herramientas financieras con análisis de bonos, trading automatizado y dashboards en tiempo real.</p>
-            <div class="project-tags">
-              <span class="tag">Vue.js</span>
-              <span class="tag">Python</span>
-              <span class="tag">PostgreSQL</span>
-              <span class="tag">Chart.js</span>
-            </div>
-            <router-link to="/finanzas" class="project-link">
-              Ver proyecto <i class="fas fa-arrow-right"></i>
-            </router-link>
-          </div>
-        </div>
+        <ProjectsGrid />
         
         <div class="text-center" style="margin-top: 3rem;">
           <router-link to="/projects" class="btn btn-secondary">
@@ -165,9 +114,13 @@
 <script>
 import { useHead } from '@vueuse/head'
 import { useAnalytics } from '../composables/useAnalytics.js'
+import ProjectsGrid from '../components/ProjectsGrid.vue'
 
 export default {
   name: 'HomePage',
+  components: {
+    ProjectsGrid
+  },
   setup() {
     const { trackCVClick } = useAnalytics()
 
