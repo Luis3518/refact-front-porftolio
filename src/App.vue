@@ -9,7 +9,6 @@
             <li><router-link to="/" class="nav-link" @click="closeMenu">Inicio</router-link></li>
             <li><router-link to="/about" class="nav-link" @click="closeMenu">Sobre mí</router-link></li>
             <li><router-link to="/projects" class="nav-link" @click="closeMenu">Proyectos</router-link></li>
-            <li><router-link to="/contact" class="nav-link" @click="closeMenu">Contacto</router-link></li>
           </ul>
           
           <button class="nav-toggle" @click="toggleMenu" aria-label="Toggle menu">

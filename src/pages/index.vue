@@ -97,10 +97,10 @@
             Estoy disponible para nuevos proyectos y colaboraciones. 
             Hablemos sobre cómo puedo ayudarte a materializar tus ideas.
           </p>
-          <router-link to="/contact" class="btn btn-primary">
+          <a href="mailto:luis.m.rodriguez@outlook.com" class="btn btn-primary">
             <i class="fas fa-envelope"></i>
-            Contactar
-          </router-link>
+            Contactar por Email
+          </a>
         </div>
       </div>
     </section>

@@ -14,11 +14,6 @@ export const routes = [
     name: 'Projects',
     component: () => import('./pages/projects.vue')
   },
-  {
-    path: '/contact',
-    name: 'Contact',
-    component: () => import('./pages/contact.vue')
-  },
   // Mantener las rutas de finanzas para backward compatibility
   {
     path: '/finanzas',

@@ -72,10 +72,10 @@
             Si quieres saber más detalles sobre algún proyecto específico 
             o discutir una colaboración, estaré encantado de conversar contigo.
           </p>
-          <router-link to="/contact" class="btn btn-primary">
+          <a href="mailto:luis.m.rodriguez@outlook.com" class="btn btn-primary">
             <i class="fas fa-envelope"></i>
             Hablemos del proyecto
-          </router-link>
+          </a>
         </div>
       </div>
     </section>
