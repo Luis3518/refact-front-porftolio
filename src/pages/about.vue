@@ -56,20 +56,7 @@
             </div>
           </div>
 
-          <div class="skill-category">
-            <div class="skill-icon">
-              <i class="fas fa-chart-line"></i>
-            </div>
-            <h3>Sistemas Financieros</h3>
-            <p>Experiencia en desarrollo de plataformas financieras, análisis de datos y reportes.</p>
-            <div class="skills-tags">
-              <span class="skill-tag">FinTech</span>
-              <span class="skill-tag">Analytics</span>
-              <span class="skill-tag">Trading Bots</span>
-              <span class="skill-tag">Payment Systems</span>
-              <span class="skill-tag">Risk Management</span>
-            </div>
-          </div>
+
 
           <div class="skill-category">
             <div class="skill-icon">
@@ -88,45 +75,14 @@
 
           <div class="skill-category">
             <div class="skill-icon">
-              <i class="fas fa-server"></i>
-            </div>
-            <h3>DevOps</h3>
-            <p>Automatización de procesos, CI/CD, infraestructura como código y monitoreo.</p>
-            <div class="skills-tags">
-              <span class="skill-tag">Docker</span>
-              <span class="skill-tag">Kubernetes</span>
-              <span class="skill-tag">AWS</span>
-              <span class="skill-tag">CI/CD</span>
-              <span class="skill-tag">Monitoring</span>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <div class="skill-icon">
-              <i class="fab fa-bitcoin"></i>
-            </div>
-            <h3>Criptomonedas</h3>
-            <p>Desarrollo de aplicaciones DeFi, bots de trading y análisis de blockchain.</p>
-            <div class="skills-tags">
-              <span class="skill-tag">Blockchain</span>
-              <span class="skill-tag">Smart Contracts</span>
-              <span class="skill-tag">DeFi</span>
-              <span class="skill-tag">Trading Bots</span>
-              <span class="skill-tag">Web3</span>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <div class="skill-icon">
               <i class="fas fa-robot"></i>
             </div>
             <h3>Bots & Agentes</h3>
             <p>Automatización inteligente, chatbots y sistemas de procesamiento automático.</p>
             <div class="skills-tags">
-              <span class="skill-tag">AI/ML</span>
+              <span class="skill-tag">AI/LLM</span>
               <span class="skill-tag">Automation</span>
               <span class="skill-tag">Chatbots</span>
-              <span class="skill-tag">RPA</span>
               <span class="skill-tag">APIs</span>
             </div>
           </div>
@@ -158,6 +114,20 @@
               <span class="skill-tag">Networking</span>
               <span class="skill-tag">Security</span>
               <span class="skill-tag">Backup</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <div class="skill-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Sistemas Financieros</h3>
+            <p>Experiencia en desarrollo de plataformas financieras, análisis de datos y reportes.</p>
+            <div class="skills-tags">
+              <span class="skill-tag">FinTech</span>
+              <span class="skill-tag">Analytics</span>
+              <span class="skill-tag">Trading Bots</span>
+              <span class="skill-tag">Payment Systems</span>
+              <span class="skill-tag">Risk Management</span>
             </div>
           </div>
         </div>
