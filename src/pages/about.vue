@@ -53,6 +53,8 @@
               <span class="skill-tag">React</span>
               <span class="skill-tag">Node.js</span>
               <span class="skill-tag">Python</span>
+              <span class="skill-tag">PHP</span>
+
             </div>
           </div>
 
@@ -118,16 +120,15 @@
           </div>
           <div class="skill-category">
             <div class="skill-icon">
-              <i class="fas fa-chart-line"></i>
+              <i class="fas fa-shield-alt"></i>
             </div>
-            <h3>Sistemas Financieros</h3>
-            <p>Experiencia en desarrollo de plataformas financieras, análisis de datos y reportes.</p>
+            <h3>Seguridad Informática</h3>
+            <p>Especialización en pentesting de aplicaciones web, asesoría en seguridad y desarrollo seguro.</p>
             <div class="skills-tags">
-              <span class="skill-tag">FinTech</span>
-              <span class="skill-tag">Analytics</span>
-              <span class="skill-tag">Trading Bots</span>
-              <span class="skill-tag">Payment Systems</span>
-              <span class="skill-tag">Risk Management</span>
+              <span class="skill-tag">Pentesting</span>
+              <span class="skill-tag">Web Security</span>
+              <span class="skill-tag">Vulnerability Assessment</span>
+              <span class="skill-tag">Secure Development</span>
             </div>
           </div>
         </div>
