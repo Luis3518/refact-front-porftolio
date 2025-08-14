@@ -35,7 +35,7 @@
     <!-- Skills Section -->
     <section class="section">
       <div class="container">
-        <h2 class="text-center" style="margin-bottom: 3rem;">Especialización & Skills</h2>
+        <h2 class="text-center" style="margin-bottom: 3rem;">Especialización y Habilidades</h2>
         <div class="skills-grid">
           <div class="skill-category">
             <div class="skill-icon">
@@ -76,7 +76,7 @@
             <div class="skill-icon">
               <i class="fas fa-robot"></i>
             </div>
-            <h3>Bots & Agentes</h3>
+            <h3>Bots y Agentes</h3>
             <p>Automatización inteligente, chatbots y sistemas de procesamiento automático.</p>
             <div class="skills-tags">
               <span class="skill-tag">AI/LLM</span>
@@ -105,7 +105,7 @@
             <div class="skill-icon">
               <i class="fas fa-home"></i>
             </div>
-            <h3>Self-hosted Solutions</h3>
+            <h3>Soluciones Auto-hospedadas</h3>
             <p>Implementación y mantenimiento de servicios propios para mayor control y privacidad.</p>
             <div class="skills-tags">
               <span class="skill-tag">Self-hosting</span>
@@ -226,19 +226,19 @@ export default {
     useAnalytics()
 
     useHead({
-      title: 'Sobre Mí - Luis Miguel Rodriguez',
+      title: 'Sobre Mí - Luis Miguel Rodríguez',
       meta: [
         {
           name: 'description',
-          content: 'Conoce la trayectoria profesional de Luis Miguel Rodriguez, desarrollador de software especializado en sistemas financieros, DevOps y tecnologías blockchain.'
+          content: 'Conoce la trayectoria profesional de Luis Miguel Rodríguez, desarrollador de software especializado en sistemas financieros, DevOps y tecnologías blockchain.'
         },
         {
           property: 'og:title',
-          content: 'Sobre Mí - Luis Miguel Rodriguez'
+          content: 'Sobre Mí - Luis Miguel Rodríguez'
         },
         {
           property: 'og:description',
-          content: 'Desarrollador full-stack con más de 5 años de experiencia en sistemas financieros, gestión portuaria y DevOps'
+          content: 'Desarrollador full-stack con más de 10 años de experiencia en sistemas financieros, gestión portuaria y DevOps'
         }
       ]
     })

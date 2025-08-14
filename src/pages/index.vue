@@ -6,11 +6,11 @@
         <div class="hero-content-centered">
           <div class="hero-text-centered">
             <h1>
-              Hola! soy <span class="highlight">Luis</span>
+              ¡Hola! Soy <span class="highlight">Luis</span>
             </h1>
-            <p class="subtitle">Tecnico en computación, profesor de informatica, licenciado en sistemas de la información y especialista en seguridad informatica</p>
+            <p class="subtitle">Técnico en computación, profesor de informática, licenciado en sistemas de la información y especialista en seguridad informática</p>
             <p class="description">
-              Me gusta buscar soluciones innovadoras en sistemas de distintas areas. Con experiencia en educación, desarrollo de software full-stack 
+              Me gusta buscar soluciones innovadoras en sistemas de distintas áreas. Con experiencia en educación, desarrollo de software full-stack 
               y automatización de procesos.
             </p>
             
@@ -48,7 +48,7 @@
           <div class="card">
             <h2>Sobre mí</h2>
             <p>
-              Informatico con más de 10 años de experiencia brindando 
+              Informático con más de 10 años de experiencia brindando 
               soluciones tecnológicas para diversos sectores.
             </p>
             <router-link to="/about" class="project-link">
@@ -61,7 +61,7 @@
             <div class="skills-preview">
               <span class="skill-tag">Desarrollo de Software</span>
               <span class="skill-tag">Sysadmin</span>
-              <span class="skill-tag">Seguridad informatica</span>
+              <span class="skill-tag">Seguridad Informática</span>
               <span class="skill-tag">Educación</span>
             </div>
             <router-link to="/about" class="project-link">
@@ -108,15 +108,15 @@ export default {
     const { trackCVClick } = useAnalytics()
 
     useHead({
-      title: 'Luis Miguel Rodriguez - Desarrollador de Software',
+      title: 'Luis Miguel Rodríguez - Desarrollador de Software',
       meta: [
         {
           name: 'description',
-          content: 'Portfolio profesional de Luis Miguel Rodriguez, desarrollador de software especializado en sistemas financieros, gestión portuaria, DevOps y criptomonedas'
+          content: 'Portfolio profesional de Luis Miguel Rodríguez, desarrollador de software especializado en sistemas financieros, gestión portuaria, DevOps y criptomonedas'
         },
         {
           property: 'og:title',
-          content: 'Luis Miguel Rodriguez - Desarrollador de Software'
+          content: 'Luis Miguel Rodríguez - Desarrollador de Software'
         },
         {
           property: 'og:description',

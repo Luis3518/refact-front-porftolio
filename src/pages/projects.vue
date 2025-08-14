@@ -86,15 +86,15 @@ export default {
     useAnalytics()
 
     useHead({
-      title: 'Proyectos - Luis Miguel Rodriguez',
+      title: 'Proyectos - Luis Miguel Rodríguez',
       meta: [
         {
           name: 'description',
-          content: 'Explora los proyectos de desarrollo de software de Luis Miguel Rodriguez: sistemas financieros, gestión portuaria, criptomonedas, bots y más.'
+          content: 'Explora los proyectos de desarrollo de software de Luis Miguel Rodríguez: sistemas financieros, gestión portuaria, criptomonedas, bots y más.'
         },
         {
           property: 'og:title',
-          content: 'Proyectos - Luis Miguel Rodriguez'
+          content: 'Proyectos - Luis Miguel Rodríguez'
         },
         {
           property: 'og:description',
