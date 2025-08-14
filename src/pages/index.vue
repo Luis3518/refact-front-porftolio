@@ -6,12 +6,11 @@
         <div class="hero-content-centered">
           <div class="hero-text-centered">
             <h1>
-              Hola, soy <span class="highlight">Luis Miguel Rodriguez</span>
+              Hola! soy <span class="highlight">Luis</span>
             </h1>
-            <p class="subtitle">Desarrollador de Software & Especialista en Sistemas</p>
+            <p class="subtitle">Tecnico en computación, profesor de informatica, licenciado en sistemas de la información y especialista en seguridad informatica</p>
             <p class="description">
-              Apasionado por crear soluciones tecnológicas innovadoras en sistemas financieros, 
-              gestión portuaria, DevOps y criptomonedas. Con experiencia en desarrollo full-stack 
+              Me gusta buscar soluciones innovadoras en sistemas de distintas areas. Con experiencia en educación, desarrollo de software full-stack 
               y automatización de procesos.
             </p>
             
@@ -49,9 +48,8 @@
           <div class="card">
             <h2>Sobre mí</h2>
             <p>
-              Desarrollador de software con más de 5 años de experiencia creando 
-              soluciones tecnológicas para diversos sectores. Me especializo en 
-              arquitecturas escalables y tecnologías modernas.
+              Informatico con más de 10 años de experiencia brindando 
+              soluciones tecnológicas para diversos sectores.
             </p>
             <router-link to="/about" class="project-link">
               Conocer más <i class="fas fa-arrow-right"></i>
@@ -62,9 +60,9 @@
             <h2>Especialización</h2>
             <div class="skills-preview">
               <span class="skill-tag">Desarrollo de Software</span>
-              <span class="skill-tag">Sistemas Financieros</span>
-              <span class="skill-tag">DevOps</span>
-              <span class="skill-tag">Criptomonedas</span>
+              <span class="skill-tag">Sysadmin</span>
+              <span class="skill-tag">Seguridad informatica</span>
+              <span class="skill-tag">Educación</span>
             </div>
             <router-link to="/about" class="project-link">
               Ver todas las skills <i class="fas fa-arrow-right"></i>

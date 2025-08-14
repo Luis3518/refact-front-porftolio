@@ -15,20 +15,17 @@
           <div>
             <h2>Mi Historia</h2>
             <p class="text-large">
-              Soy un desarrollador de software apasionado por crear soluciones tecnológicas 
-              que resuelvan problemas reales. Con más de 5 años de experiencia en el desarrollo 
-              full-stack, me he especializado en sistemas financieros, gestión portuaria y 
-              tecnologías blockchain.
+              Soy técnico en computación, profesor de informática, licenciado en sistemas de la información y especialista en seguridad informática. Tengo más de 10 años de experiencia brindando soluciones tecnológicas para diversos sectores. Me he especializado en sistemas del rubro automotor B2C, gestión portuaria y 
+              seguridad informática.
             </p>
             <p>
-              Mi enfoque se centra en escribir código limpio, crear arquitecturas escalables 
-              y mantenerme al día con las últimas tecnologías. Me motiva especialmente trabajar 
-              en proyectos que combinan innovación tecnológica con impacto positivo en los negocios.
+              Mi trabajo abarca desde el desarrollo de software y la administración de sistemas, hasta el diagnóstico y optimización de procesos, siempre con un enfoque integral para resolver problemas y aportar valor real.
             </p>
             <p>
-              Cuando no estoy programando, disfruto de investigar nuevas tecnologías, 
-              contribuir a proyectos open source y compartir conocimiento con la comunidad 
-              de desarrolladores.
+              Me apasiona investigar a fondo cada desafío para identificar la mejor solución posible, ya sea implementándola directamente o guiando hacia los recursos y especialistas adecuados. Esta visión me permite participar no solo en la ejecución técnica, sino también en la planificación estratégica y en la toma de decisiones tecnológicas que impactan positivamente en los objetivos de negocio.
+            </p>
+            <p>
+              Fuera de lo estrictamente técnico, disfruto de explorar nuevas tecnologías, compartir conocimientos con la comunidad y contribuir a proyectos que combinan innovación con resultados tangibles.
             </p>
           </div>
         </div>
