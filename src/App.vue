@@ -6,9 +6,9 @@
           <router-link to="/" class="nav-logo">LMR</router-link>
           
           <ul class="nav-menu" :class="{ active: isMenuOpen }">
-            <li><router-link to="/" class="nav-link" @click="closeMenu">Inicio</router-link></li>
-            <li><router-link to="/about" class="nav-link" @click="closeMenu">Sobre mí</router-link></li>
-            <li><router-link to="/projects" class="nav-link" @click="closeMenu">Proyectos</router-link></li>
+            <li><router-link to="/" class="nav-link" @click="handleNavClick('/')">Inicio</router-link></li>
+            <li><router-link to="/about" class="nav-link" @click="handleNavClick('/about')">Sobre mí</router-link></li>
+            <li><router-link to="/projects" class="nav-link" @click="handleNavClick('/projects')">Proyectos</router-link></li>
             <li><a href="#contacto" class="nav-link" @click="closeMenu">Contacto</a></li>
           </ul>
           
@@ -33,12 +33,15 @@
 
 <script>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 
 export default {
   name: 'App',
   setup() {
     const isMenuOpen = ref(false)
     const currentYear = computed(() => new Date().getFullYear())
+    const router = useRouter()
+    const route = useRoute()
 
     const toggleMenu = () => {
       isMenuOpen.value = !isMenuOpen.value
@@ -46,6 +49,17 @@ export default {
 
     const closeMenu = () => {
       isMenuOpen.value = false
+    }
+
+    const handleNavClick = (to) => {
+      // Si estamos navegando a la misma ruta, hacer scroll hacia arriba
+      if (route.path === to) {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        })
+      }
+      closeMenu()
     }
 
     const handleResize = () => {
@@ -100,7 +114,8 @@ export default {
       isMenuOpen,
       currentYear,
       toggleMenu,
-      closeMenu
+      closeMenu,
+      handleNavClick
     }
   }
 }
