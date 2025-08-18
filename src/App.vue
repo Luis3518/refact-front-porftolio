@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
 export default {
@@ -59,6 +59,14 @@ export default {
         })
       }
       closeMenu()
+    }
+
+    // Watch para detectar cambios de ruta y hacer scroll hacia arriba
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
     }
 
     const handleResize = () => {
@@ -105,6 +113,16 @@ export default {
       })
     })
 
+    // Watch para detectar cambios de ruta y hacer scroll hacia arriba
+    watch(() => route.path, (newPath, oldPath) => {
+      if (newPath !== oldPath) {
+        // Usar nextTick para asegurar que el DOM se haya actualizado
+        setTimeout(() => {
+          scrollToTop()
+        }, 100)
+      }
+    })
+
     onUnmounted(() => {
       window.removeEventListener('resize', handleResize)
     })
@@ -114,7 +132,8 @@ export default {
       currentYear,
       toggleMenu,
       closeMenu,
-      handleNavClick
+      handleNavClick,
+      scrollToTop
     }
   }
 }
