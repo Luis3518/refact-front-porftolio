@@ -3,7 +3,6 @@
     <nav class="navbar">
       <div class="container">
         <div class="nav-container">
-          <router-link to="/" class="nav-logo">LMR</router-link>
           
           <ul class="nav-menu" :class="{ active: isMenuOpen }">
             <li><router-link to="/" class="nav-link" @click="handleNavClick('/')">Inicio</router-link></li>
