@@ -20,11 +20,13 @@ VITE_ANALYTICS_API_URL=http://localhost:4000/track
 Tu API debe recibir POST requests en el endpoint configurado:
 
 ```javascript
-// Payload que recibirás
+// Payload que recibirás - SOLO el evento
 {
   "event": "page_visit"
 }
 ```
+
+> **Importante:** El sistema SOLO envía el nombre del evento. No se incluyen datos adicionales como timestamp, user agent, referrer, etc. para mantener la máxima privacidad.
 
 ## 📊 Eventos Trackeados
 
@@ -98,11 +100,9 @@ async def track_event(data: dict):
 
 ```
 ├── .env                              # Variables de entorno
-├── src/
-│   └── composables/
-│       └── useAnalytics.js          # Composable principal
-└── public/
-    └── analytics.js                  # Script legacy (opcional)
+└── src/
+    └── composables/
+        └── useAnalytics.js          # Composable de analytics
 ```
 
 ## 🚀 Producción
@@ -118,11 +118,12 @@ async def track_event(data: dict):
 
 ## ✨ Características
 
-- **Ligero**: Solo envía el evento, sin datos adicionales
+- **Mínimo**: Solo envía el nombre del evento, sin datos adicionales
+- **Privado**: No incluye timestamps, user agent, o información personal
 - **Seguro**: Manejo de errores sin afectar la UX
 - **Configurable**: URL personalizable por entorno
 - **Vue 3**: Composable moderno con auto-tracking
-- **Sin cookies**: Respeta la privacidad del usuario
+- **Sin cookies**: Respeta completamente la privacidad del usuario
 
 ## Configuración
 
@@ -132,32 +133,28 @@ Crea un archivo `.env` en la raíz del proyecto con la siguiente configuración:
 
 ```env
 # Analytics Configuration
-ANALYTICS_API_URL=http://localhost:4000/track
+VITE_ANALYTICS_API_URL=http://localhost:4000/track
 
 # Para producción, cambiar por tu URL real:
-# ANALYTICS_API_URL=https://your-analytics-api.com/track
+# VITE_ANALYTICS_API_URL=https://your-analytics-api.com/track
 ```
 
 ### API Endpoint
 
-El sistema envía eventos a tu endpoint de analytics configurado. El payload incluye:
+El sistema envía ÚNICAMENTE el nombre del evento a tu endpoint de analytics. El payload es mínimo:
 
 ```json
 {
-  "event": "page_visit",
-  "timestamp": "2025-08-11T10:16:36.000Z",
-  "page": "/",
-  "userAgent": "Mozilla/5.0...",
-  "title": "Luis Miguel Rodriguez - Desarrollador de Software",
-  "referrer": "https://google.com"
+  "event": "page_visit"
 }
 ```
+
+> **Nota sobre privacidad:** Deliberadamente NO se incluyen datos como timestamp, user agent, referrer, título de página, etc. Solo el evento esencial.
 
 ## Eventos Trackeados
 
 ### Automáticos
 - **page_visit**: Se ejecuta automáticamente al cargar cualquier página
-  - Incluye: título de página, referrer, user agent
 
 ### Manuales
 - **click_CV**: Cuando se hace clic en "Descargar CV"
@@ -190,19 +187,16 @@ export default {
 
 ```
 ├── .env                              # Configuración de variables
-├── public/
-│   └── analytics.js                  # Script legacy (opcional)
-├── src/
-│   └── composables/
-│       └── useAnalytics.js          # Composable principal de analytics
-└── src/pages/
-    ├── index.vue                     # Página principal con tracking de CV
-    ├── about.vue                     # Auto-tracking de visitas
-    ├── projects.vue                  # Auto-tracking de visitas
-    ├── contact.vue                   # Auto-tracking + form submit
-    └── finanzas/
-        ├── index.vue                 # Auto-tracking de visitas
-        └── filobono.vue              # Auto-tracking de visitas
+└── src/
+    ├── composables/
+    │   └── useAnalytics.js          # Composable de analytics
+    └── pages/
+        ├── index.vue                 # Página principal con tracking de CV
+        ├── about.vue                 # Auto-tracking de visitas
+        ├── projects.vue              # Auto-tracking de visitas
+        └── finanzas/
+            ├── index.vue             # Auto-tracking de visitas
+            └── filobono.vue          # Auto-tracking de visitas
 ```
 
 ## Servidor de Analytics (Ejemplo)
@@ -243,14 +237,16 @@ app.listen(4000, () => {
 El sistema incluye logs en la consola para debugging:
 
 ```javascript
-console.log('Analytics event tracked:', eventName, payload)
+console.log('Analytics tracking failed:', error)
+console.log('Analytics tracking error:', error)
 ```
 
 En caso de errores, se muestran en la consola sin afectar la experiencia del usuario.
 
 ## Privacidad
 
-- No se almacenan cookies
-- Solo se trackean eventos específicos del comportamiento del usuario
-- Se incluye user agent solo para propósitos de analytics básicos
-- Cumple con prácticas básicas de privacidad
+- **Datos mínimos**: Solo se envía el nombre del evento
+- **No se almacenan cookies** de ningún tipo
+- **Sin tracking personal**: No se incluye user agent, timestamp, referrer, etc.
+- **Máxima privacidad**: Solo eventos esenciales de comportamiento
+- **Cumple con GDPR**: Al no recopilar datos personales
