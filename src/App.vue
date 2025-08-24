@@ -98,19 +98,6 @@ export default {
     onMounted(() => {
       window.addEventListener('resize', handleResize)
       handleScroll()
-      
-      // Analytics tracking para enlaces importantes
-      const trackLink = (linkName) => {
-        console.log(`Tracking: ${linkName} clicked`)
-      }
-
-      // Tracking para CV y LinkedIn
-      document.addEventListener('click', (e) => {
-        if (e.target.closest('[data-track]')) {
-          const trackName = e.target.closest('[data-track]').dataset.track
-          trackLink(trackName)
-        }
-      })
     })
 
     // Watch para detectar cambios de ruta y hacer scroll hacia arriba
