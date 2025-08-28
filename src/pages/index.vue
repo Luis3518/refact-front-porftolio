@@ -51,22 +51,6 @@
               Informático con más de 10 años de experiencia brindando 
               soluciones tecnológicas para diversos sectores.
             </p>
-            <router-link to="/about" class="project-link">
-              Conocer más <i class="fas fa-arrow-right"></i>
-            </router-link>
-          </div>
-          
-          <div class="card">
-            <h2>Especialización</h2>
-            <div class="skills-preview">
-              <span class="skill-tag">Desarrollo de Software</span>
-              <span class="skill-tag">Sysadmin</span>
-              <span class="skill-tag">Seguridad Informática</span>
-              <span class="skill-tag">Educación</span>
-            </div>
-            <router-link to="/about" class="project-link">
-              Ver todas las skills <i class="fas fa-arrow-right"></i>
-            </router-link>
           </div>
         </div>
       </div>
@@ -77,12 +61,6 @@
       <div class="container">
         <h2 class="text-center" style="margin-bottom: 3rem;">Proyectos Destacados</h2>
         <ProjectsGrid />
-        
-        <div class="text-center" style="margin-top: 3rem;">
-          <router-link to="/projects" class="btn btn-secondary">
-            Ver todos los proyectos <i class="fas fa-arrow-right"></i>
-          </router-link>
-        </div>
       </div>
     </section>
 
