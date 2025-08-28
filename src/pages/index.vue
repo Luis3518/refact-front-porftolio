@@ -42,7 +42,7 @@
     </section>
 
     <!-- About Preview Section -->
-    <section class="section">
+    <section id="sobre-mi" class="section">
       <div class="container">
         <div class="grid grid-2">
           <div class="card">
