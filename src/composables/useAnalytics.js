@@ -16,10 +16,8 @@ export function useAnalytics() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ event: eventName })
       }).catch(error => {
-        console.log('Analytics tracking failed:', error);
       });
     } catch (error) {
-      console.log('Analytics tracking error:', error);
     }
   }
 
