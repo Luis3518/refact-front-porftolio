@@ -57,7 +57,7 @@
     </section>
 
     <!-- Featured Projects Section -->
-    <section class="section">
+    <section id="proyectos-destacados" class="section">
       <div class="container">
         <h2 class="text-center" style="margin-bottom: 3rem;">Proyectos Destacados</h2>
         <ProjectsGrid />

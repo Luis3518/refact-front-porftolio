@@ -7,7 +7,7 @@
           <ul class="nav-menu" :class="{ active: isMenuOpen }">
             <li><router-link to="/" class="nav-link" @click="handleNavClick('/')">Inicio</router-link></li>
             <li><a href="#sobre-mi" class="nav-link" @click="closeMenu">Sobre mí</a></li>
-            <li><router-link to="/projects" class="nav-link" @click="handleNavClick('/projects')">Proyectos</router-link></li>
+            <li><a href="#proyectos-destacados" class="nav-link" @click="closeMenu">Proyectos</a></li>
             <li><a href="#contacto" class="nav-link" @click="closeMenu">Contacto</a></li>
           </ul>
           
