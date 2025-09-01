@@ -1279,13 +1279,6 @@ p {
   font-size: 0.85rem;
   font-weight: var(--font-weight-medium);
   border: 1px solid var(--color-border-light);
-  transition: all 0.2s ease;
-}
-
-.tech-tag:hover {
-  background: var(--color-accent-primary);
-  color: white;
-  border-color: var(--color-accent-primary);
 }
 
 .project-actions {
