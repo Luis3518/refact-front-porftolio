@@ -8,10 +8,10 @@
             <h1>
               ¡Hola! Soy <span class="highlight">Luis</span>
             </h1>
-            <p class="subtitle">Técnico en computación, profesor de informática, licenciado en sistemas de la información y especialista en seguridad informática</p>
+            <p class="subtitle">Técnico en computación, profesor de informática, licenciado en sistemas de la información y especialista en seguridad informática Me gusta buscar soluciones innovadoras en sistemas de distintas áreas. Con experiencia en educación, desarrollo de software full-stack y automatización de procesos. Informático con más de 10 años de experiencia brindando soluciones tecnológicas para diversos sectores.
+
+</p>
             <p class="description">
-              Me gusta buscar soluciones innovadoras en sistemas de distintas áreas. Con experiencia en educación, desarrollo de software full-stack 
-              y automatización de procesos.
             </p>
             
             <div class="hero-actions">
@@ -36,21 +36,6 @@
                 <i class="fab fa-github"></i>
               </a>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Preview Section -->
-    <section id="sobre-mi" class="section">
-      <div class="container">
-        <div class="grid grid-2">
-          <div class="card">
-            <h2>Sobre mí</h2>
-            <p>
-              Informático con más de 10 años de experiencia brindando 
-              soluciones tecnológicas para diversos sectores.
-            </p>
           </div>
         </div>
       </div>
