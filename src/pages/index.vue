@@ -49,6 +49,14 @@
       </div>
     </section>
 
+    <!-- Education Section -->
+    <section id="estudios" class="section">
+      <div class="container">
+        <h2 class="text-center" style="margin-bottom: 3rem;">Estudios y Certificaciones</h2>
+        <EducationGrid />
+      </div>
+    </section>
+
     <!-- Contact Section -->
     <ContactSection />
 
@@ -59,12 +67,14 @@
 import { useHead } from '@vueuse/head'
 import { useAnalytics } from '../composables/useAnalytics.js'
 import ExperienceGrid from '../components/ExperienceGrid.vue'
+import EducationGrid from '../components/EducationGrid.vue'
 import ContactSection from '../components/ContactSection.vue'
 
 export default {
   name: 'HomePage',
   components: {
     ExperienceGrid,
+    EducationGrid,
     ContactSection
   },
   setup() {
