@@ -15,10 +15,10 @@
             </p>
             
             <div class="hero-actions">
-              <router-link to="/projects" class="btn btn-primary" data-track="view-projects">
-                <i class="fas fa-eye"></i>
-                Ver Proyectos
-              </router-link>
+              <a href="#experiencia" class="btn btn-primary" data-track="view-experience">
+                <i class="fas fa-briefcase"></i>
+                Ver Experiencia
+              </a>
               <a href="/CV Luis Rodriguez.pdf" class="btn btn-secondary" download @click="trackCVClick" data-track="download-cv">
                 <i class="fas fa-download"></i>
                 Descargar CV
@@ -56,11 +56,11 @@
       </div>
     </section>
 
-    <!-- Featured Projects Section -->
-    <section id="proyectos-destacados" class="section">
+    <!-- Experience Section -->
+    <section id="experiencia" class="section">
       <div class="container">
-        <h2 class="text-center" style="margin-bottom: 3rem;">Proyectos Destacados</h2>
-        <ProjectsGrid />
+        <h2 class="text-center" style="margin-bottom: 3rem;">Mi Experiencia</h2>
+        <ExperienceGrid />
       </div>
     </section>
 
@@ -73,13 +73,13 @@
 <script>
 import { useHead } from '@vueuse/head'
 import { useAnalytics } from '../composables/useAnalytics.js'
-import ProjectsGrid from '../components/ProjectsGrid.vue'
+import ExperienceGrid from '../components/ExperienceGrid.vue'
 import ContactSection from '../components/ContactSection.vue'
 
 export default {
   name: 'HomePage',
   components: {
-    ProjectsGrid,
+    ExperienceGrid,
     ContactSection
   },
   setup() {
@@ -90,7 +90,7 @@ export default {
       meta: [
         {
           name: 'description',
-          content: 'Portfolio profesional de Luis Miguel Rodríguez, desarrollador de software especializado en sistemas financieros, gestión portuaria, DevOps y criptomonedas'
+          content: 'Portfolio profesional de Luis Miguel Rodríguez, desarrollador de software con experiencia en educación, sistemas financieros, DevOps y seguridad informática'
         },
         {
           property: 'og:title',
@@ -98,7 +98,7 @@ export default {
         },
         {
           property: 'og:description',
-          content: 'Especialista en desarrollo de software con experiencia en sistemas financieros, DevOps y soluciones innovadoras'
+          content: 'Especialista en desarrollo de software con experiencia en educación, sistemas financieros, DevOps y soluciones innovadoras'
         },
         {
           property: 'og:type',
