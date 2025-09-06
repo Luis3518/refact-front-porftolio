@@ -4,8 +4,9 @@ Portfolio profesional desarrollado con Vue.js y Vite SSG, especializado en desar
 
 ## 🚀 Características
 
-- **Framework:** Vue.js 3 con Composition API
+- **Framework:** Vue.js 3 with Composition API
 - **Build Tool:** Vite con soporte SSG
+- **Visualización:** Gráfico interactivo con D3.js en hero section
 - **Rutas:** Vue Router con lazy loading
 - **Estilos:** CSS moderno con gradientes y tema oscuro
 - **Analytics:** Sistema personalizado de tracking (solo eventos)
@@ -25,7 +26,8 @@ src/
 │       ├── index.vue   # Landing financiera
 │       └── filobono.vue # Gestión de bonos
 ├── composables/        # Composables Vue
-│   └── useAnalytics.js # Sistema de analytics
+│   ├── useAnalytics.js # Sistema de analytics
+│   └── heroImages.js   # Gráfico interactivo D3.js
 ├── components/         # Componentes reutilizables
 │   ├── BaseButton.vue
 │   ├── BaseCard.vue
@@ -102,6 +104,9 @@ export default {
 # Instalar dependencias
 npm install
 
+# Instalar D3.js (si no está incluido)
+npm install d3
+
 # Servidor de desarrollo
 npm run dev
 
@@ -122,6 +127,40 @@ npm run generate
 - `/finanzas/filobono` - Sistema de gestión de bonos con filtros
 
 ## 🎯 Funcionalidades Principales
+
+### Gráfico Interactivo D3.js
+Visualización interactiva en la hero section con las siguientes características:
+
+- **8 nodos conectados** que representan skills y tecnologías
+- **Drag & Drop:** Los usuarios pueden arrastrar y mover cada nodo
+- **Física realista:** Simulación de fuerzas para movimiento natural
+- **Contenido responsivo:** Los nodos se mantienen dentro del área asignada
+- **Efectos visuales:** Hover effects con transiciones suaves
+- **Fallback system:** SVG estático en caso de errores de carga
+- **Performance optimizada:** Carga asíncrona de D3.js desde node_modules
+
+#### Configuración del Gráfico
+```javascript
+// Ubicación: src/composables/heroImages.js
+
+// Personalizar color de nodos
+const nodeColor = '#667eea'; // Cambiar este valor
+
+// Ajustar fuerzas de simulación
+.force('charge', d3.forceManyBody().strength(-300))  // Repulsión
+.force('link', d3.forceLink(linkData).distance(80))  // Distancia enlaces
+.force('collision', d3.forceCollide().radius(25))    // Colisión
+```
+
+#### Integración en Vue
+```javascript
+// Auto-inicialización en mounted
+onMounted(() => {
+  if (window.initHeroImages) {
+    window.initHeroImages()
+  }
+})
+```
 
 ### Filobono
 - Sistema de gestión de bonos financieros
@@ -190,6 +229,7 @@ const data = await response.json()
 - Vue.js 3
 - Vite
 - Vue Router
+- D3.js (gráficos interactivos)
 - @vueuse/head (SEO)
 - vite-ssg (Static Site Generation)
 - CSS3 con Flexbox y Grid

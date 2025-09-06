@@ -3,14 +3,12 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="container">
-        <div class="hero-content-centered">
-          <div class="hero-text-centered">
+        <div class="hero-content">
+          <div class="hero-text">
             <h1>
               ¡Hola! Soy <span class="highlight">Luis</span>
             </h1>
-            <p class="subtitle">Técnico en computación, profesor de informática, licenciado en sistemas de la información y especialista en seguridad informática Me gusta buscar soluciones innovadoras en sistemas de distintas áreas. Con experiencia en educación, desarrollo de software full-stack y automatización de procesos. Informático con más de 10 años de experiencia brindando soluciones tecnológicas para diversos sectores.
-
-</p>
+            <p class="subtitle">Técnico en computación, profesor de informática, licenciado en sistemas de la información y especialista en seguridad informática Me gusta buscar soluciones innovadoras en sistemas de distintas áreas. Con experiencia en educación, desarrollo de software full-stack y automatización de procesos. Informático con más de 10 años de experiencia brindando soluciones tecnológicas para diversos sectores.</p>
             <p class="description">
             </p>
             
@@ -35,6 +33,12 @@
               <a href="https://github.com/Luis3518" class="social-link" title="GitHub" target="_blank" rel="noopener noreferrer" data-track="github">
                 <i class="fab fa-github"></i>
               </a>
+            </div>
+          </div>
+          
+          <div class="hero-visual">
+            <div id="hero-images-container" class="images-container">
+              <!-- Las imágenes se generarán aquí por JavaScript -->
             </div>
           </div>
         </div>
@@ -69,6 +73,8 @@ import { useAnalytics } from '../composables/useAnalytics.js'
 import ExperienceGrid from '../components/ExperienceGrid.vue'
 import EducationGrid from '../components/EducationGrid.vue'
 import ContactSection from '../components/ContactSection.vue'
+import { onMounted } from 'vue'
+import '../composables/heroImages.js'
 
 export default {
   name: 'HomePage',
@@ -79,6 +85,13 @@ export default {
   },
   setup() {
     const { trackCVClick } = useAnalytics()
+
+    onMounted(() => {
+      // Inicializar las imágenes del hero
+      if (window.initHeroImages) {
+        window.initHeroImages()
+      }
+    })
 
     useHead({
       title: 'Luis Miguel Rodríguez - Desarrollador de Software',
@@ -110,6 +123,50 @@ export default {
 </script>
 
 <style scoped>
+/* Hero Layout */
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl, 3rem);
+  align-items: center;
+  min-height: 80vh;
+}
+
+.hero-text {
+  max-width: 100%;
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.images-container {
+  width: 100%;
+  max-width: 400px;
+  height: 400px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.images-container svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Estilos específicos para los nodos del gráfico */
+.node-group {
+  transition: all 0.3s ease;
+}
+
+.node-group:hover {
+  filter: brightness(1.2);
+}
+
 .skills-preview {
   display: flex;
   flex-wrap: wrap;
@@ -131,8 +188,31 @@ export default {
 
 /* Ajustes específicos para mobile */
 @media (max-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg, 2rem);
+    text-align: center;
+  }
+  
+  .hero-visual {
+    order: -1;
+  }
+  
+  .images-container {
+    max-width: 300px;
+    height: 300px;
+    margin: 0 auto;
+  }
+  
   .skills-preview {
     justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .images-container {
+    max-width: 250px;
+    height: 250px;
   }
 }
 </style>
