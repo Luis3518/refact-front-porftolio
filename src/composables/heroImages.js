@@ -36,8 +36,8 @@ function createInteractiveGraph() {
 
   // Dimensiones del contenedor
   const containerRect = container.getBoundingClientRect();
-  const width = containerRect.width || 400;
-  const height = containerRect.height || 400;
+  const width = containerRect.width || 300;
+  const height = containerRect.height || 300;
 
   // Color único para todos los nodos (se puede cambiar fácilmente)
   const nodeColor = '#667eea';
@@ -50,12 +50,12 @@ function createInteractiveGraph() {
     .style('background', 'transparent')
     .style('border-radius', '12px');
 
-  // Crear simulación de fuerzas
+  // Crear simulación de fuerzas (ajustada para contenedor más pequeño)
   const simulation = d3.forceSimulation(nodeData)
-    .force('link', d3.forceLink(linkData).id(d => d.id).distance(80))
-    .force('charge', d3.forceManyBody().strength(-300))
+    .force('link', d3.forceLink(linkData).id(d => d.id).distance(60))
+    .force('charge', d3.forceManyBody().strength(-200))
     .force('center', d3.forceCenter(width / 2, height / 2))
-    .force('collision', d3.forceCollide().radius(25))
+    .force('collision', d3.forceCollide().radius(20))
     .force('x', d3.forceX(width / 2).strength(0.1))
     .force('y', d3.forceY(height / 2).strength(0.1));
 
@@ -81,36 +81,36 @@ function createInteractiveGraph() {
       .on('drag', dragged)
       .on('end', dragended));
 
-  // Agregar círculos a los nodos (sin etiquetas)
+  // Agregar círculos a los nodos (tamaño reducido)
   nodeGroups.append('circle')
-    .attr('r', 20)
+    .attr('r', 15)
     .attr('fill', nodeColor)
     .attr('stroke', 'white')
     .attr('stroke-width', 2)
     .style('filter', 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))');
 
-  // Agregar efectos de hover
+  // Agregar efectos de hover (tamaño reducido)
   nodeGroups
     .on('mouseenter', function(event, d) {
       d3.select(this).select('circle')
         .transition()
         .duration(200)
-        .attr('r', 25)
+        .attr('r', 18)
         .attr('stroke-width', 3);
     })
     .on('mouseleave', function(event, d) {
       d3.select(this).select('circle')
         .transition()
         .duration(200)
-        .attr('r', 20)
+        .attr('r', 15)
         .attr('stroke-width', 2);
     });
 
   // Actualizar posiciones en cada tick de la simulación
   simulation.on('tick', () => {
-    // Mantener nodos dentro de los límites del contenedor
+    // Mantener nodos dentro de los límites del contenedor (radio reducido)
     nodeData.forEach(d => {
-      const nodeRadius = 25; // Radio máximo del nodo (considerando hover)
+      const nodeRadius = 20; // Radio máximo del nodo (considerando hover)
       d.x = Math.max(nodeRadius, Math.min(width - nodeRadius, d.x));
       d.y = Math.max(nodeRadius, Math.min(height - nodeRadius, d.y));
     });
@@ -133,7 +133,7 @@ function createInteractiveGraph() {
   }
 
   function dragged(event, d) {
-    const nodeRadius = 25; // Radio máximo del nodo
+    const nodeRadius = 20; // Radio máximo del nodo (reducido)
     // Limitar la posición del nodo dentro del contenedor
     d.fx = Math.max(nodeRadius, Math.min(width - nodeRadius, event.x));
     d.fy = Math.max(nodeRadius, Math.min(height - nodeRadius, event.y));
@@ -153,23 +153,23 @@ function createFallbackSVG() {
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   svg.setAttribute('width', '100%');
   svg.setAttribute('height', '100%');
-  svg.setAttribute('viewBox', '0 0 400 400');
+  svg.setAttribute('viewBox', '0 0 300 300');
   svg.style.background = 'transparent';
   svg.style.borderRadius = '12px';
 
   // Color único para todos los círculos
   const nodeColor = '#667eea';
 
-  // Crear círculos estáticos simples
+  // Crear círculos estáticos simples (posiciones ajustadas para contenedor más pequeño)
   const circles = [
-    { cx: 150, cy: 120, r: 20 },
-    { cx: 250, cy: 120, r: 20 },
-    { cx: 320, cy: 200, r: 20 },
-    { cx: 250, cy: 280, r: 20 },
-    { cx: 150, cy: 280, r: 20 },
-    { cx: 80, cy: 200, r: 20 },
-    { cx: 200, cy: 160, r: 20 },
-    { cx: 200, cy: 240, r: 20 }
+    { cx: 110, cy: 90, r: 15 },
+    { cx: 190, cy: 90, r: 15 },
+    { cx: 240, cy: 150, r: 15 },
+    { cx: 190, cy: 210, r: 15 },
+    { cx: 110, cy: 210, r: 15 },
+    { cx: 60, cy: 150, r: 15 },
+    { cx: 150, cy: 120, r: 15 },
+    { cx: 150, cy: 180, r: 15 }
   ];
 
   circles.forEach((circleData, index) => {

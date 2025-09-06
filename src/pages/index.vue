@@ -6,7 +6,7 @@
         <div class="hero-content">
           <div class="hero-text">
             <h1>
-              ¡Hola! Soy <span class="highlight">Luis</span>
+              Luis Rodriguez<br />
             </h1>
             <p class="subtitle">Técnico en computación, profesor de informática, licenciado en sistemas de la información y especialista en seguridad informática Me gusta buscar soluciones innovadoras en sistemas de distintas áreas. Con experiencia en educación, desarrollo de software full-stack y automatización de procesos. Informático con más de 10 años de experiencia brindando soluciones tecnológicas para diversos sectores.</p>
             <p class="description">
@@ -126,7 +126,7 @@ export default {
 /* Hero Layout */
 .hero-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   gap: var(--spacing-xl, 3rem);
   align-items: center;
   min-height: 80vh;
@@ -134,6 +134,29 @@ export default {
 
 .hero-text {
   max-width: 100%;
+}
+
+.hero-text h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: var(--spacing-md, 1.5rem);
+}
+
+.hero-text .subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-lg, 2rem);
+  color: var(--color-text-primary, #ffffff);
+  max-width: 90%;
+}
+
+.hero-text .hero-actions {
+  margin: var(--spacing-xl, 3rem) 0;
+}
+
+.hero-text .hero-socials {
+  margin-top: var(--spacing-lg, 2rem);
 }
 
 .hero-visual {
@@ -145,8 +168,8 @@ export default {
 
 .images-container {
   width: 100%;
-  max-width: 400px;
-  height: 400px;
+  max-width: 300px;
+  height: 300px;
   position: relative;
   border-radius: 12px;
   overflow: hidden;
@@ -198,9 +221,18 @@ export default {
     order: -1;
   }
   
+  .hero-text h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  
+  .hero-text .subtitle {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    max-width: 100%;
+  }
+  
   .images-container {
-    max-width: 300px;
-    height: 300px;
+    max-width: 250px;
+    height: 250px;
     margin: 0 auto;
   }
   
@@ -210,9 +242,17 @@ export default {
 }
 
 @media (max-width: 480px) {
+  .hero-content {
+    gap: var(--spacing-md, 1.5rem);
+  }
+  
+  .hero-text h1 {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+  }
+  
   .images-container {
-    max-width: 250px;
-    height: 250px;
+    max-width: 200px;
+    height: 200px;
   }
 }
 </style>
