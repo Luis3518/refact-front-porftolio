@@ -1,127 +1,82 @@
 <template>
   <div class="education-grid">
-    <!-- 1. Educación Formal -->
+    <!-- 1. Licenciatura en Sistemas de la Información -->
     <div class="education-card">
       <div class="education-header">
         <div class="education-icon">
           <i class="fas fa-graduation-cap"></i>
         </div>
         <div class="education-meta">
-          <h3>Licenciatura en Sistemas de Información</h3>
+          <h3>Licenciatura en Sistemas de la Información</h3>
           <span class="education-status">Completado</span>
         </div>
       </div>
       
       <p class="education-description">
-        Formación universitaria integral en desarrollo de software, análisis de sistemas, 
-        gestión de bases de datos y arquitectura de aplicaciones. Enfoque en metodologías 
-        de desarrollo y gestión de proyectos tecnológicos.
+        Formación universitaria en UP (Universidad de Palermo) enfocada en ingeniería de software, ciberseguridad, análisis de datos e inteligencia artificial. 
+        Destacado con 2do puesto en Competencia de Ciberseguridad (CTF) y proyecto de 
+        investigación en IA para detección de ataques.
       </p>
       
       <div class="education-skills">
         <div class="skill-item">
-          <i class="fas fa-laptop-code"></i>
-          <span>Programación</span>
+          <i class="fab fa-js-square"></i>
+          <span>JavaScript</span>
         </div>
         <div class="skill-item">
-          <i class="fas fa-database"></i>
-          <span>Bases de Datos</span>
+          <i class="fab fa-python"></i>
+          <span>Python</span>
         </div>
         <div class="skill-item">
-          <i class="fas fa-project-diagram"></i>
-          <span>Análisis de Sistemas</span>
+          <i class="fas fa-shield-alt"></i>
+          <span>Ciberseguridad</span>
         </div>
         <div class="skill-item">
-          <i class="fas fa-tasks"></i>
-          <span>Gestión de Proyectos</span>
+          <i class="fas fa-chart-bar"></i>
+          <span>Análisis de Datos</span>
         </div>
       </div>
       
       <div class="education-tech">
-        <span class="tech-tag">Ingeniería de Software</span>
-        <span class="tech-tag">UML</span>
+        <span class="tech-tag">JavaScript</span>
+        <span class="tech-tag">Python</span>
         <span class="tech-tag">SQL</span>
+        <span class="tech-tag">UML</span>
         <span class="tech-tag">Metodologías Ágiles</span>
-        <span class="tech-tag">Arquitectura</span>
+        <span class="tech-tag">Machine Learning</span>
       </div>
     </div>
 
-    <!-- 2. Técnico en Computación -->
-    <div class="education-card">
-      <div class="education-header">
-        <div class="education-icon">
-          <i class="fas fa-laptop"></i>
-        </div>
-        <div class="education-meta">
-          <h3>Técnico en Computación</h3>
-          <span class="education-status">Completado</span>
-        </div>
-      </div>
-      
-      <p class="education-description">
-        Formación técnica en mantenimiento de hardware, configuración de redes, 
-        sistemas operativos y soporte técnico. Base sólida en infraestructura 
-        tecnológica y resolución de problemas.
-      </p>
-      
-      <div class="education-skills">
-        <div class="skill-item">
-          <i class="fas fa-tools"></i>
-          <span>Hardware</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-network-wired"></i>
-          <span>Redes</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-desktop"></i>
-          <span>Sistemas Operativos</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-life-ring"></i>
-          <span>Soporte Técnico</span>
-        </div>
-      </div>
-      
-      <div class="education-tech">
-        <span class="tech-tag">Windows Server</span>
-        <span class="tech-tag">Linux</span>
-        <span class="tech-tag">TCP/IP</span>
-        <span class="tech-tag">Active Directory</span>
-        <span class="tech-tag">Troubleshooting</span>
-      </div>
-    </div>
-
-    <!-- 3. Especialización en Seguridad Informática -->
+    <!-- 2. Diplomatura en Seguridad de la Información -->
     <div class="education-card">
       <div class="education-header">
         <div class="education-icon">
           <i class="fas fa-shield-alt"></i>
         </div>
         <div class="education-meta">
-          <h3>Especialización en Seguridad Informática</h3>
+          <h3>Diplomatura en Seguridad de la información</h3>
           <span class="education-status">Completado</span>
         </div>
       </div>
       
       <p class="education-description">
-        Especialización avanzada en ciberseguridad, análisis de vulnerabilidades, 
-        implementación de protocolos de seguridad y gestión de riesgos informáticos. 
-        Enfoque en protección de activos digitales.
+        Especialización en UTN (Universidad Tecnológica Nacional) abarcando estándares 
+        ISO 27000, PCI-DSS, NIST CSF, técnicas de hacking ético, pentesting y 
+        gestión integral de riesgos de seguridad informática.
       </p>
       
       <div class="education-skills">
         <div class="skill-item">
-          <i class="fas fa-bug"></i>
-          <span>Análisis de Vulnerabilidades</span>
-        </div>
-        <div class="skill-item">
           <i class="fas fa-lock"></i>
-          <span>Criptografía</span>
+          <span>ISO 27001</span>
         </div>
         <div class="skill-item">
-          <i class="fas fa-eye"></i>
-          <span>Monitoreo</span>
+          <i class="fas fa-bug"></i>
+          <span>Pentesting</span>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-clipboard-list"></i>
+          <span>NIST CSF</span>
         </div>
         <div class="skill-item">
           <i class="fas fa-exclamation-triangle"></i>
@@ -130,151 +85,199 @@
       </div>
       
       <div class="education-tech">
-        <span class="tech-tag">OWASP</span>
-        <span class="tech-tag">Pentesting</span>
         <span class="tech-tag">ISO 27001</span>
+        <span class="tech-tag">Pentesting</span>
+        <span class="tech-tag">NIST</span>
+        <span class="tech-tag">Risk Management</span>
         <span class="tech-tag">Ethical Hacking</span>
-        <span class="tech-tag">Forensics</span>
       </div>
     </div>
 
-    <!-- 4. Certificaciones en Cloud Computing -->
+    <!-- 3. AZURE AZ-900 -->
     <div class="education-card">
       <div class="education-header">
         <div class="education-icon">
           <i class="fas fa-cloud"></i>
         </div>
         <div class="education-meta">
-          <h3>Certificaciones en Cloud Computing</h3>
-          <span class="education-status">En progreso</span>
-        </div>
-      </div>
-      
-      <p class="education-description">
-        Certificaciones profesionales en plataformas cloud, arquitectura serverless, 
-        containerización y DevOps. Enfoque en AWS, Docker y orquestación de contenedores 
-        para aplicaciones escalables.
-      </p>
-      
-      <div class="education-skills">
-        <div class="skill-item">
-          <i class="fab fa-aws"></i>
-          <span>AWS Services</span>
-        </div>
-        <div class="skill-item">
-          <i class="fab fa-docker"></i>
-          <span>Containerización</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-server"></i>
-          <span>Serverless</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-infinity"></i>
-          <span>CI/CD</span>
-        </div>
-      </div>
-      
-      <div class="education-tech">
-        <span class="tech-tag">AWS</span>
-        <span class="tech-tag">Docker</span>
-        <span class="tech-tag">Kubernetes</span>
-        <span class="tech-tag">Terraform</span>
-        <span class="tech-tag">Jenkins</span>
-      </div>
-    </div>
-
-    <!-- 5. Cursos de Desarrollo Full-Stack -->
-    <div class="education-card">
-      <div class="education-header">
-        <div class="education-icon">
-          <i class="fas fa-code"></i>
-        </div>
-        <div class="education-meta">
-          <h3>Cursos de Desarrollo Full-Stack</h3>
+          <h3>Microsoft AZURE AZ-900</h3>
           <span class="education-status">Completado</span>
         </div>
       </div>
       
       <p class="education-description">
-        Formación continua en tecnologías web modernas, frameworks JavaScript, 
-        desarrollo de APIs RESTful y bases de datos NoSQL. Actualización constante 
-        en herramientas y metodologías de desarrollo.
+        Certificación oficial de Microsoft que valida conocimientos fundamentales en 
+        cloud computing, servicios Azure, seguridad en la nube, modelos de servicio 
+        IaaS, PaaS, SaaS y arquitecturas cloud.
       </p>
       
       <div class="education-skills">
         <div class="skill-item">
-          <i class="fab fa-js-square"></i>
-          <span>JavaScript Avanzado</span>
-        </div>
-        <div class="skill-item">
-          <i class="fab fa-vuejs"></i>
-          <span>Vue.js / React</span>
+          <i class="fab fa-microsoft"></i>
+          <span>Azure Services</span>
         </div>
         <div class="skill-item">
           <i class="fas fa-server"></i>
-          <span>APIs RESTful</span>
+          <span>Cloud Computing</span>
         </div>
         <div class="skill-item">
-          <i class="fas fa-database"></i>
-          <span>NoSQL</span>
+          <i class="fas fa-lock"></i>
+          <span>Seguridad Cloud</span>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-cogs"></i>
+          <span>IaaS/PaaS/SaaS</span>
         </div>
       </div>
       
       <div class="education-tech">
-        <span class="tech-tag">Vue.js</span>
-        <span class="tech-tag">React</span>
-        <span class="tech-tag">Node.js</span>
-        <span class="tech-tag">MongoDB</span>
-        <span class="tech-tag">Express</span>
+        <span class="tech-tag">Cloud Computing</span>
+        <span class="tech-tag">Azure Services</span>
+        <span class="tech-tag">IaaS</span>
+        <span class="tech-tag">PaaS</span>
+        <span class="tech-tag">SaaS</span>
       </div>
     </div>
 
-    <!-- 6. Formación en Educación -->
+    <!-- 4. Profesor de Informática -->
     <div class="education-card">
       <div class="education-header">
         <div class="education-icon">
           <i class="fas fa-chalkboard-teacher"></i>
         </div>
         <div class="education-meta">
-          <h3>Formación Pedagógica en Informática</h3>
+          <h3>Profesor de Informática</h3>
           <span class="education-status">Completado</span>
         </div>
       </div>
       
       <p class="education-description">
-        Capacitación especializada en metodologías de enseñanza para informática, 
-        diseño curricular, evaluación educativa y uso de tecnologías en el aula. 
-        Enfoque en educación técnica y superior.
+        Formación pedagógica en Consudec centrada en desarrollo fullstack con PHP, 
+        jQuery y MySQL, complementada con metodologías educativas modernas y 
+        técnicas didácticas especializadas para la enseñanza de tecnología.
       </p>
       
       <div class="education-skills">
         <div class="skill-item">
+          <i class="fab fa-php"></i>
+          <span>PHP</span>
+        </div>
+        <div class="skill-item">
+          <i class="fab fa-js"></i>
+          <span>jQuery</span>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-database"></i>
+          <span>MySQL</span>
+        </div>
+        <div class="skill-item">
           <i class="fas fa-users"></i>
-          <span>Metodologías</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-clipboard-list"></i>
-          <span>Evaluación</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-book"></i>
-          <span>Diseño Curricular</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-presentation"></i>
-          <span>Didáctica</span>
+          <span>Pedagogía</span>
         </div>
       </div>
       
       <div class="education-tech">
+        <span class="tech-tag">PHP</span>
+        <span class="tech-tag">jQuery</span>
+        <span class="tech-tag">MySQL</span>
         <span class="tech-tag">Pedagogía</span>
-        <span class="tech-tag">E-learning</span>
-        <span class="tech-tag">Moodle</span>
-        <span class="tech-tag">Evaluación</span>
         <span class="tech-tag">Didáctica</span>
       </div>
     </div>
+
+    <!-- 5. CCNA CISCO -->
+    <div class="education-card">
+      <div class="education-header">
+        <div class="education-icon">
+          <i class="fas fa-network-wired"></i>
+        </div>
+        <div class="education-meta">
+          <h3>CCNA CISCO</h3>
+          <span class="education-status">Completado</span>
+        </div>
+      </div>
+      
+      <p class="education-description">
+        Certificación técnica en Fundación Proydesa sobre configuración profesional 
+        de redes, implementación de VLAN, routing avanzado, firewalls, 
+        troubleshooting y buenas prácticas en seguridad de redes corporativas.
+      </p>
+      
+      <div class="education-skills">
+        <div class="skill-item">
+          <i class="fas fa-sitemap"></i>
+          <span>TCP/IP</span>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-project-diagram"></i>
+          <span>VLAN</span>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-route"></i>
+          <span>Routing</span>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-shield-alt"></i>
+          <span>Network Security</span>
+        </div>
+      </div>
+      
+      <div class="education-tech">
+        <span class="tech-tag">TCP/IP</span>
+        <span class="tech-tag">VLAN</span>
+        <span class="tech-tag">Routing</span>
+        <span class="tech-tag">Switching</span>
+        <span class="tech-tag">Network Security</span>
+      </div>
+    </div>
+
+    <!-- 6. Técnico en computación -->
+    <div class="education-card">
+      <div class="education-header">
+        <div class="education-icon">
+          <i class="fas fa-laptop"></i>
+        </div>
+        <div class="education-meta">
+          <h3>Técnico en computación (ET35 Eduardo Latzina)</h3>
+          <span class="education-status">Completado</span>
+        </div>
+      </div>
+      
+      <p class="education-description">
+        Formación técnica de 6 años capacitando para proyectar, producir y mantener 
+        aplicaciones y sistemas informáticos, gestionar redes, bases de datos, y 
+        brindar asistencia técnica especializada bajo normativas de seguridad vigentes.
+      </p>
+      
+      <div class="education-skills">
+        <div class="skill-item">
+          <i class="fas fa-code"></i>
+          <span>Algoritmos</span>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-database"></i>
+          <span>Base de Datos</span>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-network-wired"></i>
+          <span>Redes</span>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-project-diagram"></i>
+          <span>Análisis de Sistemas</span>
+        </div>
+      </div>
+      
+      <div class="education-tech">
+        <span class="tech-tag">Programación</span>
+        <span class="tech-tag">Bases de Datos</span>
+        <span class="tech-tag">Redes</span>
+        <span class="tech-tag">Sistemas Operativos</span>
+        <span class="tech-tag">Desarrollo de Software</span>
+      </div>
+    </div>
+
+
   </div>
 </template>
 
