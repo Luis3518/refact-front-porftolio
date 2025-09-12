@@ -100,7 +100,6 @@
         </div>
         <div class="experience-meta">
           <h3>Análisis de Datos y sistemas financieros</h3>
-          <span class="experience-years">+5 años</span>
         </div>
       </div>
       
@@ -147,7 +146,6 @@
         </div>
         <div class="experience-meta">
           <h3>DevOps y Infraestructura</h3>
-          <span class="experience-years">+8 años</span>
         </div>
       </div>
       
@@ -192,7 +190,6 @@
         </div>
         <div class="experience-meta">
           <h3>Seguridad Informática</h3>
-          <span class="experience-years">+4 años</span>
         </div>
       </div>
       
@@ -232,7 +229,6 @@
         </div>
         <div class="experience-meta">
           <h3>Gestión de Proyectos</h3>
-          <span class="experience-years">+7 años</span>
         </div>
       </div>
       
