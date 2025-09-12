@@ -8,14 +8,14 @@
         </div>
         <div class="experience-meta">
           <h3>Desarrollo de Software Full-Stack</h3>
-          <span class="experience-years">+8 años</span>
+          <span class="experience-years">+5 años</span>
         </div>
       </div>
       
       <p class="experience-description">
         Experiencia integral en desarrollo web y aplicaciones empresariales. 
         Especializado en arquitecturas modernas, APIs RESTful, bases de datos 
-        y interfaces de usuario responsivas.
+        e interoperabilidad de sistemas gubernamentales.
       </p>
       
       <div class="experience-skills">
@@ -29,7 +29,7 @@
         </div>
         <div class="skill-item">
           <i class="fas fa-database"></i>
-          <span>MySQL / PostgreSQL</span>
+          <span>MySQL</span>
         </div>
         <div class="skill-item">
           <i class="fab fa-git-alt"></i>
@@ -42,7 +42,7 @@
         <span class="tech-tag">PHP</span>
         <span class="tech-tag">Python</span>
         <span class="tech-tag">Docker</span>
-        <span class="tech-tag">AWS</span>
+        <span class="tech-tag">Azure</span>
       </div>
     </div>
 
@@ -59,7 +59,7 @@
       </div>
       
       <p class="experience-description">
-        Profesor de informática con amplia experiencia en educación técnica. 
+        Profesor de informática en educación técnica. 
         Formación de nuevos profesionales en programación, bases de datos, 
         redes y seguridad informática.
       </p>
@@ -75,7 +75,7 @@
         </div>
         <div class="skill-item">
           <i class="fas fa-network-wired"></i>
-          <span>Redes y Sistemas</span>
+          <span>Redes</span>
         </div>
         <div class="skill-item">
           <i class="fas fa-shield-alt"></i>
@@ -99,8 +99,8 @@
           <i class="fas fa-chart-line"></i>
         </div>
         <div class="experience-meta">
-          <h3>Sistemas Financieros y Análisis de Datos</h3>
-          <span class="experience-years">+5 años</span>
+          <h3>Análisis de Datos y sistemas financieros</h3>
+          <span class="experience-years">+2 años</span>
         </div>
       </div>
       
