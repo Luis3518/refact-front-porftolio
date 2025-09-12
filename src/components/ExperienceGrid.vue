@@ -100,41 +100,42 @@
         </div>
         <div class="experience-meta">
           <h3>Análisis de Datos y sistemas financieros</h3>
-          <span class="experience-years">+2 años</span>
+          <span class="experience-years">+5 años</span>
         </div>
       </div>
       
       <p class="experience-description">
-        Desarrollo de soluciones financieras especializadas en bonos, trading 
-        automatizado y análisis de mercados. Experiencia en ingeniería de datos 
-        y sistemas de riesgo financiero.
+        Experiencia en análisis, visualización y gestión de datos enfocados en finanzas e inversiones. 
+        Desarrollo de dashboards con Looker Studio, Google Analytics y Power BI. 
+        Automatización mediante scripts para seguimiento financiero. 
+        Procesos ETL, modelado de datos y clustering para identificar patrones y optimizar decisiones.
       </p>
       
       <div class="experience-skills">
         <div class="skill-item">
           <i class="fas fa-chart-bar"></i>
-          <span>Análisis Financiero</span>
+          <span>Integración de datos</span>
         </div>
         <div class="skill-item">
           <i class="fas fa-robot"></i>
-          <span>Trading Algorítmico</span>
+          <span>ETL</span>
         </div>
         <div class="skill-item">
           <i class="fas fa-calculator"></i>
-          <span>Modelado de Riesgo</span>
+          <span>Visualización y Reporting</span>
         </div>
         <div class="skill-item">
           <i class="fas fa-coins"></i>
-          <span>Análisis de Bonos</span>
+          <span>Análisis financiero</span>
         </div>
       </div>
       
       <div class="experience-tech">
         <span class="tech-tag">Python</span>
-        <span class="tech-tag">Pandas</span>
-        <span class="tech-tag">APIs Financieras</span>
-        <span class="tech-tag">Machine Learning</span>
-        <span class="tech-tag">Visualización</span>
+        <span class="tech-tag">Looker Studio</span>
+        <span class="tech-tag">Google Analytics</span>
+        <span class="tech-tag">Excel</span>
+        <span class="tech-tag">JavaScript</span>
       </div>
     </div>
 
@@ -146,13 +147,13 @@
         </div>
         <div class="experience-meta">
           <h3>DevOps y Infraestructura</h3>
-          <span class="experience-years">+6 años</span>
+          <span class="experience-years">+8 años</span>
         </div>
       </div>
       
       <p class="experience-description">
         Administración de servidores, automatización de despliegues y 
-        gestión de infraestructura cloud. Implementación de pipelines 
+        gestión de infraestructura selfhosted. Implementación de pipelines 
         CI/CD y monitoreo de aplicaciones en producción.
       </p>
       
@@ -163,7 +164,7 @@
         </div>
         <div class="skill-item">
           <i class="fas fa-cloud"></i>
-          <span>Cloud Computing</span>
+          <span>Sysadmin</span>
         </div>
         <div class="skill-item">
           <i class="fas fa-cogs"></i>
@@ -177,9 +178,8 @@
       
       <div class="experience-tech">
         <span class="tech-tag">Docker</span>
-        <span class="tech-tag">AWS</span>
+        <span class="tech-tag">Azure</span>
         <span class="tech-tag">Linux</span>
-        <span class="tech-tag">Jenkins</span>
         <span class="tech-tag">Nginx</span>
       </div>
     </div>
@@ -197,8 +197,8 @@
       </div>
       
       <p class="experience-description">
-        Especialización en seguridad de sistemas y aplicaciones. Implementación 
-        de protocolos de seguridad, auditorías de código, pentesting básico 
+        Especialización en seguridad de la información. Implementación 
+        de protocolos de seguridad, auditorías de código, pentesting  
         y gestión de vulnerabilidades.
       </p>
       
@@ -215,16 +215,10 @@
           <i class="fas fa-key"></i>
           <span>Autenticación</span>
         </div>
-        <div class="skill-item">
-          <i class="fas fa-eye"></i>
-          <span>Monitoreo</span>
-        </div>
       </div>
       
       <div class="experience-tech">
         <span class="tech-tag">OWASP</span>
-        <span class="tech-tag">SSL/TLS</span>
-        <span class="tech-tag">OAuth</span>
         <span class="tech-tag">Firewalls</span>
         <span class="tech-tag">Backup</span>
       </div>
