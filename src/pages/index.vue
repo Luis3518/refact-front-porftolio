@@ -8,14 +8,14 @@
             <h1>
               Luis Rodriguez<br />
             </h1>
-            <p class="subtitle">Técnico en computación, profesor de informática, licenciado en sistemas de la información y especialista en seguridad informática Me gusta buscar soluciones innovadoras en sistemas de distintas áreas. Con experiencia en educación, desarrollo de software full-stack y automatización de procesos. Informático con más de 10 años de experiencia brindando soluciones tecnológicas para diversos sectores.</p>
+            <p class="subtitle">Desarrollador Full-Stack y especialista en seguridad informática con más de 10 años de experiencia creando soluciones tecnológicas innovadoras para diversos sectores.</p>
             <p class="description">
             </p>
             
             <div class="hero-actions">
-              <a href="#experiencia" class="btn btn-primary" data-track="view-experience">
-                <i class="fas fa-briefcase"></i>
-                Ver Experiencia
+              <a href="#sobre-mi" class="btn btn-primary" data-track="view-about">
+                <i class="fas fa-user"></i>
+                Conocer más
               </a>
               <a href="/CV Luis Rodriguez.pdf" class="btn btn-secondary" download @click="trackCVClick" data-track="download-cv">
                 <i class="fas fa-download"></i>
@@ -45,6 +45,14 @@
       </div>
     </section>
 
+    <!-- About Section -->
+    <section id="sobre-mi" class="section">
+      <div class="container">
+        <h2 class="text-center" style="margin-bottom: 3rem;">Sobre mí</h2>
+        <AboutGrid />
+      </div>
+    </section>
+
     <!-- Experience Section -->
     <section id="experiencia" class="section">
       <div class="container">
@@ -70,6 +78,7 @@
 <script>
 import { useHead } from '@vueuse/head'
 import { useAnalytics } from '../composables/useAnalytics.js'
+import AboutGrid from '../components/AboutGrid.vue'
 import ExperienceGrid from '../components/ExperienceGrid.vue'
 import EducationGrid from '../components/EducationGrid.vue'
 import ContactSection from '../components/ContactSection.vue'
@@ -79,6 +88,7 @@ import '../composables/heroImages.js'
 export default {
   name: 'HomePage',
   components: {
+    AboutGrid,
     ExperienceGrid,
     EducationGrid,
     ContactSection
