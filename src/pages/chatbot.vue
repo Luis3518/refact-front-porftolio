@@ -6,9 +6,9 @@
         <div class="card text-center">
           <h1>
             <i class="fas fa-robot"></i>
-            Asistente Virtual
+            Bot
           </h1>
-          <p class="subtitle">¡Hola! Soy tu asistente virtual. Pregúntame lo que necesites.</p>
+          <p class="subtitle">Hola! Soy un bot creado por Luis Rodriguez. Pregúntame lo que necesites.</p>
         </div>
       </div>
     </section>
@@ -25,12 +25,13 @@
                 <i class="fas fa-robot"></i>
               </div>
               <div class="message-content">
-                <p>¡Bienvenido! Soy tu asistente virtual. Puedes preguntarme sobre:</p>
+                <p>Hola, soy un chatbot creado por Luis, estoy usando el modelo gemma2-2b-it via groq alojado como worker en cloudflare pages. Puedes preguntarme sobre:</p>
                 <ul>
                   <li>Información sobre Luis Rodriguez</li>
                   <li>Sus proyectos y experiencia</li>
                   <li>Habilidades técnicas</li>
                   <li>Información de contacto</li>
+                  <li>Formas de contactarte directamente con Luis</li>
                 </ul>
               </div>
             </div>
@@ -209,7 +210,7 @@ export default {
 <style scoped>
 .chatbot-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient-background);
 }
 
 .chatbot-header {
@@ -242,9 +243,11 @@ export default {
   max-width: 800px;
   margin: 0 auto;
   height: 70vh;
-  background: white;
+  background: linear-gradient(135deg, rgba(22, 22, 22, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -254,7 +257,7 @@ export default {
   flex: 1;
   padding: var(--spacing-lg);
   overflow-y: auto;
-  background: #f8f9fa;
+  background: transparent;
 }
 
 .welcome-message {
@@ -262,9 +265,11 @@ export default {
   gap: var(--spacing-md);
   margin-bottom: var(--spacing-lg);
   padding: var(--spacing-lg);
-  background: white;
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(34, 34, 34, 0.8) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 15px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  color: var(--color-text-primary);
 }
 
 .message {
@@ -279,46 +284,53 @@ export default {
 }
 
 .user-message .message-content {
-  background: var(--color-primary, #007bff);
+  background: linear-gradient(135deg, var(--color-accent-primary) 0%, var(--color-accent-secondary) 100%);
   color: white;
   border-radius: 18px 18px 5px 18px;
+  box-shadow: 0 4px 16px rgba(0, 212, 255, 0.3);
 }
 
 .bot-message .message-content {
-  background: white;
-  color: var(--color-text);
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(34, 34, 34, 0.9) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-text-primary);
   border-radius: 18px 18px 18px 5px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 .message-avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--color-primary, #007bff);
+  background: linear-gradient(135deg, var(--color-accent-primary) 0%, var(--color-accent-secondary) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   font-size: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 212, 255, 0.3);
 }
 
 .user-message .message-avatar {
-  background: var(--color-secondary, #6c757d);
+  background: linear-gradient(135deg, var(--color-accent-tertiary) 0%, var(--color-accent-primary) 100%);
+  box-shadow: 0 4px 16px rgba(34, 197, 94, 0.3);
 }
 
 .bot-avatar {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: var(--color-primary, #007bff);
+  background: linear-gradient(135deg, var(--color-accent-primary) 0%, var(--color-accent-secondary) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   font-size: 1.2rem;
+  box-shadow: 0 4px 16px rgba(0, 212, 255, 0.3);
 }
 
 .message-content {
@@ -368,8 +380,8 @@ export default {
 
 .input-area {
   padding: var(--spacing-lg);
-  background: white;
-  border-top: 1px solid #e9ecef;
+  background: linear-gradient(135deg, rgba(22, 22, 22, 0.9) 0%, rgba(26, 26, 26, 0.9) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .chat-form {
@@ -385,15 +397,22 @@ export default {
 .chat-input {
   flex: 1;
   padding: var(--spacing-md) var(--spacing-lg);
-  border: 2px solid #e9ecef;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 25px;
   font-size: 1rem;
+  background: rgba(26, 26, 26, 0.8);
+  color: var(--color-text-primary);
   outline: none;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .chat-input:focus {
-  border-color: var(--color-primary, #007bff);
+  border-color: var(--color-accent-primary);
+  box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2);
+}
+
+.chat-input::placeholder {
+  color: var(--color-text-muted);
 }
 
 .chat-input:disabled {
@@ -405,20 +424,21 @@ export default {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: var(--color-primary, #007bff);
+  background: linear-gradient(135deg, var(--color-accent-primary) 0%, var(--color-accent-secondary) 100%);
   color: white;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 1.1rem;
+  box-shadow: 0 4px 16px rgba(0, 212, 255, 0.3);
 }
 
 .send-button:hover:not(:disabled) {
-  background: var(--color-primary-dark, #0056b3);
   transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
 }
 
 .send-button:disabled {
@@ -435,8 +455,8 @@ export default {
 
 .quick-action-btn {
   padding: var(--spacing-sm) var(--spacing-md);
-  background: #f8f9fa;
-  border: 1px solid #e9ecef;
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(34, 34, 34, 0.8) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
   font-size: 0.9rem;
   color: var(--color-text-secondary);
@@ -445,9 +465,11 @@ export default {
 }
 
 .quick-action-btn:hover {
-  background: var(--color-primary, #007bff);
+  background: linear-gradient(135deg, var(--color-accent-primary) 0%, var(--color-accent-secondary) 100%);
   color: white;
-  border-color: var(--color-primary, #007bff);
+  border-color: var(--color-accent-primary);
+  box-shadow: 0 4px 16px rgba(0, 212, 255, 0.3);
+  transform: translateY(-2px);
 }
 
 @keyframes fadeInUp {
