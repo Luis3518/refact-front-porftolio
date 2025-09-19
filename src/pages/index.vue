@@ -24,14 +24,14 @@
             </div>
             
             <div class="hero-socials">
-              <a href="mailto:luis.m.rodriguez@outlook.com" class="social-link" title="Email" data-track="email">
-                <i class="fas fa-envelope"></i>
-              </a>
               <a href="https://www.linkedin.com/in/luis-rodriguez3518/" class="social-link" title="LinkedIn" target="_blank" rel="noopener noreferrer" data-track="linkedin">
                 <i class="fab fa-linkedin-in"></i>
               </a>
-              <a href="https://github.com/Luis3518" class="social-link" title="GitHub" target="_blank" rel="noopener noreferrer" data-track="github">
-                <i class="fab fa-github"></i>
+              <router-link to="/chatbot" class="social-link" title="Asistente Virtual" data-track="chatbot">
+                <i class="fas fa-robot"></i>
+              </router-link>
+              <a href="mailto:luis.m.rodriguez@outlook.com" class="social-link" title="Email" data-track="email">
+                <i class="fas fa-envelope"></i>
               </a>
             </div>
           </div>

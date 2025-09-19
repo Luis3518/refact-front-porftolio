@@ -5,21 +5,18 @@
         <h2>Contacto</h2>
         <p class="contact-subtitle">¿Tienes un proyecto en mente? Conversemos sobre cómo puedo ayudarte</p>
         <div class="contact-actions">
-          <a href="mailto:luis.m.rodriguez@outlook.com" class="btn btn-primary">
-            <i class="fas fa-envelope"></i>
-            Enviar Email
-          </a>
-          <router-link to="/chatbot" class="btn btn-secondary">
-            <i class="fas fa-robot"></i>
-            Asistente Virtual
-          </router-link>
+
           <a href="https://www.linkedin.com/in/luis-rodriguez3518/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-linkedin-in"></i>
             LinkedIn
           </a>
-          <a href="https://github.com/Luis3518" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-github"></i>
-            GitHub
+          <router-link to="/chatbot" class="btn btn-primary">
+            <i class="fas fa-robot"></i>
+            Chatea con mi bot
+          </router-link>
+          <a href="mailto:luis.m.rodriguez@outlook.com" class="btn btn-secondary">
+            <i class="fas fa-envelope"></i>
+            Enviar Email
           </a>
         </div>
       </div>
