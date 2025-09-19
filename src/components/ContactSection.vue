@@ -9,6 +9,10 @@
             <i class="fas fa-envelope"></i>
             Enviar Email
           </a>
+          <router-link to="/chatbot" class="btn btn-secondary">
+            <i class="fas fa-robot"></i>
+            Asistente Virtual
+          </router-link>
           <a href="https://www.linkedin.com/in/luis-rodriguez3518/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-linkedin-in"></i>
             LinkedIn

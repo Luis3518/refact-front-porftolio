@@ -4,6 +4,11 @@ export const routes = [
     name: 'Home',
     component: () => import('./pages/index.vue')
   },
+  {
+    path: '/chatbot',
+    name: 'Chatbot',
+    component: () => import('./pages/chatbot.vue')
+  },
   // Mantener las rutas de finanzas para backward compatibility
   {
     path: '/finanzas',

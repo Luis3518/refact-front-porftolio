@@ -25,7 +25,17 @@
     
     <footer class="footer">
       <div class="container">
-        <p>&copy; {{ currentYear }} Luis Miguel Rodriguez. Todos los derechos reservados.</p>
+        <div class="footer-content">
+          <div class="footer-links">
+            <router-link to="/" class="footer-link">Inicio</router-link>
+            <router-link to="/chatbot" class="footer-link">
+              <i class="fas fa-robot"></i>
+              Asistente Virtual
+            </router-link>
+            <a href="#contacto" class="footer-link">Contacto</a>
+          </div>
+          <p class="footer-copyright">&copy; {{ currentYear }} Luis Miguel Rodriguez. Todos los derechos reservados.</p>
+        </div>
       </div>
     </footer>
   </div>
