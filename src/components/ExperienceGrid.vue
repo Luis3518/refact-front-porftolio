@@ -1,282 +1,249 @@
 <template>
   <div class="experience-grid">
-  <!-- 1. Educación y Capacitación -->
-    <div class="experience-card">
+    <div class="experience-card" v-for="(exp, idx) in experiences" :key="idx">
       <div class="experience-header">
         <div class="experience-icon">
-          <i class="fas fa-chalkboard-teacher"></i>
+          <i :class="exp.icon"></i>
         </div>
         <div class="experience-meta">
-          <h3>Educación y Capacitación</h3>
-          <span class="experience-years">+10 años</span>
+          <h3>{{ exp.title }}</h3>
+          <span v-if="exp.years" class="experience-years">{{ exp.years }}</span>
         </div>
       </div>
-      
       <p class="experience-description">
-        Profesor de informática en educación técnica. 
-        Formación de nuevos profesionales en programación, bases de datos, 
-        redes y seguridad informática.
+        {{ exp.description }}
       </p>
-      
       <div class="experience-skills">
-        <div class="skill-item">
-          <i class="fas fa-users"></i>
-          <span>Gestión de Aula</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-laptop-code"></i>
-          <span>Programación</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-network-wired"></i>
-          <span>Redes</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-shield-alt"></i>
-          <span>Seguridad IT</span>
+        <div v-for="(skill, sidx) in exp.skills" :key="sidx" class="skill-item">
+          <i :class="skill.icon"></i>
+          <span>{{ skill.text }}</span>
         </div>
       </div>
-      
       <div class="experience-tech">
-        <span class="tech-tag">Metodologías</span>
-        <span class="tech-tag">Didáctica</span>
-        <span class="tech-tag">Evaluación</span>
-        <span class="tech-tag">Tutoría</span>
-        <span class="tech-tag">Capacitación</span>
+        <span v-for="(tech, tidx) in exp.techs" :key="tidx" class="tech-tag">{{ tech }}</span>
+      </div>
+      
+      <!-- Botón collapsible al final de la tarjeta -->
+      <div class="more-info-container">
+        <transition name="fade" mode="out-in">
+          <button v-if="!infoOpen[idx]" key="more-btn" class="more-info-toggle" @click="toggleInfo(idx)">
+            <span>Más info</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          
+          <div v-else key="extra-info" class="experience-extra">
+            <p>{{ exp.extra }}</p>
+            <button class="less-info-btn" @click="toggleInfo(idx)">
+              <span>Menos info</span>
+              <i class="fas fa-chevron-up"></i>
+            </button>
+          </div>
+        </transition>
       </div>
     </div>
-
-    <!-- 2. Desarrollo de Software Full-Stack -->
-    <div class="experience-card">
-      <div class="experience-header">
-        <div class="experience-icon">
-          <i class="fas fa-code"></i>
-        </div>
-        <div class="experience-meta">
-          <h3>Desarrollo de Software Full-Stack</h3>
-          <span class="experience-years">+5 años</span>
-        </div>
-      </div>
-      
-      <p class="experience-description">
-        Experiencia integral en desarrollo web y aplicaciones empresariales. 
-        Especializado en arquitecturas modernas, APIs RESTful, bases de datos 
-        e interoperabilidad de sistemas gubernamentales.
-      </p>
-      
-      <div class="experience-skills">
-        <div class="skill-item">
-          <i class="fab fa-vuejs"></i>
-          <span>Vue.js / React</span>
-        </div>
-        <div class="skill-item">
-          <i class="fab fa-laravel"></i>
-          <span>Laravel / Node.js</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-database"></i>
-          <span>MySQL</span>
-        </div>
-        <div class="skill-item">
-          <i class="fab fa-git-alt"></i>
-          <span>Git / CI/CD</span>
-        </div>
-      </div>
-      
-      <div class="experience-tech">
-        <span class="tech-tag">JavaScript</span>
-        <span class="tech-tag">PHP</span>
-        <span class="tech-tag">Python</span>
-        <span class="tech-tag">Docker</span>
-        <span class="tech-tag">Azure</span>
-      </div>
-    </div>
-
-
-
-    <!-- 3. Sistemas Financieros y Análisis de Datos -->
-    <div class="experience-card">
-      <div class="experience-header">
-        <div class="experience-icon">
-          <i class="fas fa-chart-line"></i>
-        </div>
-        <div class="experience-meta">
-          <h3>Análisis de Datos y sistemas financieros</h3>
-        </div>
-      </div>
-      
-      <p class="experience-description">
-        Experiencia en análisis, visualización y gestión de datos enfocados en finanzas e inversiones. 
-        Desarrollo de dashboards con Looker Studio, Google Analytics y Power BI. 
-        Automatización mediante scripts para seguimiento financiero. 
-        Procesos ETL, modelado de datos y clustering para identificar patrones y optimizar decisiones.
-      </p>
-      
-      <div class="experience-skills">
-        <div class="skill-item">
-          <i class="fas fa-chart-bar"></i>
-          <span>Integración de datos</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-robot"></i>
-          <span>ETL</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-calculator"></i>
-          <span>Visualización y Reporting</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-coins"></i>
-          <span>Análisis financiero</span>
-        </div>
-      </div>
-      
-      <div class="experience-tech">
-        <span class="tech-tag">Python</span>
-        <span class="tech-tag">Looker Studio</span>
-        <span class="tech-tag">Google Analytics</span>
-        <span class="tech-tag">Excel</span>
-        <span class="tech-tag">JavaScript</span>
-      </div>
-    </div>
-
-    <!-- 4. DevOps y Infraestructura -->
-    <div class="experience-card">
-      <div class="experience-header">
-        <div class="experience-icon">
-          <i class="fas fa-server"></i>
-        </div>
-        <div class="experience-meta">
-          <h3>DevOps y Infraestructura</h3>
-        </div>
-      </div>
-      
-      <p class="experience-description">
-        Administración de servidores, automatización de despliegues y 
-        gestión de infraestructura selfhosted. Implementación de pipelines 
-        CI/CD y monitoreo de aplicaciones en producción.
-      </p>
-      
-      <div class="experience-skills">
-        <div class="skill-item">
-          <i class="fab fa-docker"></i>
-          <span>Containerización</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-cloud"></i>
-          <span>Sysadmin</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-cogs"></i>
-          <span>Automatización</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-chart-pie"></i>
-          <span>Monitoreo</span>
-        </div>
-      </div>
-      
-      <div class="experience-tech">
-        <span class="tech-tag">Docker</span>
-        <span class="tech-tag">Azure</span>
-        <span class="tech-tag">Linux</span>
-        <span class="tech-tag">Nginx</span>
-      </div>
-    </div>
-
-    <!-- 5. Seguridad Informática -->
-    <div class="experience-card">
-      <div class="experience-header">
-        <div class="experience-icon">
-          <i class="fas fa-shield-alt"></i>
-        </div>
-        <div class="experience-meta">
-          <h3>Seguridad Informática</h3>
-        </div>
-      </div>
-      
-      <p class="experience-description">
-        Especialización en seguridad de la información. Implementación 
-        de protocolos de seguridad, auditorías de código, pentesting  
-        y gestión de vulnerabilidades.
-      </p>
-      
-      <div class="experience-skills">
-        <div class="skill-item">
-          <i class="fas fa-lock"></i>
-          <span>Seguridad Apps</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-bug"></i>
-          <span>Auditorías</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-key"></i>
-          <span>Autenticación</span>
-        </div>
-      </div>
-      
-      <div class="experience-tech">
-        <span class="tech-tag">OWASP</span>
-        <span class="tech-tag">Firewalls</span>
-        <span class="tech-tag">Backup</span>
-      </div>
-    </div>
-
-    <!-- 6. Gestión de Proyectos -->
-    <div class="experience-card">
-      <div class="experience-header">
-        <div class="experience-icon">
-          <i class="fas fa-tasks"></i>
-        </div>
-        <div class="experience-meta">
-          <h3>Gestión de Proyectos</h3>
-        </div>
-      </div>
-      
-      <p class="experience-description">
-        Liderazgo de equipos de desarrollo y gestión de proyectos tecnológicos. 
-        Experiencia en metodologías ágiles, planificación de recursos y 
-        coordinación con stakeholders.
-      </p>
-      
-      <div class="experience-skills">
-        <div class="skill-item">
-          <i class="fas fa-users-cog"></i>
-          <span>Liderazgo</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-calendar-alt"></i>
-          <span>Planificación</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-handshake"></i>
-          <span>Stakeholders</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-chart-gantt"></i>
-          <span>Metodologías</span>
-        </div>
-      </div>
-      
-      <div class="experience-tech">
-        <span class="tech-tag">Scrum</span>
-        <span class="tech-tag">Kanban</span>
-        <span class="tech-tag">Jira</span>
-        <span class="tech-tag">Trello</span>
-        <span class="tech-tag">Slack</span>
-      </div>
-    </div>
+  <!-- cierre correcto del template -->
   </div>
 </template>
 
 <script>
+import { reactive } from 'vue'
+
 export default {
-  name: 'ExperienceGrid'
+  name: 'ExperienceGrid',
+  data() {
+    return {
+      infoOpen: reactive([false, false, false, false, false, false]),
+      experiences: [
+        {
+          icon: 'fas fa-chalkboard-teacher',
+          title: 'Educación y Capacitación',
+          years: '+10 años',
+          description: 'Profesor de informática en educación técnica. Formación de nuevos profesionales en programación, bases de datos, redes y seguridad informática.',
+          extra: 'Trabaje en varias escuelas técnicas, siendo la 35 en la que mas tareas desempeñé, algunas de ellas son: Administrador de red, referente informático, coordinador de área, profesor de las siguientes materias: taller, prácticas profesionalizantes, administración de sistemas y redes.',
+          skills: [
+            { icon: 'fas fa-users', text: 'Gestión de Aula' },
+            { icon: 'fas fa-laptop-code', text: 'Programación' },
+            { icon: 'fas fa-network-wired', text: 'Redes' },
+            { icon: 'fas fa-shield-alt', text: 'Seguridad IT' }
+          ],
+          techs: ['Metodologías', 'Didáctica', 'Evaluación', 'Tutoría']
+        },
+        {
+          icon: 'fas fa-code',
+          title: 'Desarrollo de Software Full-Stack',
+          years: '+5 años',
+          description: 'Experiencia integral en desarrollo web y aplicaciones empresariales. Especializado en arquitecturas modernas, APIs RESTful, bases de datos e interoperabilidad de sistemas gubernamentales.',
+          extra: 'Trabaje en proyectos personales, de forma freelance y en VUCE (Ventanilla Única de Comercio Exterior) desarrollando soluciones para la interoperabilidad entre sistemas gubernamentales, sistema de gestión portuaria (Nereo), utilizando tecnologías modernas, implemetando soluciones alternativas a problemas complejos y mejores prácticas de desarrollo. Algunos de los hitos destacados son: implementación de interoperabilidad entre distintos subsistemas de SENASA y el portal VUCE, implementación de sistema nereo en varios puertos a lo largo del pais permitiendo digitalizar y agilizar procesos que antes eran manuales y en papel.',
+          skills: [
+            { icon: 'fab fa-vuejs', text: 'Vue.js / React' },
+            { icon: 'fab fa-laravel', text: 'Laravel / Node.js' },
+            { icon: 'fas fa-database', text: 'MySQL' },
+            { icon: 'fab fa-git-alt', text: 'Git / CI/CD' }
+          ],
+          techs: ['JavaScript', 'PHP', 'Python', 'Docker', 'Azure']
+        },
+        {
+          icon: 'fas fa-chart-line',
+          title: 'Análisis de Datos y sistemas financieros',
+          years: null,
+          description: 'Experiencia en análisis, visualización y gestión de datos. Desarrollo de dashboards de analíticas interactivas. ',
+          extra: 'Desarrollo de dashboards con Looker Studio, Google Analytics y Power BI. Experiencia en análisis, visualización y gestión de datos enfocados en finanzas e inversiones. Automatización mediante scripts para seguimiento financiero. Procesos ETL, modelado de datos y clustering para identificar patrones y optimizar decisiones.',
+          skills: [
+            { icon: 'fas fa-chart-bar', text: 'Integración de datos' },
+            { icon: 'fas fa-robot', text: 'ETL' },
+            { icon: 'fas fa-calculator', text: 'Visualización y Reporting' },
+            { icon: 'fas fa-coins', text: 'Análisis financiero' }
+          ],
+          techs: ['Python', 'Looker Studio', 'Google Analytics', 'Excel', 'JavaScript']
+        },
+        {
+          icon: 'fas fa-server',
+          title: 'DevOps y Infraestructura',
+          years: null,
+          description: 'Administración de servidores, automatización de despliegues y gestión de infraestructura selfhosted. Implementación de pipelines CI/CD y monitoreo de aplicaciones en producción.',
+          extra: 'Administración de servidores Active Directory y migraciones a VMware. Automatización de despliegues con Jenkins y Cloudflare. Implementación de infraestructura selfhosted (Nextcloud). Configuración desde cero de servidores Debian con iptables y Squid para filtrado web. Containerización de aplicaciones y microservicios con Docker. Certificación AZ-900 para tecnologías cloud de Azure.',
+          skills: [
+            { icon: 'fab fa-docker', text: 'Containerización' },
+            { icon: 'fas fa-cloud', text: 'Sysadmin' },
+            { icon: 'fas fa-cogs', text: 'Automatización' },
+            { icon: 'fas fa-chart-pie', text: 'Monitoreo' }
+          ],
+          techs: ['Docker', 'Azure', 'Linux', 'Nginx']
+        },
+        {
+          icon: 'fas fa-shield-alt',
+          title: 'Seguridad Informática',
+          years: null,
+          description: 'Especialización en seguridad de la información. Implementación de protocolos de seguridad, auditorías de código, pentesting y gestión de vulnerabilidades.',
+          extra: 'Diplomatura en Seguridad Informática UTN con enfoque en seguridad ofensiva y defensiva mediante pruebas en entornos reales. Pentesting profesional en VUCE y proyectos freelance con análisis y explotación de vulnerabilidades web usando Burp Suite y OWASP ZAP. Gestión integral de contraseñas, clasificación de activos y creación de políticas de seguridad a medida. Planificación de respuesta ante incidentes basada en ISO 27001. Reporting técnico y asesoramiento en seguridad para organizaciones.',
+          skills: [
+            { icon: 'fas fa-lock', text: 'Seguridad Apps' },
+            { icon: 'fas fa-bug', text: 'Pentesting Web' },
+            { icon: 'fas fa-key', text: 'Gestión Contraseñas' },
+            { icon: 'fas fa-shield-alt', text: 'Políticas ISO 27001' },
+            { icon: 'fas fa-file-alt', text: 'Reporting Técnico' },
+            { icon: 'fas fa-exclamation-triangle', text: 'Respuesta Incidentes' }
+          ],
+          techs: ['OWASP', 'Burp Suite', 'OWASP ZAP', 'ISO 27001', 'Firewalls', 'Backup']
+        },
+        {
+          icon: 'fas fa-tasks',
+          title: 'Gestión de Proyectos',
+          years: null,
+          description: 'Liderazgo de equipos de desarrollo y gestión de proyectos tecnológicos. Experiencia en metodologías ágiles, planificación de recursos y coordinación con stakeholders.',
+          extra: 'Liderazgo de proyectos tecnológicos extracurriculares en el ámbito educativo, gestionando equipos multidisciplinarios de estudiantes. Experiencia freelance como líder técnico en equipos de desarrollo del sector privado. Implementación de metodologías ágiles con coordinación activa de stakeholders. Mi combinación de experiencia técnica y docente me proporciona un enfoque sólido para roles de liderazgo.',
+          skills: [
+            { icon: 'fas fa-users-cog', text: 'Liderazgo' },
+            { icon: 'fas fa-calendar-alt', text: 'Planificación' },
+            { icon: 'fas fa-handshake', text: 'Stakeholders' },
+            { icon: 'fas fa-chart-gantt', text: 'Metodologías' }
+          ],
+          techs: ['Scrum', 'Kanban', 'Jira', 'Trello', 'Slack']
+        }
+      ]
+    }
+  },
+  methods: {
+    toggleInfo(idx) {
+      console.log('Toggling info for index:', idx);
+      console.log('Current state:', this.infoOpen[idx]);
+      this.infoOpen[idx] = !this.infoOpen[idx];
+      console.log('New state:', this.infoOpen[idx]);
+    }
+  }
 }
 </script>
 
 <style scoped>
+/* More info container and button */
+.more-info-container {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--spacing-lg);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: var(--spacing-md);
+}
+
+.more-info-toggle {
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border-light);
+  color: var(--color-text-secondary);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: 25px;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  white-space: nowrap;
+  font-weight: var(--font-weight-medium);
+}
+
+.more-info-toggle:hover {
+  background: var(--color-accent-primary);
+  color: var(--color-bg-primary);
+  border-color: var(--color-accent-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.more-info-toggle i {
+  font-size: 0.9em;
+  transition: transform 0.3s ease;
+}
+
+.experience-extra {
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-secondary);
+  border-radius: 15px;
+  padding: var(--spacing-lg);
+  font-size: var(--font-size-sm);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.experience-extra p {
+  margin: 0 0 var(--spacing-md) 0;
+  line-height: 1.5;
+}
+
+.less-info-btn {
+  background: var(--color-accent-primary);
+  border: 1px solid var(--color-accent-primary);
+  color: var(--color-bg-primary);
+  padding: var(--spacing-xs) var(--spacing-lg);
+  border-radius: 20px;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.less-info-btn:hover {
+  background: var(--color-accent-secondary);
+  border-color: var(--color-accent-secondary);
+  transform: translateY(-1px);
+}
+
+/* Fade transition for extra info */
+.fade-enter-active, .fade-leave-active {
+  transition: all 0.3s ease;
+}
+
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.fade-enter-to, .fade-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
 .experience-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
