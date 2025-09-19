@@ -104,15 +104,15 @@ export default {
     })
 
     useHead({
-      title: 'Luis Miguel Rodríguez - Desarrollador de Software',
+      title: 'Luis Miguel Rodríguez - Licenciado en sistemas de la información',
       meta: [
         {
           name: 'description',
-          content: 'Portfolio profesional de Luis Miguel Rodríguez, desarrollador de software con experiencia en educación, sistemas financieros, DevOps y seguridad informática'
+          content: 'Portfolio profesional de Luis Miguel Rodríguez, licenciado en sistemas de la información, desarrollador de software, sysadmin y soluciones self-hosted'
         },
         {
           property: 'og:title',
-          content: 'Luis Miguel Rodríguez - Desarrollador de Software'
+          content: 'Luis Miguel Rodríguez - Licenciado en sistemas de la información'
         },
         {
           property: 'og:description',

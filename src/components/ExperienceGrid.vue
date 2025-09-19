@@ -1,6 +1,52 @@
 <template>
   <div class="experience-grid">
-    <!-- 1. Desarrollo de Software Full-Stack -->
+  <!-- 1. Educación y Capacitación -->
+    <div class="experience-card">
+      <div class="experience-header">
+        <div class="experience-icon">
+          <i class="fas fa-chalkboard-teacher"></i>
+        </div>
+        <div class="experience-meta">
+          <h3>Educación y Capacitación</h3>
+          <span class="experience-years">+10 años</span>
+        </div>
+      </div>
+      
+      <p class="experience-description">
+        Profesor de informática en educación técnica. 
+        Formación de nuevos profesionales en programación, bases de datos, 
+        redes y seguridad informática.
+      </p>
+      
+      <div class="experience-skills">
+        <div class="skill-item">
+          <i class="fas fa-users"></i>
+          <span>Gestión de Aula</span>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-laptop-code"></i>
+          <span>Programación</span>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-network-wired"></i>
+          <span>Redes</span>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-shield-alt"></i>
+          <span>Seguridad IT</span>
+        </div>
+      </div>
+      
+      <div class="experience-tech">
+        <span class="tech-tag">Metodologías</span>
+        <span class="tech-tag">Didáctica</span>
+        <span class="tech-tag">Evaluación</span>
+        <span class="tech-tag">Tutoría</span>
+        <span class="tech-tag">Capacitación</span>
+      </div>
+    </div>
+
+    <!-- 2. Desarrollo de Software Full-Stack -->
     <div class="experience-card">
       <div class="experience-header">
         <div class="experience-icon">
@@ -46,51 +92,7 @@
       </div>
     </div>
 
-    <!-- 2. Educación y Capacitación -->
-    <div class="experience-card">
-      <div class="experience-header">
-        <div class="experience-icon">
-          <i class="fas fa-chalkboard-teacher"></i>
-        </div>
-        <div class="experience-meta">
-          <h3>Educación y Capacitación</h3>
-          <span class="experience-years">+10 años</span>
-        </div>
-      </div>
-      
-      <p class="experience-description">
-        Profesor de informática en educación técnica. 
-        Formación de nuevos profesionales en programación, bases de datos, 
-        redes y seguridad informática.
-      </p>
-      
-      <div class="experience-skills">
-        <div class="skill-item">
-          <i class="fas fa-users"></i>
-          <span>Gestión de Aula</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-laptop-code"></i>
-          <span>Programación</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-network-wired"></i>
-          <span>Redes</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-shield-alt"></i>
-          <span>Seguridad IT</span>
-        </div>
-      </div>
-      
-      <div class="experience-tech">
-        <span class="tech-tag">Metodologías</span>
-        <span class="tech-tag">Didáctica</span>
-        <span class="tech-tag">Evaluación</span>
-        <span class="tech-tag">Tutoría</span>
-        <span class="tech-tag">Capacitación</span>
-      </div>
-    </div>
+
 
     <!-- 3. Sistemas Financieros y Análisis de Datos -->
     <div class="experience-card">
