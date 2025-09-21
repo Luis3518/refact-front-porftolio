@@ -30,7 +30,7 @@ export default defineConfig({
   server: {
     headers: {
       'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
-      'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self' https://cloudflareinsights.com https://gemini-chatbot.luis-131189.workers.dev; object-src 'none'; frame-ancestors 'none'; form-action 'self';",
+      'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self' https://cloudflareinsights.com https://gemini-chatbot.luis-131189.workers.dev https://tracking-wrangler.luis-131189.workers.dev; object-src 'none'; frame-ancestors 'none'; form-action 'self';",
       'X-Frame-Options': 'DENY',
       'X-Content-Type-Options': 'nosniff',
       'Referrer-Policy': 'strict-origin-when-cross-origin',

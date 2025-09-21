@@ -1,5 +1,5 @@
 /*
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-8ycR1cj0azFZiInbr+Y6B2aCDkasQCNypFCmm9YRzU8=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self' https://cloudflareinsights.com https://gemini-chatbot.luis-131189.workers.dev;
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-8ycR1cj0azFZiInbr+Y6B2aCDkasQCNypFCmm9YRzU8=' 'sha256-oIxaKwF5j7dCZah86cN6VDZXll3cT+T2ua7vBHryeUA=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self' https://cloudflareinsights.com https://gemini-chatbot.luis-131189.workers.dev https://tracking-wrangler.luis-131189.workers.dev;
   X-Frame-Options: DENY
   Permissions-Policy: accelerometer=(), camera=(), microphone=(), geolocation=(), gyroscope=(), magnetometer=(), payment=(), usb=()
