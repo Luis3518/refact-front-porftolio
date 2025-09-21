@@ -25,14 +25,16 @@
                 <i class="fas fa-robot"></i>
               </div>
               <div class="message-content">
-                <p>Hola, soy un chatbot creado por Luis, estoy usando el modelo gemma2-2b-it via groq alojado como worker en cloudflare pages. Puedes preguntarme sobre:</p>
+                <p>¡Hola! 👋 Soy un chatbot inteligente creado por Luis Rodriguez. Utilizo el modelo Gemma2-2b-it vía Groq, alojado como worker en Cloudflare Pages. Puedes preguntarme sobre:</p>
                 <ul>
-                  <li>Información sobre Luis Rodriguez</li>
-                  <li>Sus proyectos y experiencia</li>
-                  <li>Habilidades técnicas</li>
+                  <li>Información personal y profesional de Luis Rodriguez</li>
+                  <li>Sus proyectos y experiencia laboral</li>
+                  <li>Habilidades técnicas y competencias</li>
                   <li>Información de contacto</li>
                   <li>Formas de contactarte directamente con Luis</li>
+                  <li>Cualquier duda sobre su trayectoria profesional</li>
                 </ul>
+                <p>¡Pregúntame lo que necesites saber! 🚀</p>
               </div>
             </div>
             
@@ -73,17 +75,19 @@
                 <input
                   v-model="currentMessage"
                   type="text"
-                  placeholder="Escribe tu mensaje..."
+                  :placeholder="isConnecting ? 'Conectando con IA...' : 'Escribe tu mensaje...'"
                   class="chat-input"
-                  :disabled="isTyping"
+                  :disabled="isTyping || isConnecting"
                   ref="chatInput"
                 />
                 <button 
                   type="submit" 
                   class="send-button"
-                  :disabled="!currentMessage.trim() || isTyping"
+                  :disabled="!currentMessage.trim() || isTyping || isConnecting"
+                  :class="{ 'connecting': isConnecting }"
                 >
-                  <i class="fas fa-paper-plane"></i>
+                  <i v-if="!isConnecting" class="fas fa-paper-plane"></i>
+                  <i v-else class="fas fa-spinner fa-spin"></i>
                 </button>
               </div>
             </form>
@@ -115,6 +119,7 @@ export default {
     const messages = ref([])
     const currentMessage = ref('')
     const isTyping = ref(false)
+    const isConnecting = ref(false)
     const messagesArea = ref(null)
     const chatInput = ref(null)
     
@@ -159,9 +164,49 @@ export default {
       isTyping.value = false
     }
 
-    const getBotResponse = (userMessage) => {
-      // Por ahora siempre responde "hola" como solicitaste
-      return "¡Hola! 👋 Gracias por tu mensaje. Esta funcionalidad está en desarrollo y pronto podrás conversar conmigo de manera más avanzada."
+    const getBotResponse = async (userMessage) => {
+      try {
+        isConnecting.value = true
+        const apiUrl = import.meta.env.VITE_CHATBOT_API_URL
+        
+        if (!apiUrl) {
+          throw new Error('URL del chatbot no configurada')
+        }
+
+        const controller = new AbortController()
+        const timeoutId = setTimeout(() => controller.abort(), 30000) // 30 segundos timeout
+
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            message: userMessage
+          }),
+          signal: controller.signal
+        })
+
+        clearTimeout(timeoutId)
+
+        if (!response.ok) {
+          throw new Error(`Error HTTP: ${response.status}`)
+        }
+
+        const data = await response.json()
+        return data.response || 'Lo siento, no pude procesar tu mensaje en este momento.'
+        
+      } catch (error) {
+        console.error('Error al obtener respuesta del chatbot:', error)
+        
+        if (error.name === 'AbortError') {
+          return 'Lo siento, la respuesta está tardando demasiado. Por favor, intenta de nuevo.'
+        }
+        
+        return 'Lo siento, hay un problema con la conexión. Por favor, intenta de nuevo más tarde.'
+      } finally {
+        isConnecting.value = false
+      }
     }
 
     const sendMessage = async () => {
@@ -176,8 +221,8 @@ export default {
       // Simulate bot typing
       await simulateTyping()
       
-      // Add bot response
-      const botResponse = getBotResponse(userText)
+      // Get bot response from AI
+      const botResponse = await getBotResponse(userText)
       addMessage(botResponse, false)
     }
 
@@ -196,6 +241,7 @@ export default {
       messages,
       currentMessage,
       isTyping,
+      isConnecting,
       messagesArea,
       chatInput,
       quickSuggestions,
@@ -445,6 +491,20 @@ export default {
   opacity: 0.5;
   cursor: not-allowed;
   transform: none;
+}
+
+.send-button.connecting {
+  background: linear-gradient(135deg, var(--color-accent-secondary) 0%, var(--color-accent-primary) 100%);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 4px 16px rgba(0, 212, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.6);
+  }
 }
 
 .quick-actions {

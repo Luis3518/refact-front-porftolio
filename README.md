@@ -73,6 +73,62 @@ El sistema **SOLO** envía el nombre del evento:
 
 > **Privacidad:** No se incluyen timestamps, user agent, referrer, cookies o datos personales.
 
+## 🤖 Chatbot con IA
+
+El portfolio incluye un chatbot inteligente que utiliza el modelo Gemma2-2b-it vía Groq, alojado como worker en Cloudflare Pages.
+
+### Configuración
+Agrega la URL del API del chatbot en tu archivo `.env`:
+
+```env
+# Chatbot IA Configuration
+VITE_CHATBOT_API_URL=https://gemini-chatbot.luis-131189.workers.dev/chat
+```
+
+### Funcionalidades
+El chatbot puede responder preguntas sobre:
+- Información personal y profesional de Luis Rodriguez
+- Experiencia laboral y proyectos realizados
+- Habilidades técnicas y competencias
+- Información de contacto
+- Formas de contacto directo
+
+### API del Chatbot
+El chatbot consume un endpoint REST con la siguiente estructura:
+
+**Endpoint:** `POST /chat`
+
+**Request:**
+```json
+{
+  "message": "Tu pregunta aquí"
+}
+```
+
+**Response:**
+```json
+{
+  "response": "Respuesta del chatbot"
+}
+```
+
+**Ejemplo con cURL:**
+```bash
+curl -X POST "https://gemini-chatbot.luis-131189.workers.dev/chat" \
+-H "Content-Type: application/json" \
+-d '{
+  "message": "¿Quién es Luis Rodriguez?"
+}'
+```
+
+### Características Técnicas
+- **Modelo de IA:** Gemma2-2b-it vía Groq
+- **Hosting:** Cloudflare Workers
+- **Timeout:** 30 segundos por consulta
+- **Manejo de errores:** Reintentos automáticos y mensajes de error informativos
+- **Estados de carga:** Indicadores visuales durante la conexión
+- **Responsive:** Optimizado para dispositivos móviles
+
 ### Uso en Componentes
 ```javascript
 import { useAnalytics } from '../composables/useAnalytics.js'
