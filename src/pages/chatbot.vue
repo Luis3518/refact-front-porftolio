@@ -13,8 +13,43 @@
       </div>
     </section>
 
+    <!-- Health Status -->
+    <div v-if="isHealthy === false" class="health-error-container">
+      <div class="container">
+        <div class="health-error-card">
+          <div class="error-icon">
+            <i class="fas fa-exclamation-triangle"></i>
+          </div>
+          <div class="error-content">
+            <h3>Servicio No Disponible</h3>
+            <p>El chatbot no está funcionando en este momento.</p>
+            <p class="error-detail">{{ healthError }}</p>
+            <button @click="checkHealth" class="retry-button">
+              <i class="fas fa-sync-alt"></i>
+              Reintentar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading Health Check -->
+    <div v-else-if="isHealthy === null" class="health-loading-container">
+      <div class="container">
+        <div class="health-loading-card">
+          <div class="loading-icon">
+            <i class="fas fa-heartbeat fa-pulse"></i>
+          </div>
+          <div class="loading-content">
+            <h3>Verificando Servicio...</h3>
+            <p>Comprobando si el chatbot está disponible...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Chat Container -->
-    <section class="chat-section section">
+    <section v-else class="chat-section section">
       <div class="container">
         <div class="chat-container">
           
@@ -120,6 +155,8 @@ export default {
     const currentMessage = ref('')
     const isTyping = ref(false)
     const isConnecting = ref(false)
+    const isHealthy = ref(null) // null = checking, true = healthy, false = unhealthy
+    const healthError = ref('')
     const messagesArea = ref(null)
     const chatInput = ref(null)
     
@@ -143,6 +180,50 @@ export default {
           messagesArea.value.scrollTop = messagesArea.value.scrollHeight
         }
       })
+    }
+
+    const checkHealth = async () => {
+      try {
+        const healthUrl = import.meta.env.VITE_CHATBOT_HEALTH_URL
+        
+        if (!healthUrl) {
+          throw new Error('URL de health check no configurada')
+        }
+
+        const controller = new AbortController()
+        const timeoutId = setTimeout(() => controller.abort(), 10000) // 10 segundos timeout
+
+        const response = await fetch(healthUrl, {
+          method: 'GET',
+          signal: controller.signal
+        })
+
+        clearTimeout(timeoutId)
+
+        if (!response.ok) {
+          throw new Error(`Health check falló: HTTP ${response.status}`)
+        }
+
+        const data = await response.json()
+        
+        // Verificar que la respuesta indique que el servicio está saludable
+        if (data.status === 'ok' || data.healthy === true || response.status === 200) {
+          isHealthy.value = true
+          healthError.value = ''
+        } else {
+          throw new Error('El servicio reporta estado no saludable')
+        }
+        
+      } catch (error) {
+        console.error('Error en health check:', error)
+        isHealthy.value = false
+        
+        if (error.name === 'AbortError') {
+          healthError.value = 'El servicio no responde (timeout)'
+        } else {
+          healthError.value = error.message || 'Error de conexión'
+        }
+      }
     }
 
     const addMessage = (text, isUser = false) => {
@@ -232,6 +313,7 @@ export default {
     }
 
     onMounted(() => {
+      checkHealth()
       if (chatInput.value) {
         chatInput.value.focus()
       }
@@ -242,12 +324,15 @@ export default {
       currentMessage,
       isTyping,
       isConnecting,
+      isHealthy,
+      healthError,
       messagesArea,
       chatInput,
       quickSuggestions,
       formatTime,
       sendMessage,
-      sendQuickMessage
+      sendQuickMessage,
+      checkHealth
     }
   }
 }
@@ -505,6 +590,91 @@ export default {
   50% {
     box-shadow: 0 4px 20px rgba(0, 212, 255, 0.6);
   }
+}
+
+/* Health Check Styles */
+.health-error-container, .health-loading-container {
+  padding: var(--spacing-xl) 0;
+}
+
+.health-error-card, .health-loading-card {
+  max-width: 600px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, rgba(22, 22, 22, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: var(--spacing-xl);
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.health-error-card {
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.error-icon, .loading-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--spacing-lg);
+  font-size: 2rem;
+}
+
+.error-icon {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(220, 38, 38, 0.2) 100%);
+  border: 2px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+}
+
+.loading-icon {
+  background: linear-gradient(135deg, var(--color-accent-primary) 0%, var(--color-accent-secondary) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.error-content h3, .loading-content h3 {
+  color: var(--color-text-primary);
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.error-content p, .loading-content p {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.error-detail {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  font-family: monospace;
+  background: rgba(239, 68, 68, 0.1);
+  padding: var(--spacing-sm);
+  border-radius: 8px;
+  margin: var(--spacing-md) 0;
+}
+
+.retry-button {
+  background: linear-gradient(135deg, var(--color-accent-primary) 0%, var(--color-accent-secondary) 100%);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.retry-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
 }
 
 .quick-actions {

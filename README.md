@@ -78,11 +78,12 @@ El sistema **SOLO** envía el nombre del evento:
 El portfolio incluye un chatbot inteligente que utiliza el modelo Gemma2-2b-it vía Groq, alojado como worker en Cloudflare Pages.
 
 ### Configuración
-Agrega la URL del API del chatbot en tu archivo `.env`:
+Agrega las URLs del API del chatbot en tu archivo `.env`:
 
 ```env
 # Chatbot IA Configuration
 VITE_CHATBOT_API_URL=https://gemini-chatbot.luis-131189.workers.dev/chat
+VITE_CHATBOT_HEALTH_URL=https://gemini-chatbot.luis-131189.workers.dev/health
 ```
 
 ### Funcionalidades
@@ -94,9 +95,9 @@ El chatbot puede responder preguntas sobre:
 - Formas de contacto directo
 
 ### API del Chatbot
-El chatbot consume un endpoint REST con la siguiente estructura:
+El chatbot utiliza dos endpoints:
 
-**Endpoint:** `POST /chat`
+#### **Endpoint de Chat:** `POST /chat`
 
 **Request:**
 ```json
@@ -121,13 +122,44 @@ curl -X POST "https://gemini-chatbot.luis-131189.workers.dev/chat" \
 }'
 ```
 
-### Características Técnicas
-- **Modelo de IA:** Gemma2-2b-it vía Groq
-- **Hosting:** Cloudflare Workers
-- **Timeout:** 30 segundos por consulta
-- **Manejo de errores:** Reintentos automáticos y mensajes de error informativos
-- **Estados de carga:** Indicadores visuales durante la conexión
-- **Responsive:** Optimizado para dispositivos móviles
+#### **Endpoint de Health Check:** `GET /health`
+
+**Response:**
+```json
+{
+  "status": "ok",
+  "healthy": true
+}
+```
+
+**Ejemplo con cURL:**
+```bash
+curl "https://gemini-chatbot.luis-131189.workers.dev/health"
+```
+
+### Sistema de Health Check
+
+El chatbot incluye un sistema de verificación de salud que:
+
+#### **Funcionamiento:**
+1. **Verificación automática:** Al cargar la página del chatbot
+2. **Timeout:** 10 segundos máximo para la verificación
+3. **Estados visuales:** Indicadores claros del estado del servicio
+
+#### **Estados posibles:**
+- **🔄 Verificando:** Cargando mientras se comprueba el servicio
+- **✅ Disponible:** El servicio está funcionando correctamente
+- **❌ No disponible:** El servicio presenta problemas
+
+#### **En caso de error:**
+- Se muestra un mensaje informativo con el error específico
+- Botón de "Reintentar" para verificar nuevamente
+- La interfaz del chat se bloquea hasta que el servicio esté disponible
+
+#### **Beneficios:**
+- **Experiencia de usuario:** Los usuarios saben inmediatamente si pueden usar el chatbot
+- **Transparencia:** Información clara sobre problemas de conectividad
+- **Prevención de errores:** Evita intentos de chat cuando el servicio no funciona
 
 ### Uso en Componentes
 ```javascript
