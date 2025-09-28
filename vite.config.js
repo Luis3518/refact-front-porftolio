@@ -18,6 +18,11 @@ export default defineConfig({
   },
   build: {
     minify: true,
+    terserOptions: {
+      format: {
+        ascii_only: true,
+      },
+    },
     rollupOptions: {
       output: {
         manualChunks: {
