@@ -364,6 +364,7 @@ export default {
   color: rgba(255, 255, 255, 0.9);
   font-size: 1.2rem;
   margin: 0;
+  text-align: center;
 }
 
 .chat-section {
