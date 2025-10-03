@@ -60,7 +60,7 @@
                 <i class="fas fa-robot"></i>
               </div>
               <div class="message-content">
-                <p>¡Hola! 👋 Soy un chatbot inteligente creado por Luis Rodriguez. Utilizo el modelo Gemma2-2b-it vía Groq, alojado como worker en Cloudflare Pages. Puedes preguntarme sobre:</p>
+                <p>¡Hola! 👋 Soy un chatbot inteligente creado por Luis Rodriguez. Utilizo el modelo gemini-2.0-flash. El endpoint esta alojado como worker en Cloudflare. Puedes preguntarme sobre:</p>
                 <ul>
                   <li>Información personal y profesional de Luis Rodriguez</li>
                   <li>Sus proyectos y experiencia laboral</li>
