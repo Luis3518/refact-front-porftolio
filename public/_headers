@@ -4,6 +4,3 @@
   X-Frame-Options: DENY
   Permissions-Policy: accelerometer=(), camera=(), microphone=(), geolocation=(), gyroscope=(), magnetometer=(), payment=(), usb=()
 */
-
-/workbox-*.js
-  Cache-Control: public, max-age=31536000, immutable
