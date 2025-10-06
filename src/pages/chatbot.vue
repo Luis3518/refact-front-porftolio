@@ -299,11 +299,17 @@ export default {
       // Add user message
       addMessage(userText, true)
       
-      // Simulate bot typing
-      await simulateTyping()
+      // Show typing indicator
+      isTyping.value = true
+      scrollToBottom()
       
       // Get bot response from AI
       const botResponse = await getBotResponse(userText)
+      
+      // Hide typing indicator
+      isTyping.value = false
+      
+      // Add bot response
       addMessage(botResponse, false)
     }
 
