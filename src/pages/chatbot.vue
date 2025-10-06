@@ -83,7 +83,7 @@
                 <i :class="message.isUser ? 'fas fa-user' : 'fas fa-robot'"></i>
               </div>
               <div class="message-content">
-                <p>{{ message.text }}</p>
+                <p v-html="renderMarkdown(message.text)"></p>
                 <span class="message-time">{{ formatTime(message.timestamp) }}</span>
               </div>
             </div>
@@ -147,6 +147,8 @@
 
 <script>
 import { ref, onMounted, nextTick } from 'vue'
+import { marked } from 'marked'
+import DOMPurify from 'dompurify'
 
 export default {
   name: 'ChatbotPage',
@@ -166,6 +168,12 @@ export default {
       { id: 3, text: "¿Qué proyectos ha realizado?" },
       { id: 4, text: "¿Cómo puedo contactarlo?" }
     ])
+
+    const renderMarkdown = (text) => {
+      if (!text) return ''
+      const rawHtml = marked(text, { breaks: true, gfm: true })
+      return DOMPurify.sanitize(rawHtml)
+    }
 
     const formatTime = (timestamp) => {
       return new Date(timestamp).toLocaleTimeString('es-ES', {
@@ -338,7 +346,8 @@ export default {
       formatTime,
       sendMessage,
       sendQuickMessage,
-      checkHealth
+      checkHealth,
+      renderMarkdown
     }
   }
 }
