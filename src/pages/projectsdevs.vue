@@ -5,7 +5,7 @@
         <div class="page-header">
           <h1 class="text-center">Proyectos de Desarrollo</h1>
           <p class="subtitle text-center">
-            Soluciones empresariales y proyectos de software desarrollados a medida
+            Soluciones empresariales y proyectos de software desarrollados a medida.
           </p>
         </div>
 
@@ -23,28 +23,28 @@
             </div>
             
             <p class="project-description">
-              Sistema ERP integral basado en Odoo para gestión empresarial completa. 
-              Incluye módulos de inventario, ventas, compras, contabilidad, CRM 
-              y recursos humanos con personalización específica del sector.
+              Plataforma SaaS desarrollada para optimizar la gestión de pequeñas empresas del sector automotriz argentino, como talleres, gomerías y lubricentros. Basada en Odoo Community, integra funciones de CRM, inventario, agenda, portal de clientes y comunicación por WhatsApp.
             </p>
             
             <div class="project-features">
               <div class="feature-item">
-                <i class="fas fa-box"></i>
-                <span>Inventario</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-shopping-cart"></i>
-                <span>Ventas</span>
+                <i class="fas fa-users"></i>
+                <span>B2C</span>
               </div>
               <div class="feature-item">
                 <i class="fas fa-chart-line"></i>
-                <span>Contabilidad</span>
+                <span>Data</span>
+              </div>
+
+              <div class="feature-item">
+                <i class="fas fa-car"></i>
+                <span>Talleres</span>
               </div>
               <div class="feature-item">
-                <i class="fas fa-users"></i>
-                <span>CRM</span>
+                <i class="fas fa-wrench"></i>
+                <span>Servicios</span>
               </div>
+
             </div>
             
             <div class="project-tech">
@@ -58,11 +58,7 @@
             <div class="project-actions">
               <button class="btn btn-primary" @click="showDemo('mecacloud')">
                 <i class="fas fa-eye"></i>
-                Ver Demo
-              </button>
-              <button class="btn btn-secondary" @click="showInfo('mecacloud')">
-                <i class="fas fa-info-circle"></i>
-                Más Info
+                Ver
               </button>
             </div>
           </div>
@@ -169,10 +165,6 @@
               <button class="btn btn-primary" @click="showDemo('taskmanager')">
                 <i class="fas fa-eye"></i>
                 Ver Demo
-              </button>
-              <button class="btn btn-secondary" @click="showInfo('taskmanager')">
-                <i class="fas fa-info-circle"></i>
-                Más Info
               </button>
             </div>
           </div>
@@ -408,11 +400,11 @@ export default {
 }
 
 .btn {
-  flex: 1;
-  padding: var(--spacing-md, 0.75rem) var(--spacing-lg, 1rem);
+  width: 100%;
+  padding: var(--spacing-lg, 1rem) var(--spacing-xl, 1.5rem);
   border: none;
   border-radius: var(--border-radius, 0.5rem);
-  font-size: var(--font-size-sm, 0.875rem);
+  font-size: var(--font-size-base, 1rem);
   font-weight: 600;
   cursor: pointer;
   transition: all var(--transition-fast, 0.15s ease);
