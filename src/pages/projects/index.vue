@@ -56,7 +56,7 @@
             </div>
             
             <div class="project-actions">
-              <router-link to="/mecacloud" class="btn btn-primary">
+              <router-link to="/projects/mecacloud" class="btn btn-primary">
                 <i class="fas fa-eye"></i>
                 Ver Proyecto
               </router-link>
@@ -176,10 +176,10 @@
 
 <script>
 import { useHead } from '@vueuse/head'
-import { useAnalytics } from '../composables/useAnalytics.js'
+import { useAnalytics } from '../../composables/useAnalytics.js'
 
 export default {
-  name: 'ProjectsDevsPage',
+  name: 'ProjectsPage',
   setup() {
     useHead({
       title: 'Proyectos de Desarrollo - Luis Miguel Rodríguez',

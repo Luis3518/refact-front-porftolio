@@ -10,14 +10,14 @@ export const routes = [
     component: () => import('./pages/chatbot.vue')
   },
   {
-    path: '/projectsdevs',
-    name: 'ProjectsDevs',
-    component: () => import('./pages/projectsdevs.vue')
+    path: '/projects',
+    name: 'Projects',
+    component: () => import('./pages/projects/index.vue')
   },
   {
-    path: '/mecacloud',
+    path: '/projects/mecacloud',
     name: 'MecaCloud',
-    component: () => import('./pages/mecacloud.vue')
+    component: () => import('./pages/projects/mecacloud.vue')
   },
   // Rutas de análisis de datos
   {

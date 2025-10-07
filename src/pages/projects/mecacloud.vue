@@ -21,17 +21,15 @@
                   Trabajo Final - UPalermo
                 </span>
               </div>
-            </div>
-          </div>
-          <div class="header-actions">
-            <router-link to="/projectsdevs" class="btn btn-outline">
-              <i class="fas fa-arrow-left"></i>
-              Volver
-            </router-link>
           </div>
         </div>
-
-        <!-- Grid de 2 columnas -->
+        <div class="header-actions">
+          <router-link to="/projects" class="btn btn-outline">
+            <i class="fas fa-arrow-left"></i>
+            Volver
+          </router-link>
+        </div>
+      </div>        <!-- Grid de 2 columnas -->
         <div class="content-grid">
           <!-- Columna Izquierda -->
           <div class="left-column">
