@@ -617,26 +617,34 @@ export default {
   position: relative;
 }
 
+.message-content > div {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
 .message-content p {
-  margin: 0;
+  margin: 0 0 var(--spacing-sm) 0;
   line-height: 1.5;
 }
 
-.message-content ul {
-  margin: var(--spacing-sm) 0 0 0;
-  padding-left: var(--spacing-xl);
-  list-style-position: outside;
+.message-content p:last-child {
+  margin-bottom: 0;
 }
 
+.message-content ul,
 .message-content ol {
-  margin: var(--spacing-sm) 0 0 0;
-  padding-left: var(--spacing-xl);
+  margin: var(--spacing-md) 0;
+  padding-left: 2rem;
   list-style-position: outside;
 }
 
 .message-content li {
-  margin-bottom: var(--spacing-xs);
-  padding-left: var(--spacing-xs);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.6;
+}
+
+.message-content li:last-child {
+  margin-bottom: 0;
 }
 
 .message-time {
