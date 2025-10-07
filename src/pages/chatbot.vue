@@ -5,7 +5,7 @@
       <div class="container">
         <div class="card text-center">
           <h1>
-            <i class="fas fa-robot"></i>
+            <i class="fas fa-robot robot-icon" @click="robotClick" ref="robotIcon"></i>
             Bot
           </h1>
           <p class="subtitle">Hola! Soy un bot creado por Luis Rodriguez. Pregúntame lo que necesites.</p>
@@ -161,6 +161,7 @@ export default {
     const healthError = ref('')
     const messagesArea = ref(null)
     const chatInput = ref(null)
+    const robotIcon = ref(null)
     
     const quickSuggestions = ref([
       { id: 1, text: "¿Quién es Luis Rodriguez?" },
@@ -326,6 +327,15 @@ export default {
       await sendMessage()
     }
 
+    const robotClick = () => {
+      if (robotIcon.value) {
+        robotIcon.value.classList.add('clicked')
+        setTimeout(() => {
+          robotIcon.value.classList.remove('clicked')
+        }, 600)
+      }
+    }
+
     onMounted(() => {
       checkHealth()
       if (chatInput.value) {
@@ -342,12 +352,14 @@ export default {
       healthError,
       messagesArea,
       chatInput,
+      robotIcon,
       quickSuggestions,
       formatTime,
       sendMessage,
       sendQuickMessage,
       checkHealth,
-      renderMarkdown
+      renderMarkdown,
+      robotClick
     }
   }
 }
@@ -374,6 +386,22 @@ export default {
   align-items: center;
   justify-content: center;
   gap: var(--spacing-md);
+}
+
+.chatbot-header h1 i {
+  animation: float 3s ease-in-out infinite, glow 2s ease-in-out infinite;
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.chatbot-header h1 i:hover {
+  transform: scale(1.2) rotate(15deg);
+  animation: float 3s ease-in-out infinite, glow 1s ease-in-out infinite;
+}
+
+.chatbot-header h1 i.clicked {
+  animation: spin360 0.6s ease-in-out, glow 0.6s ease-in-out;
 }
 
 .chatbot-header .subtitle {
@@ -727,6 +755,36 @@ export default {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.8));
+  }
+}
+
+@keyframes spin360 {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.3);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
   }
 }
 
