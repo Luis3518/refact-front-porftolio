@@ -357,6 +357,7 @@ export default {
 .chatbot-page {
   min-height: 100vh;
   background: var(--gradient-background);
+  padding-top: var(--navbar-height);
 }
 
 .chatbot-header {
