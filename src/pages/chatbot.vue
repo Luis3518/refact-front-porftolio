@@ -18,16 +18,31 @@
       <div class="container">
         <div class="health-error-card">
           <div class="error-icon">
-            <i class="fas fa-exclamation-triangle"></i>
+            <i class="fas fa-tools"></i>
           </div>
           <div class="error-content">
-            <h3>Servicio No Disponible</h3>
-            <p>El chatbot no está funcionando en este momento.</p>
-            <p class="error-detail">{{ healthError }}</p>
-            <button @click="checkHealth" class="retry-button">
-              <i class="fas fa-sync-alt"></i>
-              Reintentar
-            </button>
+            <h3>Funcionalidad Temporalmente No Disponible</h3>
+            <p>Por el momento, el chatbot no está disponible.</p>
+            <p class="error-message">Estamos trabajando para restablecer el servicio lo antes posible.</p>
+            <p class="contact-alternative">Mientras tanto, puedes contactarme directamente a través de mis redes sociales o correo electrónico.</p>
+            <div class="button-group">
+              <button 
+                @click="checkHealth" 
+                class="retry-button"
+                :class="{ 'checking': isCheckingHealth }"
+                :disabled="isCheckingHealth"
+              >
+                <i class="fas fa-sync-alt" :class="{ 'fa-spin': isCheckingHealth }"></i>
+                {{ isCheckingHealth ? 'Verificando...' : 'Verificar Disponibilidad' }}
+              </button>
+              <button 
+                @click="goToContact" 
+                class="contact-button"
+              >
+                <i class="fas fa-envelope"></i>
+                Ir a Contacto
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -147,18 +162,21 @@
 
 <script>
 import { ref, onMounted, nextTick } from 'vue'
+import { useRouter } from 'vue-router'
 import { marked } from 'marked'
 import DOMPurify from 'dompurify'
 
 export default {
   name: 'ChatbotPage',
   setup() {
+    const router = useRouter()
     const messages = ref([])
     const currentMessage = ref('')
     const isTyping = ref(false)
     const isConnecting = ref(false)
     const isHealthy = ref(null) // null = checking, true = healthy, false = unhealthy
     const healthError = ref('')
+    const isCheckingHealth = ref(false)
     const messagesArea = ref(null)
     const chatInput = ref(null)
     const robotIcon = ref(null)
@@ -193,6 +211,8 @@ export default {
 
     const checkHealth = async () => {
       try {
+        isCheckingHealth.value = true
+        
         const healthUrl = import.meta.env.VITE_CHATBOT_HEALTH_URL
         
         if (!healthUrl) {
@@ -232,6 +252,11 @@ export default {
         } else {
           healthError.value = error.message || 'Error de conexión'
         }
+      } finally {
+        // Mantener el estado "checking" por al menos 1 segundo para mostrar la animación
+        setTimeout(() => {
+          isCheckingHealth.value = false
+        }, 1000)
       }
     }
 
@@ -315,16 +340,16 @@ export default {
         }
 
         const data = await response.json()
-        return data.response || 'Lo siento, no pude procesar tu mensaje en este momento.'
+        return data.response || 'Disculpa, en este momento no puedo procesar tu consulta. Por favor, intenta nuevamente.'
         
       } catch (error) {
         console.error('Error al obtener respuesta del chatbot:', error)
         
         if (error.name === 'AbortError') {
-          return 'Lo siento, la respuesta está tardando demasiado. Por favor, intenta de nuevo.'
+          return 'El servicio está tardando más de lo esperado. Por favor, intenta nuevamente en unos momentos.'
         }
         
-        return 'Lo siento, hay un problema con la conexión. Por favor, intenta de nuevo más tarde.'
+        return 'Por el momento no puedo responder tu consulta. Te invito a contactarme directamente a través de mis redes sociales o correo electrónico que encontrarás en la sección de contacto.'
       } finally {
         isConnecting.value = false
       }
@@ -367,6 +392,27 @@ export default {
       }
     }
 
+    const goToContact = async () => {
+      // Navegar al home
+      await router.push('/')
+      
+      // Esperar a que la navegación se complete y el DOM se actualice
+      await nextTick()
+      
+      // Esperar un poco más para asegurar que el componente esté montado
+      setTimeout(() => {
+        const contactSection = document.getElementById('contacto')
+        if (contactSection) {
+          contactSection.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          })
+        } else {
+          console.warn('No se encontró la sección de contacto')
+        }
+      }, 300)
+    }
+
     onMounted(() => {
       checkHealth()
       if (chatInput.value) {
@@ -381,6 +427,7 @@ export default {
       isConnecting,
       isHealthy,
       healthError,
+      isCheckingHealth,
       messagesArea,
       chatInput,
       robotIcon,
@@ -390,7 +437,8 @@ export default {
       sendQuickMessage,
       checkHealth,
       renderMarkdown,
-      robotClick
+      robotClick,
+      goToContact
     }
   }
 }
@@ -723,17 +771,32 @@ export default {
   margin-bottom: var(--spacing-sm);
 }
 
-.error-detail {
-  color: var(--color-text-muted);
-  font-size: 0.9rem;
-  font-family: monospace;
-  background: rgba(239, 68, 68, 0.1);
-  padding: var(--spacing-sm);
-  border-radius: 8px;
+.error-message {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
   margin: var(--spacing-md) 0;
+  font-weight: 500;
 }
 
-.retry-button {
+.contact-alternative {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin: var(--spacing-md) 0;
+  padding: var(--spacing-md);
+  background: rgba(0, 212, 255, 0.05);
+  border-left: 3px solid var(--color-accent-primary);
+  border-radius: 4px;
+}
+
+.button-group {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--spacing-md);
+}
+
+.retry-button, .contact-button {
   background: linear-gradient(135deg, var(--color-accent-primary) 0%, var(--color-accent-secondary) 100%);
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -745,12 +808,29 @@ export default {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-sm);
-  margin-top: var(--spacing-md);
 }
 
-.retry-button:hover {
+.contact-button {
+  background: linear-gradient(135deg, var(--color-accent-tertiary) 0%, #059669 100%);
+}
+
+.retry-button:hover:not(:disabled), .contact-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+}
+
+.contact-button:hover {
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4);
+}
+
+.retry-button:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.retry-button.checking {
+  background: linear-gradient(135deg, var(--color-accent-secondary) 0%, var(--color-accent-primary) 100%);
+  animation: pulse 1.5s infinite;
 }
 
 .quick-actions {
@@ -852,6 +932,15 @@ export default {
   
   .quick-action-btn {
     text-align: center;
+  }
+  
+  .button-group {
+    flex-direction: column;
+  }
+  
+  .retry-button, .contact-button {
+    width: 100%;
+    justify-content: center;
   }
 }
 
