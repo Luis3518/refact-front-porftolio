@@ -6,8 +6,8 @@
       variant="success"
     >
       <template #actions>
-        <BaseButton to="/finanzas" variant="secondary" outline>
-          ← Volver a Finanzas
+        <BaseButton to="/dataanalisys" variant="secondary" outline>
+          ← Volver a Análisis de Datos
         </BaseButton>
       </template>
     </PageHeader>

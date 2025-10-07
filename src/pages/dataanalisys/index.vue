@@ -1,8 +1,8 @@
 <template>
-  <div class="finanzas">
+  <div class="dataanalisys">
     <PageHeader 
-      title="Soluciones Financieras" 
-      subtitle="Herramientas y aplicaciones especializadas para el sector financiero"
+      title="Análisis de Datos" 
+      subtitle="Herramientas y aplicaciones especializadas para análisis financiero y de datos"
       variant="primary"
     />
 
@@ -24,7 +24,7 @@
           </div>
           
           <template #footer>
-            <BaseButton to="/finanzas/filobono" variant="success" block>
+            <BaseButton to="/dataanalisys/filobono" variant="success" block>
               Acceder a Filobono
             </BaseButton>
           </template>
@@ -93,7 +93,7 @@ import BaseButton from '../../components/BaseButton.vue'
 import ContactSection from '../../components/ContactSection.vue'
 
 export default {
-  name: 'FinanzasPage',
+  name: 'DataAnalisysPage',
   components: {
     PageHeader,
     PageSection,
@@ -106,11 +106,11 @@ export default {
     useAnalytics()
 
     useHead({
-      title: 'Finanzas - Portfolio',
+      title: 'Análisis de Datos - Portfolio',
       meta: [
         {
           name: 'description',
-          content: 'Soluciones financieras desarrolladas con Vue.js - Filobono y más herramientas especializadas'
+          content: 'Soluciones de análisis de datos y financiero desarrolladas con Vue.js - Filobono y más herramientas especializadas'
         }
       ]
     })

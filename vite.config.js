@@ -27,7 +27,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           vendor: ['vue', 'vue-router'],
-          finanzas: ['./src/pages/finanzas/index.vue', './src/pages/finanzas/filobono.vue']
+          dataanalisys: ['./src/pages/dataanalisys/index.vue', './src/pages/dataanalisys/filobono.vue']
         }
       }
     }

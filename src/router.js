@@ -9,15 +9,15 @@ export const routes = [
     name: 'Chatbot',
     component: () => import('./pages/chatbot.vue')
   },
-  // Mantener las rutas de finanzas para backward compatibility
+  // Rutas de análisis de datos
   {
-    path: '/finanzas',
-    name: 'Finanzas',
-    component: () => import('./pages/finanzas/index.vue')
+    path: '/dataanalisys',
+    name: 'DataAnalisys',
+    component: () => import('./pages/dataanalisys/index.vue')
   },
   {
-    path: '/finanzas/filobono',
+    path: '/dataanalisys/filobono',
     name: 'Filobono',
-    component: () => import('./pages/finanzas/filobono.vue')
+    component: () => import('./pages/dataanalisys/filobono.vue')
   }
 ]
