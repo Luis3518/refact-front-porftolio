@@ -624,11 +624,19 @@ export default {
 
 .message-content ul {
   margin: var(--spacing-sm) 0 0 0;
-  padding-left: calc(var(--spacing-lg) + 10px);
+  padding-left: var(--spacing-xl);
+  list-style-position: outside;
+}
+
+.message-content ol {
+  margin: var(--spacing-sm) 0 0 0;
+  padding-left: var(--spacing-xl);
+  list-style-position: outside;
 }
 
 .message-content li {
   margin-bottom: var(--spacing-xs);
+  padding-left: var(--spacing-xs);
 }
 
 .message-time {
