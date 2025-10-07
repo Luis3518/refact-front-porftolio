@@ -145,10 +145,7 @@ export default {
   },
   methods: {
     toggleInfo(idx) {
-      console.log('Toggling info for index:', idx);
-      console.log('Current state:', this.infoOpen[idx]);
       this.infoOpen[idx] = !this.infoOpen[idx];
-      console.log('New state:', this.infoOpen[idx]);
     }
   }
 }

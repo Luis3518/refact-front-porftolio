@@ -253,14 +253,11 @@ function initHeroImages() {
     svg.classList.add('hero-image-animated');
     container.appendChild(svg);
   }
-  
-  console.log('Imágenes del hero inicializadas');
 }
 
 // Función para actualizar las imágenes (para futuras modificaciones)
 function updateHeroImages(newImageData) {
   // Esta función se puede expandir en el futuro para manejar diferentes tipos de imágenes
-  console.log('Actualizando imágenes del hero:', newImageData);
   initHeroImages();
 }
 
