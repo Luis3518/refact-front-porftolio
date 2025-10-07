@@ -622,36 +622,36 @@ export default {
   word-wrap: break-word;
 }
 
-.message-content p {
+.message-content :deep(p) {
   margin: 0 0 var(--spacing-sm) 0;
   line-height: 1.5;
 }
 
-.message-content p:last-child {
+.message-content :deep(p:last-child) {
   margin-bottom: 0;
 }
 
-.message-content ul {
+.message-content :deep(ul),
+.message-content :deep(ol) {
   margin: var(--spacing-md) 0;
-  margin-bottom: var(--spacing-md);
-  padding-left: 2.5rem;
+  padding-left: 2.5rem !important;
   list-style-position: outside;
 }
 
-.message-content ol {
-  margin: var(--spacing-md) 0;
-  margin-bottom: var(--spacing-md);
-  padding-left: 2.5rem;
-  list-style-position: outside;
-}
-
-.message-content li {
+.message-content :deep(li) {
   margin-bottom: var(--spacing-md);
   line-height: 1.6;
+  margin-left: 0;
+  padding-left: var(--spacing-xs);
 }
 
-.message-content li:last-child {
+.message-content :deep(li:last-child) {
   margin-bottom: 0;
+}
+
+.message-content :deep(strong) {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
 }
 
 .message-time {
