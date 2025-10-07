@@ -56,10 +56,10 @@
             </div>
             
             <div class="project-actions">
-              <button class="btn btn-primary" @click="showDemo('mecacloud')">
+              <router-link to="/mecacloud" class="btn btn-primary">
                 <i class="fas fa-eye"></i>
-                Ver
-              </button>
+                Ver Proyecto
+              </router-link>
             </div>
           </div>
 

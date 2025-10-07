@@ -14,6 +14,11 @@ export const routes = [
     name: 'ProjectsDevs',
     component: () => import('./pages/projectsdevs.vue')
   },
+  {
+    path: '/mecacloud',
+    name: 'MecaCloud',
+    component: () => import('./pages/mecacloud.vue')
+  },
   // Rutas de análisis de datos
   {
     path: '/dataanalisys',
