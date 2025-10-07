@@ -624,7 +624,7 @@ export default {
 
 .message-content ul {
   margin: var(--spacing-sm) 0 0 0;
-  padding-left: var(--spacing-lg);
+  padding-left: calc(var(--spacing-lg) + 10px);
 }
 
 .message-content li {
