@@ -180,6 +180,20 @@ export default {
     const messagesArea = ref(null)
     const chatInput = ref(null)
     const robotIcon = ref(null)
+    let audioContext = null
+
+    const initAudioContext = () => {
+      if (!audioContext) {
+        try {
+          audioContext = new (window.AudioContext || window.webkitAudioContext)()
+        } catch (e) {
+          console.error('Web Audio API is not supported in this browser', e)
+        }
+      }
+      if (audioContext && audioContext.state === 'suspended') {
+        audioContext.resume()
+      }
+    }
     
     const quickSuggestions = ref([
       { id: 1, text: "¿Quién es Luis Rodriguez?" },
@@ -261,8 +275,12 @@ export default {
     }
 
     const playNotificationSound = () => {
+      if (!audioContext) {
+        console.warn('AudioContext not initialized. Sound will not play.')
+        return
+      }
+
       try {
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)()
         const oscillator = audioContext.createOscillator()
         const gainNode = audioContext.createGain()
         
@@ -358,6 +376,9 @@ export default {
     const sendMessage = async () => {
       if (!currentMessage.value.trim()) return
 
+      // Initialize AudioContext on first user interaction
+      initAudioContext()
+
       const userText = currentMessage.value.trim()
       currentMessage.value = ''
       
@@ -379,6 +400,8 @@ export default {
     }
 
     const sendQuickMessage = async (text) => {
+      // Initialize AudioContext on first user interaction
+      initAudioContext()
       currentMessage.value = text
       await sendMessage()
     }
