@@ -116,55 +116,53 @@
             </div>
           </div>
 
-          <!-- 3. Task Management System -->
+          <!-- 3. DeepPort -->
           <div class="project-card">
             <div class="project-header">
               <div class="project-icon">
-                <i class="fas fa-tasks"></i>
+                <i class="fas fa-ship"></i>
               </div>
               <div class="project-meta">
-                <h3>Task Management System</h3>
-                <span class="project-status status-active">Activo</span>
+                <h3>DeepPort</h3>
+                <span class="project-status status-development">En desarrollo</span>
               </div>
             </div>
             
             <p class="project-description">
-              Sistema colaborativo de gestión de tareas al estilo Kanban con 
-              tableros personalizables, asignación de equipos, seguimiento de 
-              tiempo y reportes de productividad en tiempo real.
+Plataforma portuaria inteligente diseñada para optimizar la gestión y el seguimiento de operaciones. Integra mapas interactivos, facturación electrónica, comunicación con clientes por WhatsApp y análisis automatizado con IA.
             </p>
             
             <div class="project-features">
               <div class="feature-item">
-                <i class="fas fa-columns"></i>
-                <span>Kanban Board</span>
+                <i class="fas fa-map"></i>
+                <span>Mapbox</span>
               </div>
               <div class="feature-item">
-                <i class="fas fa-user-friends"></i>
-                <span>Colaboración</span>
+                <i class="fas fa-file-invoice-dollar"></i>
+                <span>ARCA</span>
               </div>
               <div class="feature-item">
-                <i class="fas fa-clock"></i>
-                <span>Time Tracking</span>
+                <i class="fas fa-comment"></i>
+                <span>WhatsApp</span>
               </div>
               <div class="feature-item">
-                <i class="fas fa-chart-bar"></i>
-                <span>Analytics</span>
+                <i class="fas fa-anchor"></i>
+                <span>MarineTraffic</span>
               </div>
             </div>
             
             <div class="project-tech">
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">TypeScript</span>
-              <span class="tech-tag">Firebase</span>
+              <span class="tech-tag">Vue 3</span>
               <span class="tech-tag">Tailwind</span>
-              <span class="tech-tag">Zustand</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Mapbox</span>
             </div>
             
             <div class="project-actions">
-              <button class="btn btn-primary" @click="showDemo('taskmanager')">
-                <i class="fas fa-eye"></i>
-                Ver Demo
+              <button class="btn btn-primary" disabled>
+                <i class="fas fa-clock"></i>
+                Próximamente
               </button>
             </div>
           </div>
@@ -186,7 +184,7 @@ export default {
       meta: [
         {
           name: 'description',
-          content: 'Proyectos de desarrollo de software incluyendo sistemas ERP, plataformas e-commerce y herramientas de gestión'
+          content: 'Proyectos de desarrollo de software incluyendo sistemas B2C, plataformas e-commerce y herramientas de gestión'
         },
         {
           property: 'og:title',
