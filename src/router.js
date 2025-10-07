@@ -9,6 +9,11 @@ export const routes = [
     name: 'Chatbot',
     component: () => import('./pages/chatbot.vue')
   },
+  {
+    path: '/projectsdevs',
+    name: 'ProjectsDevs',
+    component: () => import('./pages/projectsdevs.vue')
+  },
   // Rutas de análisis de datos
   {
     path: '/dataanalisys',
