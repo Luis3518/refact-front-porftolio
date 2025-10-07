@@ -631,15 +631,22 @@ export default {
   margin-bottom: 0;
 }
 
-.message-content ul,
+.message-content ul {
+  margin: var(--spacing-md) 0;
+  margin-bottom: var(--spacing-md);
+  padding-left: 2.5rem;
+  list-style-position: outside;
+}
+
 .message-content ol {
   margin: var(--spacing-md) 0;
-  padding-left: 2rem;
+  margin-bottom: var(--spacing-md);
+  padding-left: 2.5rem;
   list-style-position: outside;
 }
 
 .message-content li {
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
   line-height: 1.6;
 }
 
