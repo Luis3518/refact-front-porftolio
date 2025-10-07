@@ -98,7 +98,7 @@
                 <i :class="message.isUser ? 'fas fa-user' : 'fas fa-robot'"></i>
               </div>
               <div class="message-content">
-                <p v-html="renderMarkdown(message.text)"></p>
+                <div v-html="renderMarkdown(message.text)"></div>
                 <span class="message-time">{{ formatTime(message.timestamp) }}</span>
               </div>
             </div>
