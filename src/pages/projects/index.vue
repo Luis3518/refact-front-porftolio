@@ -156,7 +156,6 @@ Plataforma portuaria inteligente diseñada para optimizar la gestión y el segui
               <span class="tech-tag">Tailwind</span>
               <span class="tech-tag">FastAPI</span>
               <span class="tech-tag">PostgreSQL</span>
-              <span class="tech-tag">Mapbox</span>
             </div>
             
             <div class="project-actions">
