@@ -235,6 +235,32 @@ export default {
       }
     }
 
+    const playNotificationSound = () => {
+      try {
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)()
+        const oscillator = audioContext.createOscillator()
+        const gainNode = audioContext.createGain()
+        
+        oscillator.connect(gainNode)
+        gainNode.connect(audioContext.destination)
+        
+        // Configurar el sonido: una nota agradable
+        oscillator.type = 'sine'
+        oscillator.frequency.setValueAtTime(800, audioContext.currentTime) // Frecuencia inicial
+        oscillator.frequency.exponentialRampToValueAtTime(600, audioContext.currentTime + 0.1)
+        
+        // Configurar el volumen con fade out
+        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime)
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2)
+        
+        // Reproducir el sonido
+        oscillator.start(audioContext.currentTime)
+        oscillator.stop(audioContext.currentTime + 0.2)
+      } catch (error) {
+        console.error('Error al reproducir sonido:', error)
+      }
+    }
+
     const addMessage = (text, isUser = false) => {
       const message = {
         id: Date.now() + Math.random(),
@@ -244,6 +270,11 @@ export default {
       }
       messages.value.push(message)
       scrollToBottom()
+      
+      // Reproducir sonido solo para mensajes del bot
+      if (!isUser) {
+        playNotificationSound()
+      }
     }
 
     const simulateTyping = async () => {
