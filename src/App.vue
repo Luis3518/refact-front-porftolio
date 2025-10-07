@@ -6,10 +6,10 @@
           
           <ul class="nav-menu" :class="{ active: isMenuOpen }">
             <li><router-link to="/" class="nav-link" @click="handleNavClick('/')">Inicio</router-link></li>
-            <li><a href="#sobre-mi" class="nav-link" @click="closeMenu">Sobre mí</a></li>
-            <li><a href="#experiencia" class="nav-link" @click="closeMenu">Experiencia</a></li>
-            <li><a href="#estudios" class="nav-link" @click="closeMenu">Académico</a></li>
-            <li><a href="#contacto" class="nav-link" @click="closeMenu">Contacto</a></li>
+            <li><a href="#sobre-mi" class="nav-link" @click.prevent="navigateToSection('sobre-mi')">Sobre mí</a></li>
+            <li><a href="#experiencia" class="nav-link" @click.prevent="navigateToSection('experiencia')">Experiencia</a></li>
+            <li><a href="#estudios" class="nav-link" @click.prevent="navigateToSection('estudios')">Académico</a></li>
+            <li><a href="#contacto" class="nav-link" @click.prevent="navigateToSection('contacto')">Contacto</a></li>
           </ul>
           
           <button class="nav-toggle" @click="toggleMenu" aria-label="Toggle menu">
@@ -32,7 +32,7 @@
               <i class="fas fa-robot"></i>
               Asistente Virtual
             </router-link>
-            <a href="#contacto" class="footer-link">Contacto</a>
+            <a href="#contacto" class="footer-link" @click.prevent="navigateToSection('contacto')">Contacto</a>
           </div>
           <p class="footer-copyright">&copy; {{ currentYear }} Luis Miguel Rodriguez. Todos los derechos reservados.</p>
         </div>
@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch, nextTick } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
 export default {
@@ -52,6 +52,7 @@ export default {
     const currentYear = computed(() => new Date().getFullYear())
     const router = useRouter()
     const route = useRoute()
+    const isNavigatingToSection = ref(false) // Flag para evitar scroll automático
 
     const toggleMenu = () => {
       isMenuOpen.value = !isMenuOpen.value
@@ -70,6 +71,50 @@ export default {
         })
       }
       closeMenu()
+    }
+
+    // Función para navegar a una sección con scroll
+    const navigateToSection = async (sectionId) => {
+      closeMenu()
+      
+      // Si no estamos en el home, navegar primero al home
+      if (route.path !== '/') {
+        // Activar flag para evitar scroll automático en el watch
+        isNavigatingToSection.value = true
+        
+        await router.push('/')
+        
+        // Esperar a que la navegación se complete y el DOM se actualice
+        await nextTick()
+        
+        // Esperar un poco más para asegurar que el componente esté montado
+        setTimeout(() => {
+          const targetSection = document.getElementById(sectionId)
+          if (targetSection) {
+            targetSection.scrollIntoView({ 
+              behavior: 'smooth',
+              block: 'start'
+            })
+          } else {
+            console.warn(`No se encontró la sección: ${sectionId}`)
+          }
+          // Desactivar flag después de completar el scroll
+          setTimeout(() => {
+            isNavigatingToSection.value = false
+          }, 500)
+        }, 300)
+      } else {
+        // Si ya estamos en el home, solo hacer scroll
+        const targetSection = document.getElementById(sectionId)
+        if (targetSection) {
+          targetSection.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          })
+        } else {
+          console.warn(`No se encontró la sección: ${sectionId}`)
+        }
+      }
     }
 
     // Watch para detectar cambios de ruta y hacer scroll hacia arriba
@@ -114,10 +159,12 @@ export default {
     // Watch para detectar cambios de ruta y hacer scroll hacia arriba
     watch(() => route.path, (newPath, oldPath) => {
       if (newPath !== oldPath) {
-        // Usar nextTick para asegurar que el DOM se haya actualizado
-        setTimeout(() => {
-          scrollToTop()
-        }, 100)
+        // Solo hacer scroll al top si NO estamos navegando a una sección específica
+        if (!isNavigatingToSection.value) {
+          setTimeout(() => {
+            scrollToTop()
+          }, 100)
+        }
       }
     })
 
@@ -131,6 +178,7 @@ export default {
       toggleMenu,
       closeMenu,
       handleNavClick,
+      navigateToSection,
       scrollToTop
     }
   }
