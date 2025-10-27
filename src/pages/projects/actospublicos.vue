@@ -40,7 +40,7 @@
                 <h2>Descripción</h2>
               </div>
               <p class="description-text">
-                <strong>Actos Públicos Plus</strong> es una plataforma reestructurada que mejora significativamente la experiencia de los actos públicos docentes de la Ciudad Autónoma de Buenos Aires. Focalizando en UX y agregando funcionalidades que la plataforma oficial no posee, permite a los docentes gestionar sus inscripciones de manera más eficiente, recibir notificaciones en tiempo real y acceder a un dashboard personalizado con toda su información relevante. La plataforma integra tecnologías modernas como Vue.js, Python, Supabase y PostgreSQL para ofrecer una experiencia superior tanto en rendimiento como en usabilidad.
+                <strong>Actos Públicos Plus</strong> es una plataforma reestructurada que mejora significativamente la experiencia de los actos públicos docentes de la Ciudad Autónoma de Buenos Aires. Focalizando en UX y agregando funcionalidades que la plataforma oficial no posee. La plataforma integra tecnologías modernas como Vue.js, Python, Supabase y PostgreSQL para ofrecer una experiencia superior tanto en rendimiento como en usabilidad.
               </p>
             </div>
 
@@ -93,13 +93,14 @@
                     PostgreSQL
                   </span>
                 </div>
-                <div class="repo-status">
-                  <div class="status-item">
-                    <i class="fas fa-lock"></i>
-                    <span>Repositorio Privado</span>
-                  </div>
-                  <small>Por políticas de la organización</small>
-                </div>
+                <a href="https://github.com/Luis3518/actospublicosPLUS" class="btn btn-primary btn-block" target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-github"></i>
+                  Ver en GitHub
+                </a>
+                <a href="https://actospublicosplus.pages.dev/" class="btn btn-secondary btn-block" target="_blank" rel="noopener noreferrer">
+                  <i class="fas fa-external-link-alt"></i>
+                  Ver Demo en Vivo
+                </a>
               </div>
             </div>
 
@@ -115,8 +116,8 @@
                     <i class="fas fa-user-check"></i>
                   </div>
                   <div class="feature-content">
-                    <h4>Inscripciones Mejoradas</h4>
-                    <p>Sistema optimizado de inscripción a concursos docentes con validación en tiempo real</p>
+                    <h4>Visualización Mejorada</h4>
+                    <p>Sistema optimizado de inscripción a concursos docentes.</p>
                   </div>
                 </div>
                 <div class="feature-item-detailed">
@@ -126,24 +127,6 @@
                   <div class="feature-content">
                     <h4>Búsqueda Avanzada</h4>
                     <p>Filtros inteligentes para encontrar concursos por materia, distrito y nivel</p>
-                  </div>
-                </div>
-                <div class="feature-item-detailed">
-                  <div class="feature-icon">
-                    <i class="fas fa-bell"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h4>Notificaciones</h4>
-                    <p>Alertas automáticas sobre nuevos concursos y cambios de estado</p>
-                  </div>
-                </div>
-                <div class="feature-item-detailed">
-                  <div class="feature-icon">
-                    <i class="fas fa-chart-bar"></i>
-                  </div>
-                  <div class="feature-content">
-                    <h4>Dashboard Personal</h4>
-                    <p>Panel personalizado con historial y estadísticas de participación</p>
                   </div>
                 </div>
               </div>
@@ -598,6 +581,31 @@ export default {
 .btn-outline:hover {
   background: var(--color-bg-card);
   border-color: var(--color-accent-primary);
+}
+
+.btn-primary {
+  background: var(--gradient-accent);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.4);
+}
+
+.btn-secondary {
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-medium);
+}
+
+.btn-secondary:hover {
+  background: var(--color-bg-card);
+  border-color: var(--color-accent-primary);
+}
+
+.btn-block {
+  width: 100%;
 }
 
 /* Responsive */
