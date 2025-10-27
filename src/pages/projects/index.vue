@@ -63,56 +63,56 @@
             </div>
           </div>
 
-          <!-- 2. E-Commerce Platform -->
+          <!-- 2. Actos Públicos Plus -->
           <div class="project-card">
             <div class="project-header">
               <div class="project-icon">
-                <i class="fas fa-store"></i>
+                <i class="fas fa-graduation-cap"></i>
               </div>
               <div class="project-meta">
-                <h3>E-Commerce Platform</h3>
-                <span class="project-status status-development">En desarrollo</span>
+                <h3>Actos Públicos Plus</h3>
+                <span class="project-status status-active">Activo</span>
               </div>
             </div>
             
             <p class="project-description">
-              Plataforma de comercio electrónico escalable con carrito de compras, 
-              pasarela de pagos integrada, gestión de productos, sistema de 
-              reseñas y panel de administración completo.
+              Plataforma reestructurada de actos públicos docentes de CABA focalizando 
+              en UX y más funcionalidades que la oficial. Sistema mejorado para 
+              inscripciones, seguimiento y gestión de concursos docentes.
             </p>
             
             <div class="project-features">
               <div class="feature-item">
-                <i class="fas fa-shopping-bag"></i>
-                <span>Carrito</span>
+                <i class="fas fa-user-check"></i>
+                <span>Inscripciones</span>
               </div>
               <div class="feature-item">
-                <i class="fas fa-credit-card"></i>
-                <span>Pagos Online</span>
+                <i class="fas fa-search"></i>
+                <span>Búsqueda</span>
               </div>
               <div class="feature-item">
-                <i class="fas fa-star"></i>
-                <span>Reseñas</span>
+                <i class="fas fa-bell"></i>
+                <span>Notificaciones</span>
               </div>
               <div class="feature-item">
-                <i class="fas fa-truck"></i>
-                <span>Envíos</span>
+                <i class="fas fa-chart-bar"></i>
+                <span>Dashboard</span>
               </div>
             </div>
             
             <div class="project-tech">
               <span class="tech-tag">Vue.js</span>
-              <span class="tech-tag">Node.js</span>
-              <span class="tech-tag">Express</span>
-              <span class="tech-tag">MongoDB</span>
-              <span class="tech-tag">Stripe</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Vite</span>
+              <span class="tech-tag">Supabase</span>
+              <span class="tech-tag">PostgreSQL</span>
             </div>
             
             <div class="project-actions">
-              <button class="btn btn-primary" disabled>
-                <i class="fas fa-clock"></i>
-                Próximamente
-              </button>
+              <router-link to="/projects/actospublicos" class="btn btn-primary">
+                <i class="fas fa-eye"></i>
+                Ver Proyecto
+              </router-link>
             </div>
           </div>
 
